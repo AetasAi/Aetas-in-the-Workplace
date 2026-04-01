@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aetas in the Workplace — For Limited Companies</title>
+<meta name="description" content="A structured, commercially grounded financial wellbeing service built specifically for SMEs and mid-sized businesses. Not a corporate model scaled down.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2b4a;
+    --navy-mid: #2d4270;
+    --navy-light: #e8ecf3;
+    --gold: #b8934a;
+    --gold-light: #d4b07a;
+    --gold-pale: #f5ede0;
+    --cream: #faf8f5;
+    --white: #ffffff;
+    --text-body: #4a4a4a;
+    --text-muted: #7a7a7a;
+    --border: rgba(26,43,74,0.12);
+    --border-gold: rgba(184,147,74,0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--text-body);
+    background: var(--cream);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,245,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; align-items: center; gap: 2rem; }
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--navy);
+    color: var(--white) !important;
+    padding: 9px 18px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--navy-mid) !important; }
+  .nav-audience {
+    display: flex; align-items: center; gap: 0;
+    border: 0.5px solid var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .nav-audience a {
+    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 14px; color: var(--text-muted) !important; text-decoration: none;
+    transition: all 0.2s; border-right: 0.5px solid var(--border);
+  }
+  .nav-audience a:last-child { border-right: none; }
+  .nav-audience a.active { background: var(--navy); color: var(--white) !important; }
+  .nav-audience a:hover:not(.active) { background: var(--navy-light); color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    padding: 9rem 2rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: start;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-body { font-size: 1rem; line-height: 1.85; color: var(--text-body); margin-bottom: 2rem; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    padding: 13px 26px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--navy-mid); }
+  .btn-secondary {
+    display: inline-block;
+    padding: 12px 26px;
+    background: none;
+    color: var(--navy);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 0.5px solid var(--navy);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-secondary:hover { background: var(--navy-light); }
+
+  .hero-aside {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    position: sticky;
+    top: 88px;
+  }
+  .aside-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .aside-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+  }
+  .aside-cite { font-size: 0.78rem; color: var(--text-muted); }
+  .aside-divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .aside-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+  .aside-stat { text-align: center; }
+  .aside-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .aside-stat-label { font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  section:nth-child(even) { background: var(--white); }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { margin-bottom: 3rem; }
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .section-header p { margin-top: 1rem; font-size: 0.97rem; line-height: 1.8; max-width: 640px; }
+
+  /* FRAMEWORK */
+  .framework-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px; background: var(--border); border: 0.5px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 2.5rem; }
+  .fw-card { background: var(--white); padding: 2rem 1.5rem; }
+  .fw-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .fw-title { font-size: 0.95rem; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+  .fw-body { font-size: 0.87rem; line-height: 1.7; color: var(--text-muted); }
+
+  .callout {
+    border: 0.5px solid var(--border-gold);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--gold-pale);
+  }
+  .callout p { font-size: 0.92rem; line-height: 1.8; color: var(--text-body); }
+  .callout strong { color: var(--navy); font-weight: 500; }
+
+  /* PILLARS */
+  .pillars { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .pillar { background: var(--white); padding: 2rem 2rem 2rem 1.75rem; border-left: 3px solid transparent; transition: border-color 0.3s; }
+  .pillar:hover { border-left-color: var(--gold); }
+  .pillar-num { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--gold); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+  .pillar h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; }
+  .pillar-body { font-size: 0.9rem; line-height: 1.8; color: var(--text-body); margin-bottom: 0.75rem; }
+  .pillar-note { font-size: 0.82rem; color: var(--gold); font-style: italic; }
+
+  /* DIFFERENTIATOR */
+  .diff-section { background: var(--navy); padding: 5rem 2rem; }
+  .diff-section .section-inner { max-width: 1100px; margin: 0 auto; }
+  .diff-section .eyebrow { color: var(--gold-light); }
+  .diff-section .eyebrow::before { background: var(--gold-light); }
+  .diff-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 400; color: var(--white); line-height: 1.25; margin-bottom: 1rem; }
+  .diff-section .lead { font-size: 0.97rem; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; max-width: 640px; }
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.1); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+  .diff-card { background: rgba(255,255,255,0.04); padding: 1.75rem; }
+  .diff-card-marker { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.6rem; }
+  .diff-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--white); margin-bottom: 0.6rem; }
+  .diff-card p { font-size: 0.87rem; line-height: 1.75; color: rgba(255,255,255,0.65); }
+
+  /* CASE STUDY */
+  .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+  .case-outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1.5rem 0; }
+  .outcome-card { background: var(--cream); border: 0.5px solid var(--border); border-radius: 4px; padding: 1rem 1.1rem; }
+  .outcome-num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--navy); line-height: 1.1; margin-bottom: 4px; }
+  .outcome-label { font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); }
+  .blockquote { border-left: 2px solid var(--gold); padding: 1.25rem 1.5rem; background: var(--gold-pale); border-radius: 0 4px 4px 0; margin-top: 1.5rem; }
+  .blockquote p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 400; line-height: 1.65; color: var(--navy); margin-bottom: 0.75rem; }
+  .blockquote cite { font-size: 0.78rem; color: var(--text-muted); font-style: normal; }
+  .case-info { padding: 2rem; background: var(--navy); border-radius: 4px; color: var(--white); }
+  .case-info-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
+  .case-meta { display: flex; flex-direction: column; gap: 12px; margin-bottom: 1.5rem; }
+  .case-meta-row { display: flex; gap: 12px; align-items: flex-start; }
+  .case-meta-key { font-size: 0.75rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.5); min-width: 80px; padding-top: 1px; }
+  .case-meta-val { font-size: 0.87rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .case-summary { font-size: 0.9rem; line-height: 1.8; color: rgba(255,255,255,0.7); border-top: 0.5px solid rgba(255,255,255,0.15); padding-top: 1.25rem; }
+
+  /* PROCESS */
+  .process-steps { display: flex; flex-direction: column; gap: 0; counter-reset: steps; }
+  .process-step { display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 0.5px solid var(--border); }
+  .process-step:last-child { border-bottom: none; }
+  .step-num-wrap { flex-shrink: 0; }
+  .step-num-circle {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 0.5px solid var(--border-gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 400; color: var(--gold);
+  }
+  .step-content h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
+  .step-content p { font-size: 0.9rem; line-height: 1.8; color: var(--text-body); }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 0.5px solid var(--border); }
+  .faq-item:first-child { border-top: 0.5px solid var(--border); }
+  .faq-q {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 0;
+    font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 400;
+    color: var(--navy); text-align: left; gap: 1rem;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-icon { flex-shrink: 0; font-size: 1.2rem; color: var(--gold); transition: transform 0.3s; line-height: 1; }
+  .faq-a { display: none; padding-bottom: 1.25rem; font-size: 0.9rem; line-height: 1.8; color: var(--text-body); max-width: 720px; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* GET STARTED */
+  .get-started { background: var(--cream); padding: 5rem 2rem; }
+  .gs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .gs-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 4px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .gs-card-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .event-date-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); font-size: 0.75rem; letter-spacing: 0.05em; padding: 5px 12px; border-radius: 2px; width: fit-content; }
+  .gs-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--navy); line-height: 1.35; }
+  .gs-meta { display: flex; flex-direction: column; gap: 5px; }
+  .gs-meta-row { display: flex; gap: 10px; font-size: 0.82rem; }
+  .gs-meta-key { color: var(--gold); min-width: 60px; }
+  .gs-meta-val { color: var(--text-muted); }
+  .gs-body { font-size: 0.88rem; line-height: 1.75; color: var(--text-body); }
+  .gs-card-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
+  .meeting-points { display: flex; flex-direction: column; gap: 8px; }
+  .meeting-point { display: flex; gap: 10px; font-size: 0.85rem; color: var(--text-body); line-height: 1.5; }
+  .meeting-point::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+  /* FOOTER */
+  footer { background: var(--navy); padding: 2.5rem 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--white); letter-spacing: 0.04em; }
+  .footer-logo span { color: var(--gold-light); }
+  .footer-reg { font-size: 0.72rem; line-height: 1.7; color: rgba(255,255,255,0.4); max-width: 640px; }
+  .footer-contact { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+  .footer-contact a { color: var(--gold-light); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-aside { position: static; }
+    .case-grid { grid-template-columns: 1fr; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .gs-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 640px) {
+    .framework-grid { grid-template-columns: 1fr; }
+    .case-outcomes { grid-template-columns: 1fr; }
+    .hero { padding: 8rem 1.25rem 3rem; }
+    section { padding: 3.5rem 1.25rem; }
+  }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Aetas <span>in the Workplace</span></a>
+  <div class="nav-links">
+    <div class="nav-audience">
+      <a href="limited-companies.html" class="active">Limited companies</a>
+      <a href="charities.html">Charities</a>
+    </div>
+    <a href="https://aetas-partners.com/business-events/" target="_blank">Events</a>
+    <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="nav-cta">Book a meeting</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content fade-in">
+    <div class="hero-eyebrow">For limited companies</div>
+    <h1>Financial pressure in your workforce is a business issue. Most of the cost never appears on a balance sheet.</h1>
+    <p class="hero-body">It shows up as presenteeism, slower decision-making, rising management burden, and benefits that sit unused because employees do not understand what they have. In a lean business, where there is little slack and every person matters, these pressures translate directly into reduced output and growing demands on your time as a leader.</p>
+    <div class="hero-actions">
+      <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="btn-primary">Book a workplace healthcheck</a>
+      <a href="#what-we-do" class="btn-secondary">See how it works</a>
+    </div>
+  </div>
+  <div class="hero-aside fade-in" style="animation-delay:0.2s">
+    <div class="aside-label">In practice</div>
+    <div class="aside-quote">"We knew something needed to change, but we did not know where to start. The improvements to the pension alone justified the engagement many times over."</div>
+    <div class="aside-cite">Managing Director, regional engineering firm, 85 employees</div>
+    <div class="aside-divider"></div>
+    <div class="aside-stat-row">
+      <div class="aside-stat">
+        <div class="aside-stat-num">£45k</div>
+        <div class="aside-stat-label">saved annually in pension charges</div>
+      </div>
+      <div class="aside-stat">
+        <div class="aside-stat-num">60%+</div>
+        <div class="aside-stat-label">workshop attendance rate</div>
+      </div>
+    </div>
+    <div class="aside-stat-row">
+      <div class="aside-stat">
+        <div class="aside-stat-num">£120k</div>
+        <div class="aside-stat-label">increase in pension saving post-workshops</div>
+      </div>
+      <div class="aside-stat">
+        <div class="aside-stat-num">18</div>
+        <div class="aside-stat-label">employees took up individual guidance</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FRAMEWORK -->
+<section>
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="eyebrow">The framework</div>
+      <h2>Structure, confidence, performance</h2>
+      <p>Financial wellbeing is the confidence and ability to manage money effectively, without financial concerns becoming a distraction to daily life or work. When it is strong, people are less distracted, decision-making improves, and performance follows. When it breaks down, so does focus. Aetas ITW is built around three connected outcomes.</p>
+    </div>
+    <div class="framework-grid fade-in">
+      <div class="fw-card">
+        <div class="fw-num">01</div>
+        <div class="fw-title">Structure</div>
+        <div class="fw-body">Clarity in what benefits and support exist, and whether they are relevant, understood, and working. Benefits that employees do not understand are not working.</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-num">02</div>
+        <div class="fw-title">Confidence</div>
+        <div class="fw-body">Practical financial guidance employees can understand and act on, replacing financial anxiety with clarity and practical capability.</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-num">03</div>
+        <div class="fw-title">Performance</div>
+        <div class="fw-body">Stronger focus, engagement, and retention — the commercial return on a properly supported workforce.</div>
+      </div>
+    </div>
+    <div class="callout fade-in">
+      <p><strong>The choice for most SME leaders is not between action and no action.</strong> It is between managed improvement and unmanaged drift. Doing nothing does not maintain the status quo — it allows hidden costs to compound quietly across productivity, leadership capacity, and delivery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="what-we-do">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Three areas of support</div>
+      <h2>What an engagement covers</h2>
+    </div>
+    <div class="pillars fade-in">
+      <div class="pillar">
+        <div class="pillar-num">01 / Employee benefits consultancy</div>
+        <h3>Making your benefits work as hard as your business</h3>
+        <p class="pillar-body">Most SMEs already have some benefits in place, but over time these build up reactively and often end up poorly understood by the people they are designed to support. We review your pension and existing benefits to assess whether they are structured effectively — looking at cost-efficiency, relevance across life stages, and whether staff actually understand and value what is on offer. Where improvements are needed, we make clear recommendations and manage implementation on your behalf, including all employee communications.</p>
+        <p class="pillar-note">A structured review often identifies savings that more than offset the cost of the engagement. In one recent case, pension charge reductions alone saved an 85-person workforce approximately £45,000 per year.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02 / Financial resilience workshops</div>
+        <h3>Replacing financial anxiety with clarity and capability</h3>
+        <p class="pillar-body">Financial anxiety is driven less by a lack of benefits than by uncertainty. Employees often do not know what support exists, whether it applies to them, or where to turn when something changes in their life. Our workshops replace that uncertainty with clarity and practical capability, covering building financial confidence, managing financial pressure, understanding workplace benefits, mid-career planning, retirement, and other life-stage topics relevant to your workforce. Where individual support would be beneficial, employees can access confidential one-to-one sessions with a regulated financial planner at no additional cost to the employer.</p>
+        <p class="pillar-note">At a recent client engagement, over 60% of employees attended the workshops. Eighteen went on to request individual sessions, and estimated annual pension saving increased by £120,000 in the year that followed.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03 / Wellbeing and incentive initiatives</div>
+        <h3>Targeted support, introduced where it genuinely adds value</h3>
+        <p class="pillar-body">Through the Aetas Collective, our curated network of trusted specialist partners, we can introduce support across wellbeing, incentives, leadership development, and wider people strategy — but only where a clear need has been identified and where involvement will genuinely strengthen outcomes. Nothing is introduced by default, and everything is proportionate to your size and situation. Employee communications are managed throughout, so that what is introduced is understood and used.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATOR -->
+<div class="diff-section">
+  <div class="section-inner">
+    <div class="eyebrow fade-in">Why Aetas ITW is different</div>
+    <h2 class="fade-in">Built for SMEs. Not adapted from a corporate model.</h2>
+    <p class="lead fade-in">Most financial wellbeing solutions in the market are designed for large corporate employers. They rely on broad platforms, generic content, and the assumption that employees will navigate them independently. In practice, engagement is low, impact is hard to measure, and the business is left wondering whether any of it is making a difference. Scaled down, these solutions do not translate well into an SME environment. And the stakes in a smaller business are simply higher.</p>
+    <div class="diff-grid fade-in">
+      <div class="diff-card">
+        <div class="diff-card-marker">01</div>
+        <h4>Every employee is critical</h4>
+        <p>In a 30-person business, one disengaged or financially stressed employee represents more than three percent of your entire workforce. The margin for quiet underperformance is small. The impact of addressing it is proportionally large.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-card-marker">02</div>
+        <h4>Always bespoke, never templated</h4>
+        <p>Every Aetas ITW engagement begins with a structured diagnostic before anything is introduced. What we deliver is built around your organisation, your workforce, and your specific situation. No two programmes look the same, because no two businesses are the same.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-card-marker">03</div>
+        <h4>Managed on your behalf</h4>
+        <p>We coordinate implementation, handle employee communications, and oversee delivery throughout. You retain full visibility without being required to manage providers, chase outputs, or produce communications yourself.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-card-marker">04</div>
+        <h4>Commercially grounded</h4>
+        <p>This is not a wellbeing initiative or a tick-box exercise. It is a structured, commercially justified approach to employee investment, built around performance, retention, and return — not sentiment.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDY -->
+<section>
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="eyebrow">In practice</div>
+      <h2>Regional engineering firm, 85 employees</h2>
+    </div>
+    <div class="case-grid fade-in">
+      <div>
+        <p style="font-size:0.95rem;line-height:1.85;margin-bottom:1.5rem;">A managing director with a well-established business, but a benefits arrangement that had grown without structure. The pension had not been reviewed in several years. Employees had little meaningful engagement with anything beyond their salary, and retention was softening. He agreed to a no-cost discovery conversation with no obligation to go further.</p>
+        <div class="case-outcomes">
+          <div class="outcome-card">
+            <div class="outcome-num">£45,000</div>
+            <div class="outcome-label">saved annually through pension charge reductions</div>
+          </div>
+          <div class="outcome-card">
+            <div class="outcome-num">60%+</div>
+            <div class="outcome-label">of employees attended the financial resilience workshops</div>
+          </div>
+          <div class="outcome-card">
+            <div class="outcome-num">18</div>
+            <div class="outcome-label">employees took up individual one-to-one guidance</div>
+          </div>
+          <div class="outcome-card">
+            <div class="outcome-num">£120k</div>
+            <div class="outcome-label">increase in estimated annual pension saving</div>
+          </div>
+        </div>
+        <div class="blockquote">
+          <p>"We knew something needed to change, but we did not know where to start. The discovery process was straightforward and there was no pressure to do more than made sense for us. The improvements to the pension alone justified the engagement many times over."</p>
+          <cite>Managing Director, regional engineering firm</cite>
+        </div>
+      </div>
+      <div class="case-info">
+        <div class="case-info-label">Engagement summary</div>
+        <div class="case-meta">
+          <div class="case-meta-row"><span class="case-meta-key">Sector</span><span class="case-meta-val">Manufacturing and engineering</span></div>
+          <div class="case-meta-row"><span class="case-meta-key">Size</span><span class="case-meta-val">85 employees</span></div>
+          <div class="case-meta-row"><span class="case-meta-key">Location</span><span class="case-meta-val">South of England</span></div>
+          <div class="case-meta-row"><span class="case-meta-key">Pillars</span><span class="case-meta-val">All three areas of the Aetas ITW framework</span></div>
+          <div class="case-meta-row"><span class="case-meta-key">Starting point</span><span class="case-meta-val">No-cost discovery conversation</span></div>
+        </div>
+        <p class="case-summary">The managing director was not required to manage multiple providers or oversee implementation directly. Aetas acted as a single point of coordination throughout, handling communications to employees and managing the review and restructure on his behalf.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="eyebrow">How it works</div>
+      <h2>A structured process, managed on your behalf throughout</h2>
+    </div>
+    <div class="process-steps fade-in">
+      <div class="process-step">
+        <div class="step-num-wrap"><div class="step-num-circle">01</div></div>
+        <div class="step-content">
+          <h4>Discovery conversation</h4>
+          <p>A no-cost conversation to understand your organisation, your workforce, and your current benefits and support structures. We look at where financial pressure is actually showing up and what is already in place. No obligation beyond the conversation itself — it is designed to give you as much clarity as we gain from it.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num-wrap"><div class="step-num-circle">02</div></div>
+        <div class="step-content">
+          <h4>Diagnostic and planning</h4>
+          <p>A structured diagnostic identifies which services will have the greatest relevance and impact for your organisation specifically. Nothing is introduced that does not fit your context. We then develop a clear plan covering implementation, phasing, and employee communications before anything goes to your team.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num-wrap"><div class="step-num-circle">03</div></div>
+        <div class="step-content">
+          <h4>Managed delivery and ongoing review</h4>
+          <p>Aetas coordinates across all three service areas, handles employee communications, and oversees implementation throughout. You retain full visibility and sign off on everything, without being required to manage providers yourself. Engagement and impact are tracked over time so you have confidence that what is in place is making a genuine difference — not just generating activity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Common questions</div>
+      <h2>What employers typically ask</h2>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          We already have a pension and some benefits. Do we still need this?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Quite possibly. Having benefits in place and having benefits that are working effectively are two different things. A significant proportion of SME employers have arrangements that have grown organically, are not well understood by employees, and are not delivering the engagement or value they should. The discovery conversation will quickly establish whether that applies to you.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          We have looked at other financial wellbeing providers and they did not feel like a fit.
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">That is a common experience. Most solutions in the market are designed for large corporate employers and do not translate well into an SME environment. Aetas ITW is built specifically for businesses with between 10 and 200 employees, around how smaller organisations actually operate — with limited time, limited slack, and a direct link between people, performance, and delivery. It is not a scaled-down corporate model.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What does it cost?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">The initial discovery conversation is provided at no cost. If further work is recommended, fees are transparent and agreed in advance. In many cases, the savings identified through a benefits review more than offset the cost of the engagement.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How much of our time will this require?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Far less than you might expect. Aetas manages implementation, employee communications, and delivery throughout. Your role is to stay informed and to direct where needed. Most business owners find the process considerably lighter than they anticipated.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will this disrupt our existing advisers or HR arrangements?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">No. Aetas ITW is designed to work alongside existing relationships, not replace them. We will not approach your existing providers or advisers without your knowledge and agreement.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is financial advice provided as part of this?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">The workshops and group sessions are educational in nature and do not constitute regulated financial advice. Where individual regulated advice is appropriate, this is provided separately by Aetas Wealth, a trading style of Insight Financial Associates Limited, authorised and regulated by the Financial Conduct Authority (registration number 458421).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<div class="get-started">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Get started</div>
+      <h2>Two ways to take the next step</h2>
+      <p>Join one of our upcoming webinars to hear the thinking behind Aetas ITW, or book a one-to-one discovery conversation directly with Matthew Steiner. Both are provided at no cost and carry no obligation.</p>
+    </div>
+    <div class="gs-grid fade-in">
+      <div class="gs-card">
+        <div class="gs-card-label">Upcoming event</div>
+        <div class="event-date-tag">
+          <span>15 April 2026</span>
+          <span style="opacity:0.5">·</span>
+          <span>12:00–12:45</span>
+        </div>
+        <h3>Financial Wellbeing in the Workplace: Understanding Whether It Matters for Your Business</h3>
+        <div class="gs-meta">
+          <div class="gs-meta-row"><span class="gs-meta-key">Format</span><span class="gs-meta-val">Webinar via Zoom</span></div>
+          <div class="gs-meta-row"><span class="gs-meta-key">Speakers</span><span class="gs-meta-val">Matthew Steiner &amp; Daniel Cottam</span></div>
+        </div>
+        <p class="gs-body">Financial pressure is quietly affecting workplace performance. This session helps SME leaders understand whether it is happening in their business, and what a structured, proportionate response looks like in practice.</p>
+        <div class="gs-card-actions">
+          <a href="https://links.aetas-partners.com/widget/booking/4q95PzVyRtNPdzPavQzV" target="_blank" class="btn-primary">Reserve a place</a>
+          <a href="https://aetas-partners.com/business-events/" target="_blank" class="btn-secondary">All events</a>
+        </div>
+      </div>
+      <div class="gs-card">
+        <div class="gs-card-label">One-to-one conversation</div>
+        <h3>Book a discovery conversation with Matthew Steiner</h3>
+        <p class="gs-body">A focused, no-cost conversation to explore whether Aetas ITW is the right fit for your organisation. We will look at what is already in place, where financial pressure may be showing up, and what a proportionate response could look like.</p>
+        <div class="meeting-points">
+          <div class="meeting-point">No obligation beyond the conversation itself</div>
+          <div class="meeting-point">Designed to give you as much clarity as we gain from it</div>
+          <div class="meeting-point">Available by video or phone, at a time that suits you</div>
+        </div>
+        <div class="gs-card-actions" style="margin-top:auto; padding-top:1rem;">
+          <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="btn-primary">Schedule a meeting</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Aetas <span>in the Workplace</span></div>
+      <div class="footer-contact" style="margin-top:0.5rem;">
+        <a href="mailto:matthew.steiner@aetas-partners.com">matthew.steiner@aetas-partners.com</a> &nbsp;·&nbsp; 020 3633 0579
+      </div>
+    </div>
+    <div class="footer-reg">
+      Aetas in the Workplace provides workplace financial wellbeing, education, and consultancy services to employers. These services support financial understanding, engagement, and resilience but do not constitute regulated financial advice. Where regulated advice is required, this is provided separately by Aetas Wealth, a trading style of Insight Financial Associates Limited, authorised and regulated by the Financial Conduct Authority (registration number 458421).
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    item.classList.toggle('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
