@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frequently Asked Questions — Aetas in the Workplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #1F3864;
+  --gold:   #C49A28;
+  --gold-l: #E8C96A;
+  --cream:  #FDFBF7;
+  --grey:   #F3F1EB;
+  --text:   #2C2C2C;
+  --muted:  #6B6560;
+  --border: #DDD8CE;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── Header ── */
+header {
+  background: var(--navy);
+  padding: 0 40px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 600; color: #fff;
+  letter-spacing: 0.04em; text-decoration: none;
+}
+.logo span { color: var(--gold-l); }
+.header-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.45);
+}
+
+/* ── Hero ── */
+.hero {
+  background: var(--navy); padding: 56px 40px 48px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background: repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(196,154,40,0.04) 40px,rgba(196,154,40,0.04) 41px);
+}
+.hero-inner { max-width: 800px; margin: 0 auto; position: relative; }
+.hero-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px); font-weight: 600;
+  color: #fff; line-height: 1.1; margin-bottom: 12px;
+}
+.hero h1 em { font-style: italic; color: var(--gold-l); }
+.hero-rule { width: 48px; height: 2px; background: var(--gold); margin: 16px 0; }
+.hero-desc { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 580px; line-height: 1.75; }
+
+/* ── Category nav ── */
+.cat-nav {
+  background: var(--grey);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  overflow-x: auto;
+}
+.cat-nav-inner {
+  max-width: 800px; margin: 0 auto;
+  display: flex; gap: 0;
+}
+.cat-nav a {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--muted);
+  text-decoration: none; padding: 14px 18px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap; transition: all 0.15s;
+}
+.cat-nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+
+/* ── Page ── */
+.page { max-width: 800px; margin: 0 auto; padding: 52px 40px 80px; }
+
+/* ── Category heading ── */
+.faq-category {
+  margin-bottom: 8px;
+  margin-top: 52px;
+}
+.faq-category:first-child { margin-top: 0; }
+.category-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+}
+.category-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 600; color: var(--navy);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+  margin-bottom: 4px;
+}
+
+/* ── FAQ accordion ── */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  width: 100%; text-align: left; background: none; border: none;
+  cursor: pointer; padding: 20px 0;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+}
+.faq-question-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 600; color: var(--navy);
+  line-height: 1.3; text-align: left;
+  transition: color 0.15s;
+}
+.faq-question:hover .faq-question-text { color: var(--gold); }
+.faq-icon {
+  flex-shrink: 0; width: 24px; height: 24px;
+  border: 1px solid var(--border); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px; transition: all 0.2s;
+  font-size: 14px; color: var(--muted);
+}
+.faq-item.open .faq-icon {
+  background: var(--navy); border-color: var(--navy); color: #fff;
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.2s ease;
+}
+.faq-item.open .faq-answer { max-height: 800px; }
+.faq-answer-inner {
+  padding: 0 0 24px 0;
+  font-size: 14.5px; color: var(--text); line-height: 1.78;
+}
+.faq-answer-inner p { margin-bottom: 12px; }
+.faq-answer-inner p:last-child { margin-bottom: 0; }
+.faq-answer-inner ul, .faq-answer-inner ol {
+  margin: 8px 0 12px 20px;
+}
+.faq-answer-inner li { margin-bottom: 6px; }
+.faq-answer-inner strong { color: var(--navy); font-weight: 600; }
+
+/* ── Inline highlight ── */
+.answer-highlight {
+  background: var(--grey);
+  border-left: 3px solid var(--gold);
+  padding: 14px 16px; margin: 14px 0;
+  font-size: 13.5px; border-radius: 0 2px 2px 0;
+}
+
+/* ── Fee table ── */
+.fee-table {
+  width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13.5px;
+}
+.fee-table th {
+  background: var(--navy); color: #fff;
+  padding: 10px 14px; text-align: left;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+}
+.fee-table td {
+  padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top;
+}
+.fee-table tr:nth-child(even) td { background: var(--grey); }
+.fee-table .free { color: #2D7A4F; font-weight: 600; }
+
+/* ── CTA ── */
+.cta-block {
+  background: var(--navy); border-radius: 2px;
+  padding: 36px 40px; text-align: center; margin-top: 52px;
+}
+.cta-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 600; color: #fff; margin-bottom: 10px;
+}
+.cta-block p { font-size: 14px; color: rgba(255,255,255,0.62); margin-bottom: 22px; }
+.btn-cta {
+  display: inline-block; background: var(--gold); color: var(--navy);
+  font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 13px 32px; border-radius: 2px; text-decoration: none;
+  transition: background 0.2s; margin: 0 8px 8px;
+}
+.btn-cta:hover { background: var(--gold-l); }
+.btn-cta.secondary {
+  background: transparent; color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.btn-cta.secondary:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+footer {
+  background: #111E33; text-align: center;
+  padding: 22px 40px; font-size: 12px;
+  color: rgba(255,255,255,0.3); letter-spacing: 0.04em;
+}
+footer span { color: var(--gold); }
+
+@media (max-width: 640px) {
+  header, .hero, .cat-nav, .page { padding-left: 20px; padding-right: 20px; }
+  .cat-nav { padding: 0 20px; }
+  .faq-question-text { font-size: 17px; }
+  .cta-block { padding: 28px 24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="https://itw.aetaspartners.com">Aetas <span>in the Workplace</span></a>
+  <span class="header-tag">FAQs</span>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Aetas in the Workplace</p>
+    <h1>Your questions,<br><em>answered clearly.</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">Everything employers typically want to know before starting a conversation with us — on the proposition, the fees, the process, and the difference it makes.</p>
+  </div>
+</div>
+
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#about">The Proposition</a>
+    <a href="#roei">ROEI &amp; Wellbeing</a>
+    <a href="#fees">Fees &amp; Process</a>
+    <a href="#experience">Employee Experience</a>
+    <a href="#practical">Practical Questions</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ══ Category 1: The Proposition ══ -->
+  <div class="faq-category" id="about">
+    <p class="category-label">Understanding Aetas ITW</p>
+    <h2 class="category-title">The Proposition</h2>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">What is Aetas in the Workplace?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Aetas in the Workplace is a consultancy-led financial wellbeing programme designed specifically for SMEs and mid-sized organisations — businesses where every employee counts and a corporate, off-the-shelf approach simply does not translate.</p>
+      <p>We offer a holistic solution that covers all three dimensions of employee financial wellbeing: <strong>benefits and reward</strong> — reviewing and optimising what you already provide; <strong>financial education and guidance</strong> — practical workshops, one-to-one support, and access to regulated financial planning through Aetas Wealth; and <strong>wellbeing and incentive initiatives</strong> — targeted programmes that strengthen engagement, culture, and performance.</p>
+      <p>Rather than managing multiple providers independently, employers access the full breadth of expertise through a single relationship with Aetas, supported by the Aetas Collective — our curated network of specialist partners who deliver across each area of the programme.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">How is this different from an Employee Assistance Programme (EAP)?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>EAPs and Aetas ITW are fundamentally different in what they set out to do — and in what they actually deliver.</p>
+      <p>An EAP is a reactive support service. It gives employees access to a helpline or counselling when something has gone wrong. Most EAPs include a financial guidance element, but it is typically generic, signposting-based, and rarely used. Uptake rates across the industry are low — often below 5% — and the impact on business performance is difficult to measure.</p>
+      <p>Aetas ITW is a proactive, consultancy-led programme. We start with the employer — understanding your workforce, your existing benefits, and where financial pressure is affecting performance — and then design a structured approach that addresses root causes rather than symptoms. Where an EAP reacts, ITW anticipates.</p>
+      <div class="answer-highlight">
+        The other critical difference is regulated financial advice. Through Aetas Wealth, employees can access a qualified, FCA-regulated Independent Financial Adviser as a workplace benefit — something an EAP cannot provide. That level of individual support is what genuinely changes financial outcomes for employees.
+      </div>
+      <p>Many of our clients retain their EAP alongside Aetas ITW. They serve different purposes. What ITW adds is strategy, depth, and measurable commercial impact.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">What size organisation does Aetas ITW suit?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Aetas ITW is designed for organisations with between 10 and 500 employees — the range where financial wellbeing has the greatest individual impact and where the absence of a structured approach carries the highest risk.</p>
+      <p>Larger organisations often have dedicated HR and reward teams, established benefit platforms, and the budget for enterprise-grade solutions. Smaller businesses frequently rely on a handful of key people whose financial confidence and stability directly determines the organisation's resilience.</p>
+      <p>Our programme is built for the businesses in between — where there is genuine complexity and genuine need, but where most existing market solutions are either too expensive, too generic, or designed for a corporate workforce that looks nothing like yours.</p>
+      <p>If you have fewer than 10 employees, we would still welcome a conversation — some of our most impactful work is with smaller professional services firms where individual financial planning for founders and directors is central to the engagement.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">What is the Aetas Collective?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>The Aetas Collective is our curated network of specialist partners — independent businesses who deliver specific elements of the ITW programme where their expertise adds the most value.</p>
+      <p>The Collective covers the full breadth of the programme, from physical wellbeing and coaching through to HR advisory, recruitment, technology, and sustainability-led engagement. Every partner is independently selected for their quality, relevance, and fit with the Aetas approach.</p>
+      <p>For employers, the Collective means access to a wide range of expert support through a single relationship — without the complexity and cost of managing multiple providers independently. Aetas coordinates, introduces, and oversees where relevant. You only engage the partners who are genuinely relevant to your workforce and priorities.</p>
+      <p>You can explore the full Collective directory at <a href="https://itw.aetaspartners.com/Aetas-collective" style="color:var(--navy);font-weight:500;">itw.aetaspartners.com/Aetas-collective</a>.</p>
+    </div></div>
+  </div>
+
+  <!-- ══ Category 2: ROEI & Financial Wellbeing ══ -->
+  <div class="faq-category" id="roei">
+    <p class="category-label">The Business Case</p>
+    <h2 class="category-title">ROEI &amp; Financial Wellbeing</h2>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">Why is financial wellbeing critical to organisations — not just to employees?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Financial stress is not a personal problem that stays at home when an employee walks through the door. The research is unambiguous: employees under financial pressure show measurably higher levels of absenteeism, lower productivity, reduced concentration, and significantly higher likelihood of looking for a new role.</p>
+      <p>For an SME, the numbers are stark. Replace one mid-level employee and you typically spend between 50% and 200% of their annual salary on recruitment, onboarding, and lost productivity during the transition. Multiply that across a team where financial pressure is unaddressed and the cost is not a wellbeing issue — it is a commercial one.</p>
+      <div class="answer-highlight">
+        Organisations that invest in financial wellbeing consistently report improvements in retention, engagement, and productivity. The return is measurable. The cost of doing nothing is equally measurable — most businesses simply have not yet connected the numbers.
+      </div>
+      <p>Financial wellbeing also has a direct bearing on how your organisation is perceived as an employer. In a competitive labour market, a genuine, substantive approach to employee financial health is a differentiator — one that attracts people who take their careers seriously and stay with organisations that take them seriously in return.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">How does Aetas ITW help organisations maximise their Return on Employee Investment?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Return on Employee Investment — ROEI — is the commercial return your organisation generates from its total people cost. Most businesses know their salary bill. Few measure what that investment actually delivers in terms of output, engagement, and performance. That gap is where Aetas ITW works.</p>
+      <p>We approach ROEI across three levers:</p>
+      <ul>
+        <li><strong>Reducing the cost of poor financial wellbeing</strong> — quantifying and addressing the cost of absenteeism, presenteeism, and turnover that is driven by financial stress. For most organisations, this cost is significantly higher than the cost of addressing it.</li>
+        <li><strong>Improving the effectiveness of existing benefits spend</strong> — many organisations spend considerably on benefits that employees either do not understand or do not value. A structured benefits review typically uncovers significant scope to redeploy budget more effectively.</li>
+        <li><strong>Building the commercial case for continued investment</strong> — through our Blueprint and Partnership stages, we help you track the metrics that connect people investment to business performance, so that financial wellbeing sits alongside revenue, margin, and retention as a reported business indicator.</li>
+      </ul>
+      <p>The goal is not simply a happier workforce — though that follows. The goal is a business that performs better because its people are financially confident, engaged, and present.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">How do you measure the impact of the programme?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>We establish measurable baselines at the start of every engagement and track progress against them throughout. The specific metrics depend on your organisation and priorities, but typically include:</p>
+      <ul>
+        <li>Employee retention rates and the cost of turnover</li>
+        <li>Absence rates and associated productivity loss</li>
+        <li>Benefits engagement and utilisation levels</li>
+        <li>Employee financial confidence, measured through periodic surveys</li>
+        <li>Pension engagement and contribution rates</li>
+        <li>Workshop attendance and feedback scores</li>
+      </ul>
+      <p>In our Partnership stage, performance reporting is a standard deliverable — presented in a format that is meaningful to leadership rather than to an HR team. We believe the business case for financial wellbeing investment should be as rigorous as any other commercial decision.</p>
+    </div></div>
+  </div>
+
+  <!-- ══ Category 3: Fees & Process ══ -->
+  <div class="faq-category" id="fees">
+    <p class="category-label">Investment &amp; Getting Started</p>
+    <h2 class="category-title">Fees &amp; Process</h2>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">What does it cost?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Our fee structure is staged to reflect where your organisation is in the journey, and every stage is fully transparent and agreed in writing before any chargeable work begins.</p>
+      <table class="fee-table">
+        <thead>
+          <tr><th>Stage</th><th>Who pays</th><th>Basis</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Foundations</strong></td><td class="free">No charge</td><td>A structured discovery conversation, leadership consultation, and high-level review of your current benefits — always complimentary</td></tr>
+          <tr><td><strong>Blueprint</strong></td><td>Employer</td><td>Fixed consultancy fee agreed in advance by scope and workforce size. Where you proceed to Partnership within six months, 50% of the Blueprint fee is credited against the first year retainer</td></tr>
+          <tr><td><strong>Partnership</strong></td><td>Employer</td><td>Fixed annual retainer, agreed at the outset. Includes core financial education workshops, benefits governance, and programme management throughout the year</td></tr>
+          <tr><td><strong>Individual support</strong></td><td>Employee</td><td>Regulated financial advice fees are agreed directly between the employee and Aetas Wealth. Employers are not responsible for individual advice costs</td></tr>
+          <tr><td><strong>Specialist services</strong></td><td>Employer</td><td>Collective partner services and specialist workshops are agreed separately, only where a clear need is identified</td></tr>
+        </tbody>
+      </table>
+      <div class="answer-highlight">
+        We do not charge for the Foundations stage. We provide it because clarity before commitment matters — to you and to us. There are no hidden fees, no success fees, and no commissions paid to Aetas Partners from employer engagements.
+      </div>
+      <p>For indicative investment figures in the context of your specific organisation, please contact Matthew Steiner directly at <strong>matthew.steiner@aetas-partners.com</strong> or call <strong>020 3633 0579</strong>.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">How long does it take to set up?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>The Foundations conversation can happen within days of your first contact and takes around an hour. It is designed to be genuinely useful — not a sales meeting — and you will leave with a clearer picture of your current position regardless of what follows.</p>
+      <p>Where you proceed to Blueprint, the timeline depends on the scope. A standard Blueprint engagement typically takes four to six weeks from agreement to delivery of the financial wellbeing roadmap and implementation plan.</p>
+      <p>The first employee-facing activity — typically a financial wellbeing workshop — can usually be delivered within six to eight weeks of beginning the engagement, sometimes sooner. We are experienced at working around the constraints of SME operations and do not require lengthy internal setup processes on your side.</p>
+    </div></div>
+  </div>
+
+  <!-- ══ Category 4: Employee Experience ══ -->
+  <div class="faq-category" id="experience">
+    <p class="category-label">What Employees Experience</p>
+    <h2 class="category-title">Employee Experience</h2>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">What does the programme actually look and feel like for employees?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>For employees, the experience is practical, accessible, and entirely voluntary. We do not run generic financial literacy sessions that feel like compliance training. Everything is designed for the realities of working life — relevant, clear, and delivered in a way that respects that your team's time is limited.</p>
+      <p>Core employee touchpoints typically include:</p>
+      <ul>
+        <li><strong>Financial wellbeing workshops</strong> — covering areas such as financial resilience, budgeting in a cost-of-living environment, pension fundamentals, and protection planning. Run in-person or remotely, at a time that works for your team.</li>
+        <li><strong>One-to-one guidance sessions</strong> — employees can request individual conversations with our team for guidance on their personal financial position. These are signposting conversations, not regulated advice.</li>
+        <li><strong>Access to a regulated financial adviser</strong> — through Aetas Wealth, employees can access an FCA-regulated Independent Financial Adviser for personal financial planning. This is arranged directly with the employee at no cost to the employer.</li>
+        <li><strong>Specialist support through the Collective</strong> — where relevant, employees may be introduced to Collective partners covering areas such as physical wellbeing, resilience coaching, or legacy planning.</li>
+      </ul>
+      <p>The tone throughout is warm, non-judgmental, and genuinely useful. We are not here to tell people what to do with their money. We are here to give them the confidence and the access to make better decisions for themselves.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">Does this involve regulated financial advice — and what does that mean for my organisation?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>The employer-facing programme — including workshops, benefits review, and consultancy — is delivered by Aetas Partners Limited and does not constitute regulated financial advice.</p>
+      <p>Where individual employees wish to access personal financial planning — on their pension, savings, investments, or protection — this is provided through <strong>Aetas Wealth</strong>, a trading style of Insight Financial Associates Limited. Aetas Wealth is authorised and regulated by the Financial Conduct Authority (FCA registration 458421) and operates under the full framework of FCA conduct rules.</p>
+      <p>For employers, this structure is straightforward and risk-free. You are not responsible for the advice given to individual employees. Aetas Wealth has its own client agreements, disclosure obligations, and professional indemnity arrangements. Your role is simply to make the access available — Aetas manages everything else.</p>
+      <div class="answer-highlight">
+        Access to a regulated IFA as a workplace benefit is one of the most valued and distinctive elements of Aetas ITW. Most employers — including those with sophisticated benefits packages — do not currently offer it.
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ══ Category 5: Practical Questions ══ -->
+  <div class="faq-category" id="practical">
+    <p class="category-label">Logistics &amp; Practicalities</p>
+    <h2 class="category-title">Practical Questions</h2>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">We already have a pension provider. Does Aetas ITW conflict with that?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>No — and this is one of the most common concerns we hear, particularly from businesses with an established relationship with their pension provider or an existing employee benefits broker.</p>
+      <p>Aetas ITW works with and around your existing arrangements. We do not require you to change pension providers, switch benefits platforms, or move away from existing supplier relationships unless the evidence from the Foundations and Blueprint process suggests that a change would clearly benefit your workforce.</p>
+      <p>What we do is help you understand whether what you have is working as well as it could — and where the gaps are. In many cases, the biggest gains come not from changing providers but from improving employee engagement with what is already in place.</p>
+      <p>Where Aetas Wealth provides individual regulated advice to employees, it does so as an Independent Financial Adviser — meaning it is not tied to any provider and can consider the full market when making recommendations. This independence is what makes the advice genuinely valuable.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">How is our data — and our employees' data — handled?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Data protection is taken seriously across both Aetas Partners Limited and Insight Financial Associates Limited (trading as Aetas Wealth). Both entities are registered with the Information Commissioner's Office as data controllers.</p>
+      <ul>
+        <li><strong>Aetas Partners Limited</strong> — ICO registration ZB332228</li>
+        <li><strong>Insight Financial Associates Limited (Aetas Wealth)</strong> — ICO registration Z8845129, FCA registration 458421</li>
+      </ul>
+      <p>Employer data collected through our diagnostic and consultancy work is used solely for the purposes of delivering and improving our service. It is not shared with third parties beyond the processors necessary to operate our systems, all of which are governed by appropriate data processing agreements.</p>
+      <p>Employee data is handled separately and in accordance with the requirements of UK GDPR and, where relevant, FCA conduct rules. Where Aetas Wealth provides regulated advice to individual employees, a separate client agreement is in place between the employee and Aetas Wealth — employer access to this is limited to what the employee consents to share.</p>
+      <p>You can read our full privacy policy at <a href="https://itw.aetaspartners.com/privacy.html" style="color:var(--navy);font-weight:500;">itw.aetaspartners.com/privacy.html</a>.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span class="faq-question-text">How do we get started?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>The simplest starting point is our Organisational Diagnostic — a short tool that takes around eight minutes to complete and gives you an immediate picture of where your organisation sits across the three pillars of financial wellbeing. Your results are sent to your email address, and Matthew Steiner will follow up to discuss them with you.</p>
+      <p>Alternatively, you can book a Foundations conversation directly. This is a structured, complimentary 45-minute consultation — no sales pitch, no obligation. We will ask about your organisation, your workforce, your current benefits, and what is driving you to explore this now. You will leave with clarity, regardless of what follows.</p>
+      <p>There is no minimum commitment required to start. The Foundations stage is always complimentary.</p>
+    </div></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>Still have a question?</h3>
+    <p>Talk to Matthew Steiner directly — no forms, no holding pages. A straightforward conversation about your organisation and whether Aetas ITW is the right fit.</p>
+    <a class="btn-cta" href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank">Book a Conversation</a>
+    <a class="btn-cta secondary" href="https://itw.aetaspartners.com/diagnostic.html">Take the Diagnostic</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>Aetas in the Workplace &nbsp;·&nbsp; <span>Where employee wellbeing meets business performance</span> &nbsp;·&nbsp; itw.aetaspartners.com</p>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    // Open this one if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
