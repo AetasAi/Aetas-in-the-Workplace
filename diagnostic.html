@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aetas in the Workplace — Organisational Diagnostic</title>
+
+<!--
+═══════════════════════════════════════════════════════
+  EMAIL SETUP — EmailJS (free at emailjs.com)
+  ─────────────────────────────────────────────────────
+  1. Sign up at https://emailjs.com
+  2. Add an Email Service (Gmail works — use matthew.steiner@aetas-partners.com)
+  3. Create an Email Template with these variables:
+       {{to_name}}        {{to_email}}       {{company}}
+       {{job_title}}      {{employees}}      {{overall_score}}
+       {{overall_band}}   {{benefits_score}} {{education_score}}
+       {{culture_score}}  {{narrative}}      {{recommendations}}
+       {{q1}}–{{q15}}     (all question answers)
+     Set template To: {{to_email}}
+     Set template CC: matthew.steiner@aetas-partners.com
+  4. Replace the three placeholders below:
+═══════════════════════════════════════════════════════
+-->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  const EMAILJS_PUBLIC_KEY  = "T-OvAY8-q_r_P4tAA";   // ← replace
+  const EMAILJS_SERVICE_ID  = "service_dztbuyl";   // ← replace
+  const EMAILJS_TEMPLATE_ID = "template_runrl3h";  // ← replace
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:   #1F3864;
+  --gold:   #C49A28;
+  --gold-l: #E8C96A;
+  --cream:  #FDFBF7;
+  --grey:   #F3F1EB;
+  --text:   #2C2C2C;
+  --muted:  #6B6560;
+  --border: #DDD8CE;
+  --green:  #2D7A4F;
+  --amber:  #B07D1A;
+  --red:    #8B2E2E;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+header {
+  background: var(--navy);
+  padding: 0 40px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.logo span { color: var(--gold-l); }
+.header-tag {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── Hero ── */
+.hero {
+  background: var(--navy);
+  padding: 56px 40px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute;inset:0;
+  background: repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(196,154,40,0.04) 40px,rgba(196,154,40,0.04) 41px);
+}
+.hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
+.hero-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 600; color: #fff; line-height: 1.1; margin-bottom: 14px;
+}
+.hero h1 em { font-style: italic; color: var(--gold-l); }
+.hero-desc { font-size: 15px; color: rgba(255,255,255,0.68); max-width: 580px; line-height: 1.75; }
+.hero-rule { width: 48px; height: 2px; background: var(--gold); margin: 18px 0; }
+
+/* ── Progress ── */
+.progress-wrap {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 0 40px 20px;
+}
+.progress-inner { max-width: 760px; margin: 0 auto; }
+.progress-labels {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+  margin-bottom: 8px;
+}
+.progress-labels span.active { color: var(--gold); }
+.progress-bar-track {
+  height: 3px; background: rgba(255,255,255,0.12); border-radius: 2px; overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%; background: var(--gold); border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* ── Main layout ── */
+.page { max-width: 760px; margin: 0 auto; padding: 40px 40px 80px; }
+
+/* ── Section cards ── */
+.section-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.section-header {
+  background: var(--navy);
+  padding: 20px 28px;
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 600; color: var(--gold-l);
+  line-height: 1; flex-shrink: 0; margin-top: 2px;
+}
+.section-header-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 3px;
+}
+.section-header-text p { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+.section-body { padding: 24px 28px; }
+
+/* ── Questions ── */
+.question { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.question:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.question-label {
+  font-size: 14.5px; font-weight: 500; color: var(--navy);
+  margin-bottom: 12px; line-height: 1.5;
+}
+.question-num {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;
+}
+.options { display: flex; flex-direction: column; gap: 8px; }
+.option input[type="radio"] { display: none; }
+.option label {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 14px; border: 1px solid var(--border);
+  border-radius: 2px; cursor: pointer; font-size: 13.5px;
+  color: var(--muted); transition: all 0.15s;
+  background: var(--cream);
+}
+.option label:hover { border-color: var(--gold); color: var(--text); background: #fff; }
+.option input:checked + label {
+  border-color: var(--navy); background: var(--navy);
+  color: #fff; font-weight: 500;
+}
+.option-score {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(196,154,40,0.15); color: var(--gold);
+  font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+}
+.option input:checked + label .option-score {
+  background: rgba(255,255,255,0.15); color: var(--gold-l);
+}
+
+/* ── About you ── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;
+}
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.field input, .field select {
+  padding: 10px 12px; border: 1px solid var(--border);
+  border-radius: 2px; font-family: 'Jost', sans-serif;
+  font-size: 14px; background: var(--cream); color: var(--text);
+  transition: border-color 0.15s;
+}
+.field input:focus, .field select:focus {
+  outline: none; border-color: var(--navy); background: #fff;
+}
+.field-full { grid-column: 1 / -1; }
+
+/* ── Submit ── */
+.submit-area { text-align: center; padding-top: 12px; }
+.submit-note {
+  font-size: 12px; color: var(--muted); margin-bottom: 16px; line-height: 1.6;
+}
+.btn-submit {
+  background: var(--navy); color: #fff;
+  font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 14px 40px; border: none; border-radius: 2px;
+  cursor: pointer; transition: background 0.2s;
+}
+.btn-submit:hover { background: #162850; }
+.btn-submit:disabled { background: var(--muted); cursor: not-allowed; }
+.error-msg { color: #8B2E2E; font-size: 13px; margin-top: 12px; display: none; }
+
+/* ── Results ── */
+#results { display: none; }
+.results-hero {
+  background: var(--navy); padding: 52px 40px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.results-hero::before {
+  content:''; position:absolute; inset:0;
+  background: repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(196,154,40,0.04) 40px,rgba(196,154,40,0.04) 41px);
+}
+.results-hero-inner { position: relative; max-width: 640px; margin: 0 auto; }
+.results-band {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 5px 16px; border-radius: 2px; margin-bottom: 20px;
+}
+.band-foundation { background: rgba(139,46,46,0.25); color: #F5A0A0; border: 1px solid rgba(139,46,46,0.4); }
+.band-developing  { background: rgba(176,125,26,0.25); color: var(--gold-l); border: 1px solid rgba(176,125,26,0.4); }
+.band-established { background: rgba(45,122,79,0.2);  color: #7ED4A0; border: 1px solid rgba(45,122,79,0.3); }
+.band-leading     { background: rgba(196,154,40,0.25); color: var(--gold-l); border: 1px solid rgba(196,154,40,0.4); }
+.results-score-ring {
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 4px solid var(--gold); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; margin: 0 auto 20px;
+}
+.results-score-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 42px;
+  font-weight: 700; color: #fff; line-height: 1;
+}
+.results-score-denom { font-size: 12px; color: rgba(255,255,255,0.45); }
+.results-hero h2 {
+  font-family: 'Cormorant Garamond', serif; font-size: 28px;
+  font-weight: 600; color: #fff; margin-bottom: 10px;
+}
+.results-hero p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+.results-body { max-width: 760px; margin: 0 auto; padding: 36px 40px 80px; }
+
+/* ── Pillar scores ── */
+.pillar-scores {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 32px;
+}
+.pillar-card {
+  border: 1px solid var(--border); border-radius: 2px;
+  padding: 20px 18px; text-align: center; background: #fff;
+}
+.pillar-card-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+}
+.pillar-bar-wrap { height: 6px; background: var(--grey); border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
+.pillar-bar { height: 100%; border-radius: 3px; background: var(--gold); transition: width 1s ease; }
+.pillar-score-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 28px;
+  font-weight: 700; color: var(--navy);
+}
+.pillar-score-denom { font-size: 11px; color: var(--muted); }
+
+/* ── Narrative & Recs ── */
+.results-block { margin-bottom: 28px; }
+.results-block-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 22px;
+  font-weight: 600; color: var(--navy); margin-bottom: 10px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--gold);
+}
+.results-block p { font-size: 14px; color: var(--text); line-height: 1.75; margin-bottom: 12px; }
+.rec-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.rec-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 16px; background: var(--grey);
+  border-left: 3px solid var(--gold); font-size: 13.5px; color: var(--text);
+}
+.rec-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+.cta-block {
+  background: var(--navy); border-radius: 2px; padding: 32px 36px;
+  text-align: center; margin-top: 32px;
+}
+.cta-block h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 26px;
+  font-weight: 600; color: #fff; margin-bottom: 10px;
+}
+.cta-block p { font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 22px; }
+.btn-cta {
+  display: inline-block; background: var(--gold); color: var(--navy);
+  font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 13px 32px; border-radius: 2px; text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-cta:hover { background: var(--gold-l); }
+
+.email-confirm {
+  background: #f0faf4; border: 1px solid #a8d5b8; border-radius: 2px;
+  padding: 14px 18px; font-size: 13px; color: #1a5c35;
+  margin-top: 20px; text-align: center;
+}
+
+footer {
+  background: #111E33; text-align: center;
+  padding: 22px 40px; font-size: 12px;
+  color: rgba(255,255,255,0.3); letter-spacing: 0.04em;
+}
+footer span { color: var(--gold); }
+
+@media (max-width: 640px) {
+  header, .hero, .progress-wrap { padding-left: 20px; padding-right: 20px; }
+  .page, .results-body { padding-left: 20px; padding-right: 20px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .pillar-scores { grid-template-columns: 1fr; }
+  .section-body { padding: 18px 16px; }
+  .results-hero { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="https://itw.aetaspartners.com">Aetas <span>in the Workplace</span></a>
+  <span class="header-tag">Organisational Diagnostic</span>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Aetas ITW · Employer Diagnostic</p>
+    <h1>How financially resilient<br>is your <em>workforce?</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">This diagnostic takes around 8 minutes to complete. It assesses your organisation across three pillars — Benefits & Reward, Financial Education & Guidance, and Wellbeing & Culture — and delivers a personalised report with your score, narrative, and recommended next steps.</p>
+  </div>
+</div>
+
+<!-- Progress -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-labels">
+      <span id="prog-1" class="active">About You</span>
+      <span id="prog-2">Benefits & Reward</span>
+      <span id="prog-3">Financial Education</span>
+      <span id="prog-4">Wellbeing & Culture</span>
+    </div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FORM ═══ -->
+<div id="form-section">
+<div class="page">
+<form id="diagnostic-form" novalidate>
+
+  <!-- About You -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">0</div>
+      <div class="section-header-text">
+        <h2>About You &amp; Your Organisation</h2>
+        <p>This helps us contextualise your results and tailor our recommendations to businesses of your size and sector.</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="about-grid">
+        <div class="field">
+          <label for="name">Your name *</label>
+          <input type="text" id="name" name="name" required placeholder="Full name">
+        </div>
+        <div class="field">
+          <label for="job_title">Job title *</label>
+          <input type="text" id="job_title" name="job_title" required placeholder="e.g. Managing Director">
+        </div>
+        <div class="field">
+          <label for="company">Organisation name *</label>
+          <input type="text" id="company" name="company" required placeholder="Company name">
+        </div>
+        <div class="field">
+          <label for="email">Work email address *</label>
+          <input type="email" id="email" name="email" required placeholder="you@company.com">
+        </div>
+        <div class="field">
+          <label for="sector">Sector</label>
+          <select id="sector" name="sector">
+            <option value="">Select sector</option>
+            <option>Professional Services</option>
+            <option>Financial Services</option>
+            <option>Healthcare</option>
+            <option>Technology</option>
+            <option>Construction & Property</option>
+            <option>Retail & Hospitality</option>
+            <option>Manufacturing</option>
+            <option>Not-for-Profit / Charity</option>
+            <option>Education</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="employees">Number of employees</label>
+          <select id="employees" name="employees">
+            <option value="">Select range</option>
+            <option>1–10</option>
+            <option>11–25</option>
+            <option>26–50</option>
+            <option>51–100</option>
+            <option>101–250</option>
+            <option>251–500</option>
+            <option>500+</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pillar 1: Benefits & Reward -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-header-text">
+        <h2>Benefits &amp; Reward</h2>
+        <p>How well your current benefits package serves the genuine financial needs of your workforce — and how effectively employees engage with it.</p>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="question">
+        <div class="question-num">Question 1 of 15</div>
+        <div class="question-label">When did you last conduct a structured review of your employee benefits package — assessing both cost and employee value?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q1" id="q1a" value="1" required><label for="q1a"><span class="option-score">1</span>We have never formally reviewed our benefits</label></div>
+          <div class="option"><input type="radio" name="q1" id="q1b" value="2"><label for="q1b"><span class="option-score">2</span>More than three years ago</label></div>
+          <div class="option"><input type="radio" name="q1" id="q1c" value="3"><label for="q1c"><span class="option-score">3</span>Within the last one to three years</label></div>
+          <div class="option"><input type="radio" name="q1" id="q1d" value="4"><label for="q1d"><span class="option-score">4</span>We review benefits annually with clear metrics on usage and impact</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 2 of 15</div>
+        <div class="question-label">How well do your employees understand and actively use the benefits available to them?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q2" id="q2a" value="1" required><label for="q2a"><span class="option-score">1</span>Most employees are unaware of what is available</label></div>
+          <div class="option"><input type="radio" name="q2" id="q2b" value="2"><label for="q2b"><span class="option-score">2</span>Some awareness, but engagement is low and inconsistent</label></div>
+          <div class="option"><input type="radio" name="q2" id="q2c" value="3"><label for="q2c"><span class="option-score">3</span>Good awareness and reasonable engagement across the team</label></div>
+          <div class="option"><input type="radio" name="q2" id="q2d" value="4"><label for="q2d"><span class="option-score">4</span>High engagement — employees actively value and use their benefits</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 3 of 15</div>
+        <div class="question-label">Does your benefits package include financial wellbeing provisions — such as salary advance, debt support, savings schemes, or financial coaching?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q3" id="q3a" value="1" required><label for="q3a"><span class="option-score">1</span>None — our benefits are limited to standard statutory provisions</label></div>
+          <div class="option"><input type="radio" name="q3" id="q3b" value="2"><label for="q3b"><span class="option-score">2</span>We are considering adding financial wellbeing provisions</label></div>
+          <div class="option"><input type="radio" name="q3" id="q3c" value="3"><label for="q3c"><span class="option-score">3</span>One or two provisions are in place but not consistently communicated</label></div>
+          <div class="option"><input type="radio" name="q3" id="q3d" value="4"><label for="q3d"><span class="option-score">4</span>A comprehensive suite of financial wellbeing tools is available and well used</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 4 of 15</div>
+        <div class="question-label">How well do your benefits support employees at different life stages — from those starting out financially, through to those approaching retirement?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q4" id="q4a" value="1" required><label for="q4a"><span class="option-score">1</span>We have not considered life stage relevance in our benefits design</label></div>
+          <div class="option"><input type="radio" name="q4" id="q4b" value="2"><label for="q4b"><span class="option-score">2</span>Benefits are largely one-size-fits-all with limited flexibility</label></div>
+          <div class="option"><input type="radio" name="q4" id="q4c" value="3"><label for="q4c"><span class="option-score">3</span>Some flexibility exists, but life stage relevance is not explicit</label></div>
+          <div class="option"><input type="radio" name="q4" id="q4d" value="4"><label for="q4d"><span class="option-score">4</span>Benefits are designed and communicated with life stage relevance at the centre</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 5 of 15</div>
+        <div class="question-label">Do you have a structured reward or recognition programme that connects to performance, values, or key milestones?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q5" id="q5a" value="1" required><label for="q5a"><span class="option-score">1</span>Recognition is ad hoc and largely informal</label></div>
+          <div class="option"><input type="radio" name="q5" id="q5b" value="2"><label for="q5b"><span class="option-score">2</span>We have some structure, but it is inconsistently applied</label></div>
+          <div class="option"><input type="radio" name="q5" id="q5c" value="3"><label for="q5c"><span class="option-score">3</span>A structured programme exists and is reasonably embedded</label></div>
+          <div class="option"><input type="radio" name="q5" id="q5d" value="4"><label for="q5d"><span class="option-score">4</span>Recognition is deeply embedded in our culture and clearly linked to performance</label></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pillar 2: Financial Education & Guidance -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-header-text">
+        <h2>Financial Education &amp; Guidance</h2>
+        <p>The degree to which your employees have access to meaningful financial knowledge, guidance, and one-to-one support as a workplace provision.</p>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="question">
+        <div class="question-num">Question 6 of 15</div>
+        <div class="question-label">Do you have any insight into the level of financial stress within your workforce — and its impact on productivity, absence, or engagement?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q6" id="q6a" value="1" required><label for="q6a"><span class="option-score">1</span>We have no visibility of financial stress in our workforce</label></div>
+          <div class="option"><input type="radio" name="q6" id="q6b" value="2"><label for="q6b"><span class="option-score">2</span>We are aware it is a likely issue but have not measured it</label></div>
+          <div class="option"><input type="radio" name="q6" id="q6c" value="3"><label for="q6c"><span class="option-score">3</span>We have conducted surveys or informal conversations to understand the picture</label></div>
+          <div class="option"><input type="radio" name="q6" id="q6d" value="4"><label for="q6d"><span class="option-score">4</span>We formally measure financial stress and track its impact on business performance</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 7 of 15</div>
+        <div class="question-label">Does your organisation provide financial education — such as workshops, webinars, or written guides — on topics relevant to your employees' lives?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q7" id="q7a" value="1" required><label for="q7a"><span class="option-score">1</span>We provide no financial education of any kind</label></div>
+          <div class="option"><input type="radio" name="q7" id="q7b" value="2"><label for="q7b"><span class="option-score">2</span>Occasional, unstructured content is shared but not as a programme</label></div>
+          <div class="option"><input type="radio" name="q7" id="q7c" value="3"><label for="q7c"><span class="option-score">3</span>We run periodic sessions, though not consistently planned or evaluated</label></div>
+          <div class="option"><input type="radio" name="q7" id="q7d" value="4"><label for="q7d"><span class="option-score">4</span>A structured, regular financial education programme is in place and well attended</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 8 of 15</div>
+        <div class="question-label">Do your employees have access to a qualified, regulated financial adviser as a workplace benefit — for individual guidance on pensions, savings, or financial planning?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q8" id="q8a" value="1" required><label for="q8a"><span class="option-score">1</span>No — employees must source financial advice entirely independently</label></div>
+          <div class="option"><input type="radio" name="q8" id="q8b" value="2"><label for="q8b"><span class="option-score">2</span>We signpost employees to external resources but provide no direct access</label></div>
+          <div class="option"><input type="radio" name="q8" id="q8c" value="3"><label for="q8c"><span class="option-score">3</span>Informal access exists through a known contact, but it is not a structured benefit</label></div>
+          <div class="option"><input type="radio" name="q8" id="q8d" value="4"><label for="q8d"><span class="option-score">4</span>Regulated financial advice is a formal workplace benefit available to all employees</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 9 of 15</div>
+        <div class="question-label">How confident are you that your employees genuinely understand their pension — including what they are contributing, what they will receive, and how to optimise it?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q9" id="q9a" value="1" required><label for="q9a"><span class="option-score">1</span>Most employees have very little understanding of their pension position</label></div>
+          <div class="option"><input type="radio" name="q9" id="q9b" value="2"><label for="q9b"><span class="option-score">2</span>Basic information is provided at onboarding, but ongoing engagement is low</label></div>
+          <div class="option"><input type="radio" name="q9" id="q9c" value="3"><label for="q9c"><span class="option-score">3</span>We provide regular pension communications and encourage active engagement</label></div>
+          <div class="option"><input type="radio" name="q9" id="q9d" value="4"><label for="q9d"><span class="option-score">4</span>Employees receive structured guidance and individual support to understand and optimise their pension</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 10 of 15</div>
+        <div class="question-label">Have you ever calculated — even informally — the financial cost to your business of employee financial stress (through absenteeism, presenteeism, or turnover)?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q10" id="q10a" value="1" required><label for="q10a"><span class="option-score">1</span>This has never been considered or discussed</label></div>
+          <div class="option"><input type="radio" name="q10" id="q10b" value="2"><label for="q10b"><span class="option-score">2</span>We know it is a cost but have not attempted to quantify it</label></div>
+          <div class="option"><input type="radio" name="q10" id="q10c" value="3"><label for="q10c"><span class="option-score">3</span>We have made rough estimates and believe the cost is significant</label></div>
+          <div class="option"><input type="radio" name="q10" id="q10d" value="4"><label for="q10d"><span class="option-score">4</span>We have formally measured the cost and use this to inform investment in employee support</label></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pillar 3: Wellbeing & Culture -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-header-text">
+        <h2>Wellbeing &amp; Organisational Culture</h2>
+        <p>How financial wellbeing sits within your wider people strategy — and how effectively it connects to leadership, retention, and sustainable business performance.</p>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="question">
+        <div class="question-num">Question 11 of 15</div>
+        <div class="question-label">Is financial wellbeing actively discussed and prioritised as part of your people and culture strategy — not just as an HR compliance issue?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q11" id="q11a" value="1" required><label for="q11a"><span class="option-score">1</span>Financial wellbeing is not part of our people strategy</label></div>
+          <div class="option"><input type="radio" name="q11" id="q11b" value="2"><label for="q11b"><span class="option-score">2</span>It is acknowledged occasionally but has no formal place in our strategy</label></div>
+          <div class="option"><input type="radio" name="q11" id="q11c" value="3"><label for="q11c"><span class="option-score">3</span>It is on our agenda and beginning to be embedded in our people approach</label></div>
+          <div class="option"><input type="radio" name="q11" id="q11d" value="4"><label for="q11d"><span class="option-score">4</span>Financial wellbeing is central to our people strategy and championed by leadership</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 12 of 15</div>
+        <div class="question-label">How engaged is your senior leadership team in financial wellbeing — not just as a benefit, but as a direct driver of business performance and retention?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q12" id="q12a" value="1" required><label for="q12a"><span class="option-score">1</span>There is no leadership awareness or appetite on this topic</label></div>
+          <div class="option"><input type="radio" name="q12" id="q12b" value="2"><label for="q12b"><span class="option-score">2</span>Some leaders are personally aware but it is not a business priority</label></div>
+          <div class="option"><input type="radio" name="q12" id="q12c" value="3"><label for="q12c"><span class="option-score">3</span>Leadership is supportive and beginning to connect it to business outcomes</label></div>
+          <div class="option"><input type="radio" name="q12" id="q12d" value="4"><label for="q12d"><span class="option-score">4</span>There is a board-level champion and financial wellbeing is treated as a commercial lever</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 13 of 15</div>
+        <div class="question-label">What is your current employee retention picture — and to what degree do you believe financial pressure plays a role in voluntary departures?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q13" id="q13a" value="1" required><label for="q13a"><span class="option-score">1</span>Turnover is high and we have not explored the connection to financial pressure</label></div>
+          <div class="option"><input type="radio" name="q13" id="q13b" value="2"><label for="q13b"><span class="option-score">2</span>We suspect financial pressure contributes but have not acted on it</label></div>
+          <div class="option"><input type="radio" name="q13" id="q13c" value="3"><label for="q13c"><span class="option-score">3</span>We are actively addressing the link between financial stress and retention</label></div>
+          <div class="option"><input type="radio" name="q13" id="q13d" value="4"><label for="q13d"><span class="option-score">4</span>Retention is strong and financial wellbeing is a recognised part of why people stay</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 14 of 15</div>
+        <div class="question-label">Do you measure or track Return on Employee Investment — understanding what your total people cost delivers in terms of output, engagement, and commercial performance?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q14" id="q14a" value="1" required><label for="q14a"><span class="option-score">1</span>We do not measure ROEI or think in these terms</label></div>
+          <div class="option"><input type="radio" name="q14" id="q14b" value="2"><label for="q14b"><span class="option-score">2</span>We track some people metrics but not in a commercial ROEI framework</label></div>
+          <div class="option"><input type="radio" name="q14" id="q14c" value="3"><label for="q14c"><span class="option-score">3</span>We are beginning to connect people investment to commercial outcomes</label></div>
+          <div class="option"><input type="radio" name="q14" id="q14d" value="4"><label for="q14d"><span class="option-score">4</span>ROEI is formally measured, reported to leadership, and informs people strategy decisions</label></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-num">Question 15 of 15</div>
+        <div class="question-label">What is your primary motivation for engaging with financial wellbeing at this stage?</div>
+        <div class="options">
+          <div class="option"><input type="radio" name="q15" id="q15a" value="1" required><label for="q15a"><span class="option-score">1</span>Regulatory or compliance pressure</label></div>
+          <div class="option"><input type="radio" name="q15" id="q15b" value="2"><label for="q15b"><span class="option-score">2</span>Recruitment — we need to improve our proposition to attract talent</label></div>
+          <div class="option"><input type="radio" name="q15" id="q15c" value="3"><label for="q15c"><span class="option-score">3</span>Retention — we are losing people and want to understand why</label></div>
+          <div class="option"><input type="radio" name="q15" id="q15d" value="4"><label for="q15d"><span class="option-score">4</span>Culture and performance — we want to build a workplace where people genuinely thrive</label></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="section-card">
+    <div class="section-body">
+      <div class="submit-area">
+        <p class="submit-note">Your results will be calculated immediately and sent to your email address. Matthew Steiner at Aetas will receive a copy and may be in touch to discuss your results and next steps. All responses are treated in confidence.</p>
+        <button type="submit" class="btn-submit" id="submit-btn">Calculate My Results &rarr;</button>
+        <p class="error-msg" id="error-msg">Please answer all 15 questions and complete your contact details before submitting.</p>
+      </div>
+    </div>
+  </div>
+
+</form>
+</div>
+</div>
+
+<!-- ═══ RESULTS ═══ -->
+<div id="results">
+  <div class="results-hero">
+    <div class="results-hero-inner">
+      <div class="results-band" id="results-band"></div>
+      <div class="results-score-ring">
+        <div class="results-score-num" id="results-score">0</div>
+        <div class="results-score-denom">out of 60</div>
+      </div>
+      <h2 id="results-title"></h2>
+      <p id="results-subtitle"></p>
+    </div>
+  </div>
+
+  <div class="results-body">
+
+    <div class="pillar-scores">
+      <div class="pillar-card">
+        <div class="pillar-card-title">Benefits &amp; Reward</div>
+        <div class="pillar-bar-wrap"><div class="pillar-bar" id="bar-benefits" style="width:0%"></div></div>
+        <span class="pillar-score-num" id="score-benefits">0</span><span class="pillar-score-denom"> / 20</span>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-card-title">Financial Education</div>
+        <div class="pillar-bar-wrap"><div class="pillar-bar" id="bar-education" style="width:0%"></div></div>
+        <span class="pillar-score-num" id="score-education">0</span><span class="pillar-score-denom"> / 20</span>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-card-title">Wellbeing &amp; Culture</div>
+        <div class="pillar-bar-wrap"><div class="pillar-bar" id="bar-culture" style="width:0%"></div></div>
+        <span class="pillar-score-num" id="score-culture">0</span><span class="pillar-score-denom"> / 20</span>
+      </div>
+    </div>
+
+    <div class="results-block">
+      <div class="results-block-title">Your Assessment</div>
+      <div id="results-narrative"></div>
+    </div>
+
+    <div class="results-block">
+      <div class="results-block-title">Recommended Next Steps</div>
+      <ul class="rec-list" id="results-recs"></ul>
+    </div>
+
+    <div class="email-confirm" id="email-confirm" style="display:none">
+      ✓ A copy of these results has been sent to your email address.
+    </div>
+
+    <div class="cta-block">
+      <h3>Ready to take the next step?</h3>
+      <p>Book a complimentary 30-minute conversation with Matthew Steiner to talk through your results and explore what Aetas in the Workplace could mean for your organisation.</p>
+      <a class="btn-cta" href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank">Book a Conversation &rarr;</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Aetas in the Workplace &nbsp;·&nbsp; <span>Where employee wellbeing meets business performance</span> &nbsp;·&nbsp; itw.aetaspartners.com</p>
+</footer>
+
+<script>
+// ── Scoring data ───────────────────────────────────────────────────────────────
+const BANDS = [
+  { min: 15, max: 25, name: "Foundation",  cls: "band-foundation",
+    title: "Significant opportunity ahead",
+    subtitle: "Your organisation is at the start of its financial wellbeing journey. The good news is that the impact of early action is considerable — and the competitive advantage of moving now is real.",
+    narrative: [
+      "Your diagnostic results suggest that financial wellbeing has not yet become a structured part of how your organisation operates. This is more common than you might expect — particularly in SMEs where every resource counts and people initiatives often follow rather than lead business priorities.",
+      "What the data consistently shows, however, is that organisations at this stage carry a hidden cost: financial stress in the workforce manifests in reduced productivity, higher absence, and elevated turnover. For a business where every person matters, this is a material risk.",
+      "The opportunity from here is significant. Moving from Foundation to Developing typically requires focused action in just two or three areas — and the return on that investment is measurable within twelve months."
+    ],
+    recs: [
+      { icon: "📋", text: "Commission a benefits audit to understand what you currently spend and whether employees value it — you may find significant budget to redeploy more effectively." },
+      { icon: "💬", text: "Introduce a simple financial wellbeing survey to understand where your employees are — even basic insight will sharpen your next steps considerably." },
+      { icon: "🎓", text: "Run a single financial education workshop with your team — pension basics, cost of living, and financial planning fundamentals. Measure attendance and feedback." },
+      { icon: "👔", text: "Brief your senior leadership team on the business case for financial wellbeing — frame it as a retention and productivity issue, not a welfare one." },
+      { icon: "📞", text: "Book a diagnostic review with Aetas to explore what a structured programme could look like for your organisation and workforce." }
+    ]
+  },
+  { min: 26, max: 38, name: "Developing",  cls: "band-developing",
+    title: "Good foundations — clear gaps to address",
+    subtitle: "You have taken meaningful steps and there is genuine intent behind your approach. The priority now is moving from intention to structure, and from occasional to consistent.",
+    narrative: [
+      "Your results suggest an organisation that recognises the importance of financial wellbeing and has begun to act on it — but where delivery is still inconsistent and the business case has not yet been fully made internally.",
+      "At this stage, the risk is not inaction — it is fragmentation. Well-intentioned but unconnected initiatives rarely deliver the employee engagement or the business outcomes they promise. The shift from 'doing things' to 'running a programme' is where sustained impact begins.",
+      "The organisations that move fastest from Developing to Established are those that connect financial wellbeing to a commercial metric — retention cost, productivity, or ROEI — and give a senior leader ownership of the outcome."
+    ],
+    recs: [
+      { icon: "🔗", text: "Connect your existing financial wellbeing activity into a coherent programme with a clear annual calendar, defined objectives, and a named owner." },
+      { icon: "📊", text: "Identify one commercial metric — turnover cost, absence rate, or engagement score — and track it alongside your wellbeing activity to build the internal business case." },
+      { icon: "🏦", text: "Introduce structured access to regulated financial advice as a workplace benefit — individual guidance has a disproportionate impact on employee confidence and loyalty." },
+      { icon: "🎯", text: "Review your benefits for life stage relevance — a 25-year-old and a 52-year-old have fundamentally different financial needs, and your benefits should reflect that." },
+      { icon: "📞", text: "Talk to Aetas about how to formalise and deepen what you are already doing, and where the highest-impact gaps are for your specific workforce." }
+    ]
+  },
+  { min: 39, max: 51, name: "Established", cls: "band-established",
+    title: "Strong foundations — refine and deepen",
+    subtitle: "You have built something meaningful. The priority now is measuring its impact more rigorously, closing the remaining gaps, and ensuring the programme evolves as your workforce does.",
+    narrative: [
+      "Your results reflect an organisation that has made a genuine commitment to financial wellbeing and is seeing the benefits. Your benefits are reasonably well structured, employees have access to meaningful support, and leadership understands the connection to business outcomes.",
+      "At this stage, the challenge shifts from implementation to optimisation. The question is not whether to invest in financial wellbeing — you already have — but whether that investment is delivering maximum return, and whether the gaps that remain are costing you more than you realise.",
+      "Established organisations often find that the highest-value next steps are in measurement — understanding what is working, what is not, and how to make the case for deeper investment based on evidence rather than intuition."
+    ],
+    recs: [
+      { icon: "📈", text: "Build a formal ROEI framework to track the commercial return on your people investment — and present it to leadership as a business performance metric." },
+      { icon: "🔍", text: "Conduct a deep benefits audit to identify underutilised provisions and reallocate investment toward what employees actually value and engage with." },
+      { icon: "🏆", text: "Consider positioning your financial wellbeing programme as a recruitment differentiator — communicate it actively in job descriptions, interviews, and employer brand content." },
+      { icon: "🤝", text: "Explore partnership with Aetas to add regulated financial planning access and structured 1:1 guidance — the highest-impact addition at this stage." },
+      { icon: "🌟", text: "Evaluate your culture and leadership engagement — even strong programmes lose momentum without an active internal champion at senior level." }
+    ]
+  },
+  { min: 52, max: 60, name: "Leading",     cls: "band-leading",
+    title: "Exemplar — you are setting the standard",
+    subtitle: "Your organisation is operating at the leading edge of employee financial wellbeing for the SME market. The priority is sustaining, evolving, and sharing what you have built.",
+    narrative: [
+      "Your diagnostic results place you in a small group of SMEs that have made financial wellbeing a genuine strategic priority rather than a peripheral benefit. You are measuring impact, leadership is engaged, and employees have access to meaningful, regulated support.",
+      "At this level, the risk is complacency — the best programmes are never finished. Employee needs change, the financial landscape shifts, and a programme that felt leading-edge two years ago may have gaps today. Continuous review is what separates truly embedded programmes from those that peak and plateau.",
+      "You are also in a position to use your approach as a competitive advantage — in recruitment, retention, and culture — in a way that most of your peers cannot. That is a significant commercial asset worth actively communicating."
+    ],
+    recs: [
+      { icon: "♻️", text: "Schedule an annual strategic review of your financial wellbeing programme — treat it with the same rigour you would apply to any other business investment." },
+      { icon: "📣", text: "Actively communicate your financial wellbeing approach in your employer brand — use it in job postings, LinkedIn, and candidate conversations as a genuine differentiator." },
+      { icon: "🔬", text: "Commission a diagnostic of programme gaps — even strong programmes have blind spots, and an independent review will surface opportunities you cannot see from inside." },
+      { icon: "🌍", text: "Consider mentoring peer businesses in your network — sharing best practice is a brand-building opportunity and positions your leadership team as sector voices." },
+      { icon: "📞", text: "Talk to Aetas about Collective partnership — bringing your expertise into our network benefits your brand and creates new professional connections." }
+    ]
+  }
+];
+
+// ── Progress tracking ──────────────────────────────────────────────────────────
+document.addEventListener('change', updateProgress);
+function updateProgress() {
+  const total = 15;
+  let answered = 0;
+  for (let i = 1; i <= 15; i++) {
+    if (document.querySelector(`input[name="q${i}"]:checked`)) answered++;
+  }
+  const pct = Math.round((answered / total) * 75) + (hasDetails() ? 25 : 0);
+  document.getElementById('progress-fill').style.width = Math.min(pct, 99) + '%';
+
+  // Section labels
+  ['prog-2','prog-3','prog-4'].forEach(id => document.getElementById(id).classList.remove('active'));
+  if (answered >= 1)  document.getElementById('prog-2').classList.add('active');
+  if (answered >= 6)  document.getElementById('prog-3').classList.add('active');
+  if (answered >= 11) document.getElementById('prog-4').classList.add('active');
+}
+
+function hasDetails() {
+  return document.getElementById('name').value.trim() &&
+         document.getElementById('email').value.trim() &&
+         document.getElementById('company').value.trim();
+}
+
+['name','email','company','job_title'].forEach(id => {
+  document.getElementById(id)?.addEventListener('input', updateProgress);
+});
+
+// ── Form submit ────────────────────────────────────────────────────────────────
+document.getElementById('diagnostic-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Validate
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const company = document.getElementById('company').value.trim();
+  const jobTitle = document.getElementById('job_title').value.trim();
+  const sector   = document.getElementById('sector').value;
+  const employees = document.getElementById('employees').value;
+
+  let allAnswered = true;
+  const answers = {};
+  const answerLabels = {};
+  for (let i = 1; i <= 15; i++) {
+    const checked = document.querySelector(`input[name="q${i}"]:checked`);
+    if (!checked) { allAnswered = false; break; }
+    answers[`q${i}`] = parseInt(checked.value);
+    answerLabels[`q${i}`] = checked.nextElementSibling.textContent.trim().replace(/^[0-9] /, '');
+  }
+
+  if (!name || !email || !company || !allAnswered) {
+    document.getElementById('error-msg').style.display = 'block';
+    return;
+  }
+  document.getElementById('error-msg').style.display = 'none';
+
+  // Calculate scores
+  const benefitsScore  = answers.q1 + answers.q2 + answers.q3 + answers.q4 + answers.q5;
+  const educationScore = answers.q6 + answers.q7 + answers.q8 + answers.q9 + answers.q10;
+  const cultureScore   = answers.q11 + answers.q12 + answers.q13 + answers.q14 + answers.q15;
+  const totalScore     = benefitsScore + educationScore + cultureScore;
+
+  const band = BANDS.find(b => totalScore >= b.min && totalScore <= b.max) || BANDS[0];
+
+  // Show results
+  showResults(name, email, company, totalScore, benefitsScore, educationScore, cultureScore, band);
+
+  // Send email
+  sendEmail(name, email, company, jobTitle, sector, employees, totalScore, benefitsScore, educationScore, cultureScore, band, answers, answerLabels);
+});
+
+// ── Display results ────────────────────────────────────────────────────────────
+function showResults(name, email, company, total, ben, edu, cul, band) {
+  document.getElementById('form-section').style.display = 'none';
+  const resultsEl = document.getElementById('results');
+  resultsEl.style.display = 'block';
+
+  document.getElementById('results-band').textContent = band.name;
+  document.getElementById('results-band').className = 'results-band ' + band.cls;
+  document.getElementById('results-score').textContent = total;
+  document.getElementById('results-title').textContent = band.title;
+  document.getElementById('results-subtitle').textContent = band.subtitle;
+
+  // Pillar bars (animate after render)
+  setTimeout(() => {
+    document.getElementById('score-benefits').textContent = ben;
+    document.getElementById('score-education').textContent = edu;
+    document.getElementById('score-culture').textContent = cul;
+    document.getElementById('bar-benefits').style.width  = (ben / 20 * 100) + '%';
+    document.getElementById('bar-education').style.width = (edu / 20 * 100) + '%';
+    document.getElementById('bar-culture').style.width   = (cul / 20 * 100) + '%';
+  }, 100);
+
+  // Narrative
+  const narDiv = document.getElementById('results-narrative');
+  narDiv.innerHTML = band.narrative.map(p => `<p>${p}</p>`).join('');
+
+  // Recommendations
+  const recList = document.getElementById('results-recs');
+  recList.innerHTML = band.recs.map(r =>
+    `<li><span class="rec-icon">${r.icon}</span>${r.text}</li>`
+  ).join('');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('progress-fill').style.width = '100%';
+}
+
+// ── Send email via EmailJS ─────────────────────────────────────────────────────
+function sendEmail(name, email, company, jobTitle, sector, employees, total, ben, edu, cul, band, answers, labels) {
+  if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+    // EmailJS not configured — show on-screen confirmation only
+    document.getElementById('email-confirm').style.display = 'block';
+    document.getElementById('email-confirm').textContent = '✓ Your results have been recorded. Matthew Steiner will be in touch to discuss your diagnostic.';
+    return;
+  }
+
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
+  const recsText = band.recs.map((r, i) => `${i+1}. ${r.text}`).join('\n');
+  const narrativeText = band.narrative.join('\n\n');
+
+  const questionTexts = {
+    q1: "Benefits review frequency", q2: "Employee benefits awareness",
+    q3: "Financial wellbeing provisions", q4: "Life stage relevance",
+    q5: "Recognition programme", q6: "Financial stress visibility",
+    q7: "Financial education provision", q8: "Access to regulated adviser",
+    q9: "Pension understanding", q10: "Cost of financial stress measured",
+    q11: "Financial wellbeing in strategy", q12: "Leadership engagement",
+    q13: "Retention and financial pressure", q14: "ROEI measurement",
+    q15: "Primary motivation"
+  };
+
+  let answersText = '';
+  for (let i = 1; i <= 15; i++) {
+    const key = `q${i}`;
+    answersText += `${questionTexts[key]}: ${labels[key]} (${answers[key]}/4)\n`;
+  }
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    to_name:          name,
+    to_email:         email,
+    company:          company,
+    job_title:        jobTitle || 'Not provided',
+    sector:           sector   || 'Not provided',
+    employees:        employees || 'Not provided',
+    overall_score:    total,
+    overall_band:     band.name,
+    benefits_score:   ben + '/20',
+    education_score:  edu + '/20',
+    culture_score:    cul + '/20',
+    narrative:        narrativeText,
+    recommendations:  recsText,
+    answers_detail:   answersText,
+    cc_email:         'matthew.steiner@aetas-partners.com'
+  }).then(() => {
+    document.getElementById('email-confirm').style.display = 'block';
+  }).catch(err => {
+    console.error('EmailJS error:', err);
+    document.getElementById('email-confirm').style.display = 'block';
+    document.getElementById('email-confirm').textContent = '✓ Your results are shown above. Matthew Steiner will be in touch to discuss them with you.';
+  });
+}
+</script>
+
+</body>
+</html>
