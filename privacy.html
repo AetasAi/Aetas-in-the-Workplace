@@ -28,15 +28,7 @@ body {
   line-height: 1.75;
 }
 
-/* ── Header ── */
-header {
-  background: var(--navy);
-  padding: 0 40px;
-  height: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+/* header replaced by nav */
 .logo {
   font-family: 'Cormorant Garamond', serif;
   font-size: 17px; font-weight: 600; color: #fff;
@@ -159,14 +151,63 @@ footer span { color: var(--gold); }
   .toc { display: none; }
   .content { padding: 32px 0 60px; }
 }
+
+  /* ── Fixed Nav (matching main ITW site) ── */
+  header { display: none !important; }
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250, 248, 245, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid #DDD8CE;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 500;
+    color: #1F3864; text-decoration: none; letter-spacing: 0.04em;
+  }
+  .nav-logo span { color: #C49A28; }
+  .nav-links { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #6B6560;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #1F3864; }
+  .nav-cta {
+    background: #1F3864 !important; padding: 9px 18px;
+    border-radius: 2px; color: #fff !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #162850 !important; }
+  body { padding-top: 68px; }
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; height: auto; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+    .nav-links { gap: 0.8rem; }
+    .nav-links a { font-size: 0.68rem; }
+  }
+
 </style>
 </head>
 <body>
 
-<header>
-  <a class="logo" href="https://itw.aetaspartners.com">Aetas <span>in the Workplace</span></a>
-  <span class="header-tag">Legal &amp; Privacy</span>
-</header>
+<nav>
+  <a href="/" class="nav-logo">Aetas <span>in the Workplace</span></a>
+  <div class="nav-links">
+    <a href="/limited-companies.html">Limited companies</a>
+    <a href="/charities.html">Charities</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/diagnostic.html">Diagnostic</a>
+    <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="nav-cta">Book a meeting</a>
+  </div>
+</nav>
 
 <div class="hero">
   <div class="hero-inner">
