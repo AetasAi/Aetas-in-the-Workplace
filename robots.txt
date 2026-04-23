@@ -1,0 +1,40 @@
+# robots.txt — Aetas in the Workplace
+# https://itw.aetaspartners.com
+
+# Allow all standard crawlers
+User-agent: *
+Allow: /
+
+# Explicitly allow major AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: BingBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://itw.aetaspartners.com/sitemap.xml
+
+# LLM context file
+# https://itw.aetaspartners.com/llms.txt
