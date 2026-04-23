@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Aetas in the Workplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #1F3864;
+  --gold:   #C49A28;
+  --gold-l: #E8C96A;
+  --cream:  #FDFBF7;
+  --grey:   #F3F1EB;
+  --text:   #2C2C2C;
+  --muted:  #6B6560;
+  --border: #DDD8CE;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ── Fixed Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,248,245,0.95); backdrop-filter: blur(8px);
+  border-bottom: 0.5px solid var(--border);
+  padding: 0 2rem; display: flex; align-items: center;
+  justify-content: space-between; height: 68px;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+  font-weight: 500; color: var(--navy); text-decoration: none; letter-spacing: 0.04em;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 1.6rem; }
+.nav-links a {
+  font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  background: var(--navy) !important; padding: 9px 18px;
+  border-radius: 2px; color: #fff !important; transition: background 0.2s !important;
+}
+.nav-cta:hover { background: #162850 !important; }
+body { padding-top: 68px; }
+
+/* ── Hero ── */
+.hero {
+  background: var(--navy); padding: 64px 40px 56px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background: repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(196,154,40,0.04) 40px,rgba(196,154,40,0.04) 41px);
+}
+.hero-inner { max-width: 960px; margin: 0 auto; position: relative; }
+.hero-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 5vw, 56px); font-weight: 600;
+  color: #fff; line-height: 1.1; margin-bottom: 12px;
+}
+.hero h1 em { font-style: italic; color: var(--gold-l); }
+.hero-rule { width: 48px; height: 2px; background: var(--gold); margin: 16px 0; }
+.hero-desc { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.75; }
+
+/* ── Filter bar ── */
+.filter-bar {
+  background: var(--grey); border-bottom: 1px solid var(--border);
+  padding: 0 40px; overflow-x: auto;
+}
+.filter-inner {
+  max-width: 960px; margin: 0 auto;
+  display: flex; gap: 0; align-items: center;
+}
+.filter-btn {
+  font-family: 'Jost', sans-serif; font-size: 11.5px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  background: none; border: none; border-bottom: 2px solid transparent;
+  padding: 14px 18px; cursor: pointer; white-space: nowrap;
+  transition: all 0.15s;
+}
+.filter-btn:hover { color: var(--navy); border-bottom-color: var(--gold); }
+.filter-btn.active { color: var(--navy); border-bottom-color: var(--navy); font-weight: 600; }
+
+/* ── Page ── */
+.page { max-width: 960px; margin: 0 auto; padding: 52px 40px 80px; }
+
+/* ── Featured article ── */
+.featured {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid var(--border); border-radius: 2px; overflow: hidden;
+  margin-bottom: 48px; background: #fff;
+  transition: box-shadow 0.2s;
+}
+.featured:hover { box-shadow: 0 8px 32px rgba(31,56,100,0.1); }
+.featured-content { padding: 44px 40px; display: flex; flex-direction: column; justify-content: space-between; }
+.featured-image {
+  background: var(--navy); position: relative; overflow: hidden; min-height: 340px;
+  display: flex; align-items: center; justify-content: center;
+}
+.featured-image-inner {
+  padding: 40px; text-align: center;
+}
+.featured-stat {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px; font-weight: 700; color: var(--gold-l); line-height: 1; display: block;
+}
+.featured-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+.featured-stat-divider { width: 32px; height: 1px; background: rgba(196,154,40,0.4); margin: 16px auto; }
+
+.article-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 2px; margin-bottom: 14px;
+}
+.tag-business   { background: rgba(31,56,100,0.08); color: var(--navy); }
+.tag-research   { background: rgba(196,154,40,0.12); color: #8B6A00; }
+.tag-collective { background: rgba(45,122,79,0.1); color: #1a5c35; }
+.tag-wellbeing  { background: rgba(139,46,46,0.08); color: #6B2020; }
+.tag-strategy   { background: rgba(80,40,120,0.08); color: #4a2880; }
+
+.featured-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 600; color: var(--navy);
+  line-height: 1.2; margin-bottom: 12px;
+}
+.featured-content p { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
+.featured-meta {
+  font-size: 12px; color: var(--muted); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.featured-meta .dot { color: var(--border); }
+
+.btn-read {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+  padding-bottom: 2px; border-bottom: 1px solid var(--gold);
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-read:hover { color: var(--gold); }
+.btn-read::after { content: '→'; font-size: 14px; }
+
+/* ── Grid ── */
+.articles-section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+}
+.articles-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-bottom: 48px;
+}
+.article-card {
+  background: #fff; border: 1px solid var(--border); border-radius: 2px;
+  padding: 24px 22px 20px; display: flex; flex-direction: column;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.article-card:hover { box-shadow: 0 4px 20px rgba(31,56,100,0.09); border-color: var(--gold); }
+.article-card h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 20px;
+  font-weight: 600; color: var(--navy); line-height: 1.25; margin-bottom: 10px;
+}
+.article-card p { font-size: 13px; color: var(--muted); line-height: 1.68; margin-bottom: 16px; flex: 1; }
+.article-meta { font-size: 11px; color: var(--muted); margin-bottom: 14px; display: flex; gap: 8px; align-items: center; }
+
+/* ── Stats bar ── */
+.stats-bar {
+  background: var(--navy); border-radius: 2px;
+  padding: 36px 40px; margin-bottom: 52px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  text-align: center;
+}
+.stat-item {}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 36px;
+  font-weight: 700; color: var(--gold-l); line-height: 1; display: block; margin-bottom: 6px;
+}
+.stat-label { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+
+/* ── Newsletter / CTA ── */
+.cta-block {
+  background: var(--grey); border: 1px solid var(--border); border-radius: 2px;
+  padding: 40px; display: grid; grid-template-columns: 1fr auto; gap: 32px;
+  align-items: center; margin-top: 16px;
+}
+.cta-block h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 24px;
+  font-weight: 600; color: var(--navy); margin-bottom: 6px;
+}
+.cta-block p { font-size: 13.5px; color: var(--muted); }
+.cta-buttons { display: flex; flex-direction: column; gap: 10px; }
+.btn-primary {
+  display: inline-block; background: var(--navy); color: #fff;
+  font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 12px 24px; border-radius: 2px; text-decoration: none;
+  white-space: nowrap; text-align: center; transition: background 0.2s;
+}
+.btn-primary:hover { background: #162850; }
+.btn-secondary {
+  display: inline-block; background: transparent; color: var(--navy);
+  font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 12px 24px; border-radius: 2px; text-decoration: none;
+  border: 1px solid var(--border); white-space: nowrap; text-align: center;
+  transition: border-color 0.2s;
+}
+.btn-secondary:hover { border-color: var(--navy); }
+
+footer {
+  background: #111E33; text-align: center;
+  padding: 22px 40px; font-size: 12px;
+  color: rgba(255,255,255,0.3); letter-spacing: 0.04em;
+}
+footer span { color: var(--gold); }
+
+@media (max-width: 720px) {
+  nav { padding: 0 1rem; }
+  .nav-links { gap: 0.8rem; }
+  .nav-links a { font-size: 0.68rem; }
+  .hero, .filter-bar, .page { padding-left: 20px; padding-right: 20px; }
+  .featured { grid-template-columns: 1fr; }
+  .featured-image { min-height: 200px; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: repeat(2,1fr); padding: 24px 20px; }
+  .cta-block { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">Aetas <span>in the Workplace</span></a>
+  <div class="nav-links">
+    <a href="/limited-companies.html">Limited companies</a>
+    <a href="/charities.html">Charities</a>
+    <a href="/insights.html">Insights</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/diagnostic.html">Diagnostic</a>
+    <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="nav-cta">Book a meeting</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Aetas in the Workplace</p>
+    <h1>Insights &amp; <em>Perspectives</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">Research, commentary, and practical thinking on employee financial wellbeing, organisational performance, and the commercial case for investing in your people.</p>
+  </div>
+</div>
+
+<!-- Filter bar -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterArticles('all', this)">All</button>
+    <button class="filter-btn" onclick="filterArticles('business', this)">Business Case</button>
+    <button class="filter-btn" onclick="filterArticles('research', this)">Research</button>
+    <button class="filter-btn" onclick="filterArticles('collective', this)">Aetas Collective</button>
+    <button class="filter-btn" onclick="filterArticles('wellbeing', this)">Wellbeing</button>
+    <button class="filter-btn" onclick="filterArticles('strategy', this)">Strategy</button>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Featured article -->
+  <div class="featured" data-category="business">
+    <div class="featured-content">
+      <div>
+        <span class="article-tag tag-business">Business Case</span>
+        <p class="featured-meta">
+          Matthew Steiner <span class="dot">·</span> March 2026 <span class="dot">·</span> 6 min read
+        </p>
+        <h2>Why Financial Wellbeing Has Become a Business Issue for SMEs</h2>
+        <p>Financial stress in the workforce is no longer a personal matter that sits outside the employer's concern. The evidence is now unambiguous: it affects focus, decision-making, absence, and retention in ways that carry a measurable cost to business performance. This article makes the commercial case for why SME leaders need to act — and act now.</p>
+      </div>
+      <a class="btn-read" href="https://aetas-partners.com/why-financial-wellbeing-has-become-a-business-issue-for-smes/" target="_blank">Read article</a>
+    </div>
+    <div class="featured-image">
+      <div class="featured-image-inner">
+        <span class="featured-stat">£51bn</span>
+        <div class="featured-stat-divider"></div>
+        <span class="featured-stat-label">lost in UK productivity each year, much of it linked to financial stress</span>
+        <div style="margin-top:24px">
+          <span class="featured-stat">£6.2bn</span>
+          <div class="featured-stat-divider"></div>
+          <span class="featured-stat-label">annual cost of financial stress through absence and presenteeism</span>
+        </div>
+        <div style="margin-top:24px">
+          <span class="featured-stat">9.4</span>
+          <div class="featured-stat-divider"></div>
+          <span class="featured-stat-label">average sickness days per employee — a record high</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">55%</span>
+      <div class="stat-label">of UK companies report difficulties with employee absenteeism</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">50–200%</span>
+      <div class="stat-label">typical cost of replacing a mid-level employee as a share of annual salary</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">30</span>
+      <div class="stat-label">lost working days from one extra stress-related absence per person in a 30-person business</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1 in 4</span>
+      <div class="stat-label">UK employees say financial worries affect their performance at work</div>
+    </div>
+  </div>
+
+  <!-- Article grid -->
+  <p class="articles-section-label">Latest Insights</p>
+  <div class="articles-grid" id="articles-grid">
+
+    <div class="article-card" data-category="wellbeing">
+      <span class="article-tag tag-wellbeing">Wellbeing</span>
+      <div class="article-meta">Matthew Steiner <span class="dot" style="color:var(--border)">·</span> February 2026</div>
+      <h3>When Everyday Life Stops Talking Back</h3>
+      <p>How the quiet removal of human contact through automation and digitalisation is reshaping loneliness, mental health, and financial wellbeing across generations — and what employers must do about it.</p>
+      <a class="btn-read" href="https://aetas-partners.com/when-everyday-life-stops-talking-back/" target="_blank">Read article</a>
+    </div>
+
+    <div class="article-card" data-category="collective">
+      <span class="article-tag tag-collective">Aetas Collective</span>
+      <div class="article-meta">Matthew Steiner <span class="dot" style="color:var(--border)">·</span> March 2026</div>
+      <h3>Introducing the Aetas Collective</h3>
+      <p>The specialist partner network that brings financial wellbeing expertise together for SMEs — how it works, who is in it, and why a curated network of specialists delivers more than any single provider can.</p>
+      <a class="btn-read" href="https://aetas-partners.com/introducing-the-aetas-collective-financial-wellbeing/" target="_blank">Read article</a>
+    </div>
+
+    <div class="article-card" data-category="strategy">
+      <span class="article-tag tag-strategy">Strategy</span>
+      <div class="article-meta">Matthew Steiner <span class="dot" style="color:var(--border)">·</span> March 2026</div>
+      <h3>Financial Wellbeing — Aetas in the Workplace</h3>
+      <p>An introduction to the Aetas ITW programme — the framework, the three pillars, and how a structured approach to employee financial wellbeing differs from generic platforms and tick-box initiatives.</p>
+      <a class="btn-read" href="https://aetas-partners.com/financial-wellbeing-aetas-in-the-workplace/" target="_blank">Read article</a>
+    </div>
+
+    <div class="article-card" data-category="business">
+      <span class="article-tag tag-business">Business Case</span>
+      <div class="article-meta">Matthew Steiner <span class="dot" style="color:var(--border)">·</span> March 2026</div>
+      <h3>Strengthening Your Team Through Financial Wellbeing</h3>
+      <p>Building stronger teams is not simply a question of hiring well or paying competitively. It requires addressing the financial confidence and resilience of the people you already have — and understanding what is really affecting performance.</p>
+      <a class="btn-read" href="https://aetas-partners.com/strengthening-your-team-through-financial-wellbeing/" target="_blank">Read article</a>
+    </div>
+
+    <!-- Placeholder article cards for future content -->
+    <div class="article-card" data-category="research" style="border-style: dashed; opacity: 0.6;">
+      <span class="article-tag tag-research">Research</span>
+      <div class="article-meta">Coming soon</div>
+      <h3>The Hidden Cost of Financial Stress in the UK Workplace</h3>
+      <p>A deep dive into the latest research on how financial pressure manifests in the workplace — from absenteeism and presenteeism through to decision-making quality and leadership performance.</p>
+      <span style="font-size:11px;color:var(--muted);font-style:italic;">Article in preparation</span>
+    </div>
+
+    <div class="article-card" data-category="strategy" style="border-style: dashed; opacity: 0.6;">
+      <span class="article-tag tag-strategy">Strategy</span>
+      <div class="article-meta">Coming soon</div>
+      <h3>What Is Return on Employee Investment — and How Do You Measure It?</h3>
+      <p>ROEI is the commercial return your organisation generates from its total people cost. Most businesses have never calculated it. This article explains what it is, why it matters, and how to start tracking it.</p>
+      <span style="font-size:11px;color:var(--muted);font-style:italic;">Article in preparation</span>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div>
+      <h3>Start with the diagnostic</h3>
+      <p>Not sure where your organisation stands on financial wellbeing? Our eight-minute employer diagnostic gives you an immediate picture across all three pillars — with a personalised report and recommended next steps delivered directly to your inbox.</p>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn-primary" href="/diagnostic.html">Take the Diagnostic</a>
+      <a class="btn-secondary" href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank">Book a Conversation</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Aetas in the Workplace &nbsp;·&nbsp; <span>Where employee wellbeing meets business performance</span> &nbsp;·&nbsp; itw.aetaspartners.com</p>
+</footer>
+
+<script>
+function filterArticles(category, btn) {
+  // Update buttons
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Filter cards
+  const cards = document.querySelectorAll('.article-card, .featured');
+  cards.forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Show/hide featured
+  const featured = document.querySelector('.featured');
+  if (category === 'all' || featured.dataset.category === category) {
+    featured.style.display = '';
+  } else {
+    featured.style.display = 'none';
+  }
+}
+</script>
+
+</body>
+</html>
