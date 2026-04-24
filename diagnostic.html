@@ -457,8 +457,8 @@ footer span { color: var(--gold); }
     <div class="section-body">
       <div class="about-grid">
         <div class="field">
-          <label for="name">Your name *</label>
-          <input type="text" id="name" name="name" required placeholder="Full name">
+          <label for="name">First name *</label>
+          <input type="text" id="name" name="name" required placeholder="First name only">
         </div>
         <div class="field">
           <label for="job_title">Job title *</label>
@@ -1065,7 +1065,7 @@ function sendEmail(name, email, company, jobTitle, sector, employees, total, ben
   const recLines = band.recs.map(r => r.text);
 
   emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-    to_name:          name.split(' ')[0] || name,
+    to_name:          name,
     first_name:       name.split(' ')[0] || name,
     to_email:         email,
     company:          company,
