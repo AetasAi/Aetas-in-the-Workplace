@@ -164,7 +164,13 @@ body {
   letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;
 }
 .options { display: flex; flex-direction: column; gap: 8px; }
-.option input[type="radio"] { display: none; }
+.option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
 .option label {
   display: flex; align-items: flex-start; gap: 10px;
   padding: 10px 14px; border: 1px solid var(--border);
@@ -959,6 +965,72 @@ function showResults(name, email, company, total, ben, edu, cul, band) {
 }
 
 // ── Send email via EmailJS ─────────────────────────────────────────────────────
+
+// ── Send to Go High Level via webhook ─────────────────────────────────────────
+async function sendToGHL(name, email, company, jobTitle, sector, employees, total, ben, edu, cul, band, answers, labels) {
+  const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/iYTxfP1HHyRKz2RL1tai/webhook-trigger/1e4fa94e-883d-4693-9e57-e05a6dfcbdbf";
+
+  const questionTexts = {
+    q1: "Benefits review frequency", q2: "Employee benefits awareness",
+    q3: "Financial wellbeing provisions", q4: "Life stage relevance",
+    q5: "Recognition programme", q6: "Financial stress visibility",
+    q7: "Financial education provision", q8: "Access to regulated adviser",
+    q9: "Pension understanding", q10: "Cost of financial stress measured",
+    q11: "Financial wellbeing in strategy", q12: "Leadership engagement",
+    q13: "Retention and financial pressure", q14: "ROEI measurement",
+    q15: "Primary motivation"
+  };
+
+  const payload = {
+    // Contact fields — GHL will create/update the contact
+    firstName: name.split(' ')[0] || name,
+    lastName: name.split(' ').slice(1).join(' ') || '',
+    email: email,
+    phone: '',
+    companyName: company,
+
+    // Custom fields
+    job_title: jobTitle || '',
+    sector: sector || '',
+    employees: employees || '',
+
+    // Diagnostic scores
+    overall_score: total,
+    overall_band: band.name,
+    benefits_score: ben + '/20',
+    education_score: edu + '/20',
+    culture_score: cul + '/20',
+
+    // Tags for GHL automation
+    tags: ['ITW Diagnostic', band.name, 'Website Lead'],
+
+    // Source tracking
+    source: 'ITW Diagnostic Tool',
+    source_url: 'https://itw.aetaspartners.com/diagnostic.html',
+
+    // All 15 answers
+    ...Object.fromEntries(
+      Object.entries(answers).map(([k, v]) => [
+        questionTexts[k] || k,
+        labels[k] + ' (' + v + '/4)'
+      ])
+    )
+  };
+
+  try {
+    const response = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      mode: 'no-cors' // GHL webhooks don't return CORS headers
+    });
+    console.log('GHL webhook fired successfully');
+  } catch (err) {
+    console.error('GHL webhook error:', err);
+    // Fail silently — EmailJS handles the user-facing confirmation
+  }
+}
+
 function sendEmail(name, email, company, jobTitle, sector, employees, total, ben, edu, cul, band, answers, labels) {
   if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
     // EmailJS not configured — show on-screen confirmation only
@@ -989,6 +1061,9 @@ function sendEmail(name, email, company, jobTitle, sector, employees, total, ben
     answersText += `${questionTexts[key]}: ${labels[key]} (${answers[key]}/4)\n`;
   }
 
+  // Split recommendations into individual fields
+  const recLines = band.recs.map(r => r.text);
+
   emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
     to_name:          name,
     to_email:         email,
@@ -999,10 +1074,17 @@ function sendEmail(name, email, company, jobTitle, sector, employees, total, ben
     overall_score:    total,
     overall_band:     band.name,
     benefits_score:   ben + '/20',
+    benefits_pct:     Math.round(ben / 20 * 100) + '%',
     education_score:  edu + '/20',
+    education_pct:    Math.round(edu / 20 * 100) + '%',
     culture_score:    cul + '/20',
+    culture_pct:      Math.round(cul / 20 * 100) + '%',
     narrative:        narrativeText,
-    recommendations:  recsText,
+    rec_1:            recLines[0] || '',
+    rec_2:            recLines[1] || '',
+    rec_3:            recLines[2] || '',
+    rec_4:            recLines[3] || '',
+    rec_5:            recLines[4] || '',
     answers_detail:   answersText,
     cc_email:         'matthew.steiner@aetas-partners.com'
   }).then(() => {
@@ -1015,5 +1097,38 @@ function sendEmail(name, email, company, jobTitle, sector, employees, total, ben
 }
 </script>
 
+
+<script>
+// Click handler fix — ensures radio selection works in all browsers
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.option label').forEach(function(label) {
+    label.addEventListener('click', function() {
+      var forId = this.getAttribute('for');
+      var input = document.getElementById(forId);
+      if (input) {
+        input.checked = true;
+        // Apply visual feedback manually
+        var allLabels = document.querySelectorAll('input[name="' + input.name + '"] + label, label[for]');
+        document.querySelectorAll('input[name="' + input.name + '"]').forEach(function(radio) {
+          var lbl = document.querySelector('label[for="' + radio.id + '"]');
+          if (lbl) {
+            if (radio.checked) {
+              lbl.style.backgroundColor = '#1F3864';
+              lbl.style.borderColor = '#1F3864';
+              lbl.style.color = '#ffffff';
+              lbl.style.fontWeight = '500';
+            } else {
+              lbl.style.backgroundColor = '';
+              lbl.style.borderColor = '';
+              lbl.style.color = '';
+              lbl.style.fontWeight = '';
+            }
+          }
+        });
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
