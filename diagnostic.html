@@ -1065,7 +1065,7 @@ function sendEmail(name, email, company, jobTitle, sector, employees, total, ben
   const recLines = band.recs.map(r => r.text);
 
   emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-    to_name:          name,
+    to_name:          name.split(' ')[0] || name,
     first_name:       name.split(' ')[0] || name,
     to_email:         email,
     company:          company,
