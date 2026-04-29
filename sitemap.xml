@@ -7,7 +7,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://itw.aetaspartners.com/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,14 +15,14 @@
   <!-- Core audience pages -->
   <url>
     <loc>https://itw.aetaspartners.com/limited-companies.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://itw.aetaspartners.com/charities.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -30,7 +30,7 @@
   <!-- Tools and conversion -->
   <url>
     <loc>https://itw.aetaspartners.com/diagnostic.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -38,14 +38,14 @@
   <!-- Content and education -->
   <url>
     <loc>https://itw.aetaspartners.com/insights.html</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://itw.aetaspartners.com/faqs.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
