@@ -429,7 +429,7 @@ footer span { color: var(--gold); }
 <div class="progress-wrap">
   <div class="progress-inner">
     <div class="progress-labels">
-      <span id="prog-1" class="active">About You</span>
+      <span id="prog-1" class="active">Start</span>
       <span id="prog-2">Benefits & Reward</span>
       <span id="prog-3">Financial Education</span>
       <span id="prog-4">Wellbeing & Culture</span>
@@ -445,67 +445,7 @@ footer span { color: var(--gold); }
 <div class="page">
 <form id="diagnostic-form" novalidate>
 
-  <!-- About You -->
-  <div class="section-card">
-    <div class="section-header">
-      <div class="section-num">0</div>
-      <div class="section-header-text">
-        <h2>About You &amp; Your Organisation</h2>
-        <p>This helps us contextualise your results and tailor our recommendations to businesses of your size and sector.</p>
-      </div>
-    </div>
-    <div class="section-body">
-      <div class="about-grid">
-        <div class="field">
-          <label for="name">First name *</label>
-          <input type="text" id="name" name="name" required placeholder="First name only">
-        </div>
-        <div class="field">
-          <label for="job_title">Job title *</label>
-          <input type="text" id="job_title" name="job_title" required placeholder="e.g. Managing Director">
-        </div>
-        <div class="field">
-          <label for="company">Organisation name *</label>
-          <input type="text" id="company" name="company" required placeholder="Company name">
-        </div>
-        <div class="field">
-          <label for="email">Work email address *</label>
-          <input type="email" id="email" name="email" required placeholder="you@company.com">
-        </div>
-        <div class="field">
-          <label for="sector">Sector</label>
-          <select id="sector" name="sector">
-            <option value="">Select sector</option>
-            <option>Professional Services</option>
-            <option>Financial Services</option>
-            <option>Healthcare</option>
-            <option>Technology</option>
-            <option>Construction & Property</option>
-            <option>Retail & Hospitality</option>
-            <option>Manufacturing</option>
-            <option>Not-for-Profit / Charity</option>
-            <option>Education</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="employees">Number of employees</label>
-          <select id="employees" name="employees">
-            <option value="">Select range</option>
-            <option>1–10</option>
-            <option>11–25</option>
-            <option>26–50</option>
-            <option>51–100</option>
-            <option>101–250</option>
-            <option>251–500</option>
-            <option>500+</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pillar 1: Benefits & Reward -->
+    <!-- Pillar 1: Benefits & Reward -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-num">1</div>
@@ -712,13 +652,67 @@ footer span { color: var(--gold); }
     </div>
   </div>
 
-  <!-- Submit -->
+  <!-- About You — moved after questions -->
   <div class="section-card">
+    <div class="section-header">
+      <div class="section-num" style="font-size:1rem;padding-top:4px">→</div>
+      <div class="section-header-text">
+        <h2>One last step — where should we send your results?</h2>
+        <p>Your personalised report will be calculated immediately. Enter your details below to receive it.</p>
+      </div>
+    </div>
     <div class="section-body">
-      <div class="submit-area">
-        <p class="submit-note">Your results will be calculated immediately and sent to your email address. Matthew Steiner at Aetas will receive a copy and may be in touch to discuss your results and next steps. All responses are treated in confidence.</p>
+      <div class="about-grid">
+        <div class="field">
+          <label for="name">First name *</label>
+          <input type="text" id="name" name="name" required placeholder="First name only">
+        </div>
+        <div class="field">
+          <label for="job_title">Job title</label>
+          <input type="text" id="job_title" name="job_title" placeholder="e.g. Managing Director">
+        </div>
+        <div class="field">
+          <label for="company">Organisation name *</label>
+          <input type="text" id="company" name="company" required placeholder="Company name">
+        </div>
+        <div class="field">
+          <label for="email">Work email address *</label>
+          <input type="email" id="email" name="email" required placeholder="you@company.com">
+        </div>
+        <div class="field">
+          <label for="sector">Sector</label>
+          <select id="sector" name="sector">
+            <option value="">Select sector</option>
+            <option>Professional Services</option>
+            <option>Financial Services</option>
+            <option>Healthcare</option>
+            <option>Technology</option>
+            <option>Construction &amp; Property</option>
+            <option>Retail &amp; Hospitality</option>
+            <option>Manufacturing</option>
+            <option>Not-for-Profit / Charity</option>
+            <option>Education</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="employees">Number of employees</label>
+          <select id="employees" name="employees">
+            <option value="">Select range</option>
+            <option>1–10</option>
+            <option>11–25</option>
+            <option>26–50</option>
+            <option>51–100</option>
+            <option>101–250</option>
+            <option>251–500</option>
+            <option>500+</option>
+          </select>
+        </div>
+      </div>
+      <div class="submit-area" style="margin-top:28px">
+        <p class="submit-note">Your results will be calculated immediately and sent to your email address. Matthew Steiner at Aetas will receive a copy and may be in touch to discuss your results. All responses are treated in confidence.</p>
         <button type="submit" class="btn-submit" id="submit-btn">Calculate My Results &rarr;</button>
-        <p class="error-msg" id="error-msg">Please answer all 15 questions and complete your contact details before submitting.</p>
+        <p class="error-msg" id="error-msg">Please answer all 15 questions and complete your name, organisation, and email before submitting.</p>
       </div>
     </div>
   </div>

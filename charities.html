@@ -369,6 +369,41 @@ hr.footer-rule { border: none; border-top: 1px solid rgba(255,255,255,0.08); mar
   .stat:nth-child(4) { border-top: 1px solid var(--border); }
   .stat:nth-child(4) { border-right: none; }
 }
+
+  /* ── Sticky CTA bar ─────────────────────────────────────── */
+  .sticky-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
+    background: var(--navy); border-top: 1px solid rgba(184,154,90,0.3);
+    padding: 12px 40px; display: flex; align-items: center;
+    justify-content: space-between; gap: 16px;
+    transform: translateY(100%); transition: transform 0.4s ease;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
+  }
+  .sticky-bar.visible { transform: translateY(0); }
+  .sticky-bar-text {
+    font-size: 0.78rem; color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .sticky-bar-text strong { color: rgba(255,255,255,0.85); font-weight:400; }
+  .sticky-bar-right { display: flex; align-items: center; gap: 16px; flex-shrink:0; }
+  .sticky-bar-cta {
+    display: inline-block; font-family: 'Jost', sans-serif;
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    padding: 9px 20px; background: var(--gold); color: var(--navy);
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .sticky-bar-cta:hover { background: var(--gold-light); }
+  .sticky-bar-dismiss {
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.3); font-size: 1.1rem; line-height:1;
+    padding: 4px; transition: color 0.2s;
+  }
+  .sticky-bar-dismiss:hover { color: rgba(255,255,255,0.6); }
+  @media(max-width:640px){
+    .sticky-bar { padding: 10px 20px; }
+    .sticky-bar-text { display:none; }
+  }
 </style>
 </head>
 <body>
@@ -390,7 +425,7 @@ hr.footer-rule { border: none; border-top: 1px solid rgba(255,255,255,0.08); mar
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <span class="label fade">For charities and not-for-profits</span>
+    <span class="label fade">For charities and not-for-profits &nbsp;·&nbsp; <a href="/limited-companies.html" style="color:rgba(212,185,122,0.6);text-decoration:none;font-size:0.68rem;border-bottom:1px solid rgba(212,185,122,0.25);font-weight:300;">For limited companies →</a></span>
     <h1 class="fade d1">Your people are motivated by purpose.<br><em>Financial pressure should not be the reason they leave.</em></h1>
     <p class="hero-lead fade d2">Charities and not-for-profits face a particular challenge. You compete with the private sector for skilled, committed people without always being able to match salaries. We bring together specialist governance and financial guidance for your organisation alongside structured financial wellbeing for your workforce — all within the realities of a not-for-profit environment.</p>
     <div class="hero-ctas fade d3">
@@ -629,16 +664,14 @@ hr.footer-rule { border: none; border-top: 1px solid rgba(255,255,255,0.08); mar
     </div>
     <div class="cta-grid">
       <div class="cta-card cta-card--event fade">
-        <span class="cta-tag">Upcoming event</span>
-        <div class="event-meta">15 April 2026 &nbsp;·&nbsp; 12:00–12:45</div>
+        <span class="cta-tag">Upcoming events</span>
         <h3>Financial Wellbeing in the Workplace: Understanding Whether It Matters for Your Business</h3>
         <div class="cta-detail">
           <span><strong style="font-weight:500;color:var(--navy);">Format</strong>&nbsp;&nbsp;Webinar via Zoom</span>
           <span><strong style="font-weight:500;color:var(--navy);">Speakers</strong>&nbsp;&nbsp;Matthew Steiner &amp; Daniel Cottam</span>
         </div>
-        <p>Financial pressure is quietly affecting workplace performance. This session helps leaders understand whether it is happening in their organisation, and what a structured, proportionate response looks like in practice.</p>
-        <a class="btn btn-outline" href="https://links.aetas-partners.com/widget/booking/4q95PzVyRtNPdzPavQzV">Reserve a place</a>
-        <a class="btn-text" href="https://aetas-partners.com/business-events/">All events</a>
+        <p>We run regular sessions for charity and not-for-profit leaders exploring whether financial pressure is showing up as a cost in their organisation, and what a proportionate response looks like.</p>
+        <a class="btn btn-outline" href="https://aetas-partners.com/business-events/">See upcoming dates</a>
       </div>
       <div class="cta-card cta-card--direct fade d1">
         <span class="cta-tag">One-to-one conversation</span>
@@ -687,6 +720,31 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     if (!isOpen) item.classList.add('open');
   });
 });
+
+  // Sticky bar
+  (function(){
+    var bar = document.getElementById('stickyBar');
+    var dismiss = document.getElementById('stickyDismiss');
+    var shown = false;
+    if(!bar) return;
+    window.addEventListener('scroll', function(){
+      if(!shown && window.scrollY > 600){ bar.classList.add('visible'); shown = true; }
+    });
+    dismiss.addEventListener('click', function(){
+      bar.classList.remove('visible');
+      bar.style.display = 'none';
+    });
+  })();
 </script>
+
+<!-- STICKY CTA BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <span class="sticky-bar-text"><strong>No obligation · No cost</strong> &nbsp;·&nbsp; A 30-minute conversation to explore whether there's a fit</span>
+  <div class="sticky-bar-right">
+    <a class="sticky-bar-cta" href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty">Book a workplace healthcheck</a>
+    <button class="sticky-bar-dismiss" id="stickyDismiss" aria-label="Dismiss">×</button>
+  </div>
+</div>
+
 </body>
 </html>
