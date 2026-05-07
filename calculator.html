@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROEI Calculator — What is financial pressure costing your business? — Aetas in the Workplace</title>
+<meta name="description" content="Estimate the annual cost of financial pressure in your workforce. Calculate retention losses, productivity drain, and benefits waste — then see what a structured intervention is likely worth.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://itw.aetaspartners.com/calculator.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1a2744">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2b4a; --navy-mid: #2d4270; --navy-light: #e8ecf3;
+  --gold: #b8934a; --gold-light: #d4b07a; --gold-pale: #f5ede0;
+  --cream: #faf8f5; --white: #ffffff;
+  --text-body: #4a4a4a; --text-muted: #7a7a7a;
+  --border: rgba(26,43,74,0.12); --border-gold: rgba(184,147,74,0.35);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;font-weight:300;color:var(--text-body);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,0.96);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:0.04em;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:2rem;}
+.nav-links a{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--navy);}
+.nav-links a.active{color:var(--navy);}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:9px 18px;border-radius:2px;transition:background 0.2s!important;}
+.nav-cta:hover{background:var(--navy-mid)!important;}
+
+.calc-hero{padding:9rem 2rem 5rem;background:var(--navy);position:relative;overflow:hidden;}
+.calc-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,rgba(184,147,74,0.1) 0%,transparent 60%);}
+.calc-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.eyebrow-hero{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px;}
+.eyebrow-hero::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.calc-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1.25rem;letter-spacing:-0.02em;}
+.calc-hero h1 em{font-style:italic;color:var(--gold-light);}
+.calc-hero-sub{font-size:1rem;color:rgba(255,255,255,0.6);max-width:620px;line-height:1.8;}
+
+.calc-main{max-width:1200px;margin:0 auto;padding:4rem 2rem 5rem;}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+
+.inputs-panel{position:sticky;top:88px;}
+.inputs-header{margin-bottom:2rem;}
+.inputs-header h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:0.4rem;}
+.inputs-header p{font-size:0.87rem;color:var(--text-muted);line-height:1.65;}
+
+.input-group{margin-bottom:1.75rem;}
+.input-label-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.6rem;}
+.input-label{font-size:0.82rem;font-weight:500;color:var(--navy);letter-spacing:0.02em;}
+.input-value-display{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--gold);}
+.input-sub{font-size:0.75rem;color:var(--text-muted);margin-top:4px;}
+
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;background:var(--navy-light);outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--white);box-shadow:0 0 0 1px var(--gold);}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--white);}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;}
+
+.results-panel{}
+.total-card{background:var(--navy);border-radius:4px;padding:2rem;margin-bottom:1.5px;}
+.total-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;}
+.total-value{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4rem);font-weight:300;color:var(--gold-light);line-height:1;margin-bottom:0.4rem;}
+.total-sub{font-size:0.82rem;color:rgba(255,255,255,0.45);}
+
+.breakdown-card{background:var(--white);border:0.5px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.5px;}
+.breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:0.9rem 1.25rem;border-bottom:0.5px solid var(--border);gap:1rem;}
+.breakdown-row:last-child{border-bottom:none;}
+.breakdown-label{font-size:0.83rem;color:var(--text-body);}
+.breakdown-label span{display:block;font-size:0.75rem;color:var(--text-muted);margin-top:2px;}
+.breakdown-value{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--navy);white-space:nowrap;}
+
+.insight-card{background:var(--gold-pale);border:0.5px solid var(--border-gold);border-radius:4px;padding:1.25rem;margin-top:1.5px;}
+.insight-label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.insight-text{font-size:0.87rem;color:var(--text-body);line-height:1.65;}
+.insight-value{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--navy);margin:0.3rem 0;}
+
+.roei-card{background:var(--white);border:0.5px solid var(--border);border-radius:4px;padding:1.5rem;margin-top:1.5px;}
+.roei-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:1rem;border-bottom:0.5px solid var(--border);}
+.roei-title{font-size:0.82rem;font-weight:500;color:var(--navy);}
+.roei-badge{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;background:var(--navy-light);color:var(--navy);padding:3px 10px;border-radius:2px;}
+.roei-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.roei-col{background:var(--white);padding:1rem;text-align:center;}
+.roei-col-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;}
+.roei-col-value{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--navy);}
+.roei-ratio{text-align:center;padding-top:1rem;margin-top:1rem;border-top:0.5px solid var(--border);}
+.roei-ratio-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--gold);}
+.roei-ratio-label{font-size:0.78rem;color:var(--text-muted);}
+.roei-note{font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;line-height:1.55;font-style:italic;}
+
+.cta-band{background:var(--navy);padding:4rem 2rem;}
+.cta-inner{max-width:860px;margin:0 auto;text-align:center;}
+.cta-eyebrow{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:10px;}
+.cta-eyebrow::before,.cta-eyebrow::after{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:var(--white);line-height:1.25;margin-bottom:1rem;}
+.cta-band p{font-size:0.97rem;color:rgba(255,255,255,0.6);max-width:560px;margin:0 auto 2.5rem;line-height:1.8;}
+.btn-gold{display:inline-block;padding:15px 34px;background:var(--gold);color:var(--navy);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;}
+.btn-gold:hover{background:var(--gold-light);}
+.cta-note{font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:1rem;}
+
+.methodology{background:var(--cream);border-top:0.5px solid var(--border);padding:3rem 2rem;}
+.methodology-inner{max-width:860px;margin:0 auto;}
+.methodology h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--navy);margin-bottom:0.75rem;}
+.methodology p{font-size:0.82rem;color:var(--text-muted);line-height:1.75;margin-bottom:0.5rem;}
+
+footer{background:var(--navy);padding:2.5rem 2rem;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--white);}
+.footer-logo span{color:var(--gold-light);}
+.footer-reg{font-size:0.72rem;line-height:1.7;color:rgba(255,255,255,0.4);max-width:640px;}
+.footer-contact a{color:var(--gold-light);text-decoration:none;font-size:0.82rem;}
+footer a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.78rem;}
+footer a:hover{color:var(--gold-light);}
+
+@media(max-width:900px){
+  .calc-grid{grid-template-columns:1fr;}
+  .inputs-panel{position:static;}
+  .nav-links{display:none;}
+}
+@media(max-width:600px){
+  .roei-compare{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Aetas <span>in the Workplace</span></a>
+  <div class="nav-links">
+    <a href="limited-companies.html">Limited companies</a>
+    <a href="charities.html">Charities</a>
+    <a href="https://aetas-partners.com/business-events/" target="_blank">Events</a>
+    <a href="/insights.html">Insights</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/diagnostic.html">Diagnostic</a>
+    <a href="/calculator.html" class="active">Calculator</a>
+    <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="nav-cta">Book a healthcheck</a>
+  </div>
+</nav>
+
+<div class="calc-hero">
+  <div class="calc-hero-inner">
+    <div class="eyebrow-hero">Return on Employee Investment Calculator</div>
+    <h1>What is financial pressure <em>actually</em> costing your business?</h1>
+    <p class="calc-hero-sub">Adjust the inputs below to see an estimate based on your workforce. The figures are conservative — most businesses find the real number considerably higher once we look properly.</p>
+  </div>
+</div>
+
+<div class="calc-main">
+  <div class="calc-grid">
+
+    <div class="inputs-panel">
+      <div class="inputs-header">
+        <h2>Your workforce</h2>
+        <p>Set these to reflect your organisation. All calculations update in real time.</p>
+      </div>
+
+      <div class="input-group">
+        <div class="input-label-row">
+          <span class="input-label">Number of employees</span>
+          <span class="input-value-display" id="employees-display">50</span>
+        </div>
+        <input type="range" id="employees" min="10" max="200" step="1" value="50">
+        <p class="input-sub">Aetas ITW is designed for organisations with 10–200 employees</p>
+      </div>
+
+      <div class="input-group">
+        <div class="input-label-row">
+          <span class="input-label">Average annual salary</span>
+          <span class="input-value-display" id="salary-display">£35,000</span>
+        </div>
+        <input type="range" id="salary" min="20000" max="80000" step="1000" value="35000">
+        <p class="input-sub">Use the average across your workforce, not just senior roles</p>
+      </div>
+
+      <div class="input-group">
+        <div class="input-label-row">
+          <span class="input-label">Annual staff turnover rate</span>
+          <span class="input-value-display" id="turnover-display">15%</span>
+        </div>
+        <input type="range" id="turnover" min="3" max="40" step="1" value="15">
+        <p class="input-sub">UK SME average is 14–18%. If you're not sure, use 15%</p>
+      </div>
+
+      <div class="input-group">
+        <div class="input-label-row">
+          <span class="input-label">Sick days per employee per year</span>
+          <span class="input-value-display" id="sickdays-display">9.4</span>
+        </div>
+        <input type="range" id="sickdays" min="3" max="20" step="0.5" value="9.4">
+        <p class="input-sub">UK average is 9.4 days. Financial stress is a leading contributor</p>
+      </div>
+    </div>
+
+    <div class="results-panel">
+
+      <div class="total-card">
+        <div class="total-label">Estimated annual cost of inaction</div>
+        <div class="total-value" id="total-value">£248,000</div>
+        <div class="total-sub" id="total-sub">for a 50-person business — driven by turnover, productivity, and absence</div>
+      </div>
+
+      <div class="breakdown-card">
+        <div class="breakdown-row">
+          <div class="breakdown-label">
+            Staff turnover &amp; replacement
+            <span id="turnover-sub">7–8 leavers per year at approx. £26k replacement cost each</span>
+          </div>
+          <div class="breakdown-value" id="retention-value">£197k</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-label">
+            Productivity loss
+            <span>Financially stressed employees lose an estimated 3 hrs/week. Affects ~25% of your workforce</span>
+          </div>
+          <div class="breakdown-value" id="productivity-value">£33k</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-label">
+            Absence attributable to financial stress
+            <span id="absence-sub">~20% of total absence cost linked to financial pressure</span>
+          </div>
+          <div class="breakdown-value" id="absence-value">£12k</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-label">
+            Benefits spend not landing
+            <span>Estimated 15% of your benefits budget is unused, misunderstood, or undervalued</span>
+          </div>
+          <div class="breakdown-value" id="benefits-value">£6k</div>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-label">What a 2% improvement in retention alone would save</div>
+        <div class="insight-value" id="insight-value">£39,375</div>
+        <div class="insight-text" id="insight-text">One fewer leaver than expected. That is what the Clarity pillar alone typically delivers in year one — before workshops, before productivity improvements, before benefits optimisation.</div>
+      </div>
+
+      <div class="roei-card">
+        <div class="roei-header">
+          <span class="roei-title">Estimated return on programme investment</span>
+          <span class="roei-badge">Indicative</span>
+        </div>
+        <div class="roei-compare">
+          <div class="roei-col">
+            <div class="roei-col-label">Cost of inaction (annual)</div>
+            <div class="roei-col-value" id="roei-cost">£248k</div>
+          </div>
+          <div class="roei-col">
+            <div class="roei-col-label">Indicative programme investment</div>
+            <div class="roei-col-value" id="roei-investment">£7,500</div>
+          </div>
+        </div>
+        <div class="roei-ratio">
+          <div class="roei-ratio-num" id="roei-ratio">33×</div>
+          <div class="roei-ratio-label">estimated return on investment — before the savings offset the fee</div>
+        </div>
+        <p class="roei-note" id="roei-note">Programme investment is indicative only, based on typical per-employee rates for a business of this size. Actual fees are confirmed in writing after your Workplace Performance Review — always before anything begins.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">The next step</div>
+    <h2>These are estimates. Your Workplace Performance Review finds the real number.</h2>
+    <p>The calculator is designed to give a sense of scale — not a precise figure. The Review identifies exactly where financial pressure is showing up in your specific business, what it is actually costing, and what a proportionate response looks like. No cost. No obligation. Two 30-minute conversations.</p>
+    <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="btn-gold">Book a Workplace Performance Review</a>
+    <p class="cta-note">No cost &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Two 30-minute conversations</p>
+  </div>
+</div>
+
+<div class="methodology">
+  <div class="methodology-inner">
+    <h3>Methodology and sources</h3>
+    <p>Staff turnover and replacement cost: replacement cost is calculated at 75% of annual salary — a conservative estimate. Research from the CIPD and Oxford Economics suggests replacement costs of 50–200% depending on seniority. We apply 75% across the board to avoid overstatement.</p>
+    <p>Productivity loss: based on published research suggesting financially stressed employees lose between 2 and 5 productive hours per week. We apply 3 hours per week to 25% of the workforce — both figures are conservative relative to the research range. Hourly cost is calculated on a 2,080-hour working year.</p>
+    <p>Absence attributable to financial stress: total absence cost is calculated as employees × sick days × daily salary rate (salary ÷ 260 working days). We attribute 20% of total absence cost to financial pressure, consistent with published occupational health research.</p>
+    <p>Benefits waste: calculated as 15% of an estimated £800 annual benefits spend per employee. Research consistently finds that 15–30% of employer benefits spend is either unused, misunderstood, or not valued by employees.</p>
+    <p>Programme investment: indicative only, based on per-employee rates typical for organisations of this size. Actual investment is confirmed in writing after the Workplace Performance Review and before any programme begins. The Review itself is always at no cost.</p>
+    <p>These figures are estimates intended to illustrate the potential scale of financial pressure costs — not a precise accounting of your business. Your Workplace Performance Review will identify what is actually happening.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Aetas <span>in the Workplace</span></div>
+      <div style="margin-top:0.5rem;"><a href="mailto:matthew.steiner@aetas-partners.com" class="footer-contact">matthew.steiner@aetas-partners.com</a> &nbsp;·&nbsp; <span style="color:rgba(255,255,255,0.5);font-size:0.82rem;">020 3633 0579</span></div>
+    </div>
+    <div class="footer-reg">Aetas in the Workplace provides workplace financial wellbeing, education, and consultancy services to employers. These services support financial understanding, engagement, and resilience but do not constitute regulated financial advice. Where regulated advice is required, this is provided separately by Aetas Wealth, a trading style of Insight Financial Associates Limited, authorised and regulated by the Financial Conduct Authority (registration number 458421).</div>
+  </div>
+  <br><br>
+  <a href="/faqs.html">FAQs</a> &nbsp;·&nbsp;
+  <a href="/diagnostic.html">Take the Diagnostic</a> &nbsp;·&nbsp;
+  <a href="/privacy.html">Privacy Policy</a>
+  <div style="margin-top:16px;padding-top:14px;border-top:0.5px solid rgba(255,255,255,0.1);font-size:11px;color:rgba(255,255,255,0.38);line-height:1.9;text-align:center;">
+    Part of the <a href="https://aetas-partners.com/" style="color:rgba(255,255,255,0.55);text-decoration:none;">Aetas Group</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://fpa.aetaspartners.com/" style="color:rgba(255,255,255,0.55);text-decoration:none;">Pension IHT Planning</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://charitywellbeing.aetaspartners.com/" style="color:rgba(255,255,255,0.55);text-decoration:none;">Charity Wellbeing Service</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://collective.aetaspartners.com/" style="color:rgba(255,255,255,0.55);text-decoration:none;">Aetas Collective</a>
+  </div>
+</footer>
+
+<script>
+const fmt = (n) => '£' + Math.round(n).toLocaleString('en-GB');
+const fmtK = (n) => {
+  const r = Math.round(n);
+  return r >= 1000 ? '£' + Math.round(r/1000) + 'k' : '£' + r;
+};
+
+function calculate() {
+  const employees = parseInt(document.getElementById('employees').value);
+  const salary    = parseInt(document.getElementById('salary').value);
+  const turnover  = parseFloat(document.getElementById('turnover').value) / 100;
+  const sickDays  = parseFloat(document.getElementById('sickdays').value);
+
+  document.getElementById('employees-display').textContent = employees;
+  document.getElementById('salary-display').textContent    = '£' + salary.toLocaleString('en-GB');
+  document.getElementById('turnover-display').textContent  = Math.round(turnover * 100) + '%';
+  document.getElementById('sickdays-display').textContent  = sickDays;
+
+  const leavers          = employees * turnover;
+  const replacementCost  = salary * 0.75;
+  const retentionCost    = leavers * replacementCost;
+
+  const stressedCount    = employees * 0.25;
+  const hourlyRate       = salary / 2080;
+  const productivityLoss = stressedCount * 3 * 52 * hourlyRate;
+
+  const dailyRate        = salary / 260;
+  const absenceCost      = employees * sickDays * dailyRate * 0.20;
+
+  const benefitsWaste    = employees * 800 * 0.15;
+
+  const total = retentionCost + productivityLoss + absenceCost + benefitsWaste;
+
+  let ratePerEmployee;
+  if (employees <= 30) ratePerEmployee = 180;
+  else if (employees <= 80) ratePerEmployee = 150;
+  else ratePerEmployee = 120;
+  const programmeInv = employees * ratePerEmployee;
+  const roiRatio     = total / programmeInv;
+
+  const twoPercent = employees * 0.02 * replacementCost;
+
+  document.getElementById('total-value').textContent    = fmt(total);
+  document.getElementById('total-sub').textContent      = 'for a ' + employees + '-person business — driven primarily by turnover, productivity loss, and absence';
+  document.getElementById('retention-value').textContent  = fmtK(retentionCost);
+  document.getElementById('productivity-value').textContent = fmtK(productivityLoss);
+  document.getElementById('absence-value').textContent     = fmtK(absenceCost);
+  document.getElementById('benefits-value').textContent    = fmtK(benefitsWaste);
+  document.getElementById('roei-cost').textContent         = fmtK(total);
+  document.getElementById('roei-investment').textContent   = fmtK(programmeInv);
+  document.getElementById('roei-ratio').textContent        = Math.round(roiRatio) + '×';
+  document.getElementById('insight-value').textContent     = fmt(twoPercent);
+
+  const leaversRounded = Math.round(leavers * 10) / 10;
+  document.getElementById('turnover-sub').textContent = leaversRounded + ' leavers per year at approx. ' + fmtK(replacementCost) + ' replacement cost each';
+  document.getElementById('absence-sub').textContent  = Math.round(sickDays * 0.2 * 10) / 10 + ' days per employee per year linked to financial pressure (20% of your ' + sickDays + '-day average)';
+  document.getElementById('insight-text').textContent = 'That is ' + Math.max(1, Math.round(leavers * 0.02 * 10) / 10) + ' fewer leaver' + (Math.round(leavers * 0.02) === 1 ? '' : 's') + ' than today. This is what the Clarity pillar alone typically delivers in year one — before workshops, productivity gains, or benefits optimisation.';
+  document.getElementById('roei-note').textContent    = 'Indicative programme rate of £' + ratePerEmployee + '/employee/year for a ' + employees + '-person organisation. Actual fees are confirmed in writing after your Workplace Performance Review, always before anything begins.';
+}
+
+['employees','salary','turnover','sickdays'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calculate);
+});
+
+calculate();
+</script>
+</body>
+</html>
