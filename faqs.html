@@ -13,6 +13,9 @@
 <meta property="og:title" content="FAQs — Aetas in the Workplace">
 <meta property="og:description" content="Answers on the Aetas ITW proposition, how it compares to an EAP, fee structure, timeline, what employees experience, and how data is handled. Everything before you start a conversation.">
 <meta property="og:site_name" content="Aetas in the Workplace">
+<meta property="og:image" content="https://itw.aetaspartners.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_GB">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -257,6 +260,7 @@ footer span { color: var(--gold); }
     transition: background 0.2s !important;
   }
   .nav-cta:hover { background: #162850 !important; }
+  .nav-burger { display: none; }
   body { padding-top: 68px; }
   @media (max-width: 640px) {
     nav { padding: 0 1rem; height: auto; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; gap: 8px; }
@@ -388,6 +392,7 @@ footer span { color: var(--gold); }
   ]
 }
 </script>
+<meta name="ai-agent-summary" content="Comprehensive FAQ for Aetas in the Workplace — a business performance solution for SMEs and professional practices. Covers: proposition, ROEI, fees (from £115-165/employee/year, Review always free), process, employee experience. FCA reg 458421. Contact: matthew.steiner@aetas-partners.com.">
 </head>
 <body>
 
@@ -403,12 +408,16 @@ footer span { color: var(--gold); }
     <a href="/investment.html">Fees</a>
     <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="nav-cta">Book a healthcheck</a>
   </div>
+
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div class="hero">
   <div class="hero-inner">
     <p class="hero-eyebrow">Aetas in the Workplace</p>
-    <h1>Your questions,<br><em>answered clearly.</em></h1>
+    <h1>Your questions, <br><em>answered clearly.</em></h1>
     <div class="hero-rule"></div>
     <p class="hero-desc">Everything employers typically want to know before starting a conversation with us — on the proposition, the fees, the process, and the difference it makes.</p>
   </div>
@@ -707,5 +716,27 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 });
 </script>
 
+
+<script>
+(function(){
+  var burger = document.getElementById('navBurger');
+  var links  = document.querySelector('.nav-links');
+  if (!burger || !links) return;
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.addEventListener('click', function(e){
+    if (!burger.contains(e.target) && !links.contains(e.target)){
+      links.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>
 </body>
 </html>

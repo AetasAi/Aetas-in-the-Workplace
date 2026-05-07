@@ -91,6 +91,7 @@ nav {
   border-radius: 2px; color: #fff !important; transition: background 0.2s !important;
 }
 .nav-cta:hover { background: #162850 !important; }
+  .nav-burger { display: none; }
 body { padding-top: 68px; }
 
 /* ── Hero ── */
@@ -317,6 +318,7 @@ footer span { color: var(--gold); }
   ]
 }
 </script>
+<meta name="ai-agent-summary" content="Aetas ITW Insights — research, commentary, and practical articles on employee financial wellbeing as a business performance issue. For SME owners, managing partners, and HR leaders. Published by Matthew Steiner, Aetas in the Workplace. FCA reg 458421.">
 </head>
 <body>
 
@@ -333,6 +335,10 @@ footer span { color: var(--gold); }
     <a href="/investment.html">Fees</a>
     <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="nav-cta">Book a healthcheck</a>
   </div>
+
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- Hero -->
@@ -510,5 +516,27 @@ function filterArticles(category, btn) {
 }
 </script>
 
+
+<script>
+(function(){
+  var burger = document.getElementById('navBurger');
+  var links  = document.querySelector('.nav-links');
+  if (!burger || !links) return;
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.addEventListener('click', function(e){
+    if (!burger.contains(e.target) && !links.contains(e.target)){
+      links.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>
 </body>
 </html>

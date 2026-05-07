@@ -52,6 +52,7 @@
   .nav-links a:hover { color: var(--navy); }
   .nav-cta { background: var(--navy); color: var(--white) !important; padding: 9px 18px; border-radius: 2px; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--navy-mid) !important; }
+  .nav-burger { display: none; }
 
   /* HERO */
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 7rem 2rem 5rem; position: relative; overflow: hidden; }
@@ -190,6 +191,16 @@
     .stats-inner { grid-template-columns: repeat(2,1fr); }
     .nav-links { display: none; }
     .hero-ctas { flex-direction: column; align-items: flex-start; }
+  
+    .nav-burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; z-index: 101; }
+    .nav-burger span { display: block; width: 22px; height: 1.5px; background: var(--navy); border-radius: 2px; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-links.open { display: flex !important; flex-direction: column; align-items: flex-start; gap: 0; position: fixed; top: 68px; left: 0; right: 0; background: rgba(250,248,245,0.98); border-bottom: 0.5px solid rgba(26,43,74,0.15); padding: 1rem 2rem 1.5rem; z-index: 99; backdrop-filter: blur(10px); }
+    .nav-links.open a { font-size: 0.9rem; padding: 0.65rem 0; border-bottom: 0.5px solid rgba(26,43,74,0.08); width: 100%; color: var(--text-body) !important; letter-spacing: 0.06em; }
+    .nav-links.open a:last-child { border-bottom: none; }
+    .nav-links.open .nav-cta { background: var(--navy); color: var(--white) !important; padding: 10px 18px; border-radius: 2px; margin-top: 0.75rem; width: auto; text-align: center; border-bottom: none; }
   }
   @media (max-width: 480px) {
     .stats-inner { grid-template-columns: 1fr 1fr; }
@@ -202,6 +213,182 @@
   .fade-in-delay-2 { transition-delay: 0.2s; }
   .fade-in-delay-3 { transition-delay: 0.3s; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://itw.aetaspartners.com/#organization",
+      "name": "Aetas in the Workplace",
+      "alternateName": [
+        "Aetas ITW",
+        "Aetas Partners"
+      ],
+      "url": "https://itw.aetaspartners.com",
+      "description": "A business performance solution for SMEs, LLPs, and professional practices. Identifies and fixes the hidden cost of financial pressure in the workforce \u2014 in productivity, retention, and leadership time.",
+      "slogan": "The Business Performance Solution for SMEs.",
+      "telephone": "+442036330579",
+      "email": "matthew.steiner@aetas-partners.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "London",
+        "addressCountry": "GB"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Aetas Partners",
+        "url": "https://aetas-partners.com"
+      },
+      "knowsAbout": [
+        "Employee Financial Wellbeing",
+        "Workplace Benefits Consultancy",
+        "Financial Resilience",
+        "SME Employee Performance",
+        "Return on Employee Investment",
+        "Pension Review",
+        "Financial Education Workshops",
+        "LLP Staff Wellbeing",
+        "Professional Services HR"
+      ],
+      "sameAs": [
+        "https://aetas-partners.com",
+        "https://aetas-wealth.com"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://itw.aetaspartners.com/#website",
+      "url": "https://itw.aetaspartners.com",
+      "name": "Aetas in the Workplace",
+      "description": "Business performance solution for SMEs and professional practices. Employee benefits review, financial resilience workshops, and wellbeing programmes \u2014 built around your workforce.",
+      "publisher": {
+        "@id": "https://itw.aetaspartners.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://itw.aetaspartners.com/#webpage",
+      "url": "https://itw.aetaspartners.com/",
+      "name": "Aetas in the Workplace \u2014 The Business Performance Solution for SMEs",
+      "description": "Financial pressure is quietly costing your business in lost productivity, avoidable turnover, and leadership time. We identify exactly where, and fix it. Start with a no-cost Workplace Performance Review.",
+      "isPartOf": {
+        "@id": "https://itw.aetaspartners.com/#website"
+      },
+      "about": {
+        "@id": "https://itw.aetaspartners.com/#organization"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://itw.aetaspartners.com/#service",
+      "name": "Aetas ITW \u2014 Workplace Performance Programme",
+      "provider": {
+        "@id": "https://itw.aetaspartners.com/#organization"
+      },
+      "serviceType": "Employee Financial Wellbeing and Workforce Performance Consultancy",
+      "description": "Structured business performance programme for employers covering employee benefits consultancy (Clarity), financial resilience workshops (Confidence), and ongoing wellbeing initiatives (Stability). Designed for organisations with 10\u2013200 employees. Entry point is always the no-cost Workplace Performance Review.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "SMEs, limited companies, LLPs, law firms, accountancy practices, and professional services organisations with 10 to 200 employees"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Aetas ITW Programme",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Workplace Performance Review",
+            "description": "No-cost, no-obligation structured two-session conversation identifying whether financial pressure is affecting performance and what it is costing.",
+            "price": "0",
+            "priceCurrency": "GBP"
+          },
+          {
+            "@type": "Offer",
+            "name": "Clarity \u2014 Employee Benefits Consultancy",
+            "description": "Structured review of pensions and employee benefits. Identifies gaps, inefficiencies, and spend not performing. Implementation managed by Aetas."
+          },
+          {
+            "@type": "Offer",
+            "name": "Confidence \u2014 Financial Resilience Workshops",
+            "description": "Practical financial education for employees. Group workshops plus optional one-to-one sessions with a regulated financial planner at no cost to employer."
+          },
+          {
+            "@type": "Offer",
+            "name": "Stability \u2014 Ongoing Wellbeing Support",
+            "description": "Ongoing access to tools, partner support through the Aetas Collective, annual benefits review, and engagement reporting to leadership."
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://itw.aetaspartners.com/#matthew-steiner",
+      "name": "Matthew Steiner",
+      "jobTitle": "Co-Founder and Managing Director",
+      "worksFor": {
+        "@id": "https://itw.aetaspartners.com/#organization"
+      },
+      "email": "matthew.steiner@aetas-partners.com",
+      "telephone": "+442036330579",
+      "knowsAbout": [
+        "Employee Financial Wellbeing",
+        "Workplace Benefits",
+        "Financial Planning",
+        "SME Advisory",
+        "Business Performance",
+        "Pension Consultancy"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://itw.aetaspartners.com/#faq-homepage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Aetas in the Workplace?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aetas in the Workplace is a business performance solution for SMEs, LLPs, and professional practices. It identifies and fixes the hidden cost of financial pressure in the workforce \u2014 in productivity, retention, and leadership time. The programme covers three structured pillars: employee benefits consultancy (Clarity), financial resilience workshops (Confidence), and ongoing wellbeing initiatives (Stability)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who does Aetas ITW serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aetas ITW is designed for UK organisations with between 10 and 200 employees, including SMEs, limited companies, LLPs, law firms, accountancy practices, and other professional services businesses. It is built for employers where the commercial impact of financial pressure in the workforce is highest and where off-the-shelf solutions do not translate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Workplace Performance Review is always provided at no cost and carries no obligation. If further work is recommended, fees are structured on a per-employee basis \u2014 scaling with workforce size. Indicative full programme rates start from \u00a3115\u2013165 per employee per year depending on headcount band. Fees are agreed in writing before delivery begins. In most cases, the savings identified in the first year offset the programme fee."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Aetas ITW different from an Employee Assistance Programme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An EAP is a reactive service with typical uptake below 5%. Aetas ITW is a proactive, consultancy-led programme that starts with the employer \u2014 identifying where financial pressure is showing up in performance, retention, and leadership time \u2014 and builds a bespoke response. It includes access to a regulated Independent Financial Adviser through Aetas Wealth (FCA reg 458421), something an EAP cannot provide."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 
 <nav>
@@ -216,6 +403,10 @@
     <a href="/investment.html">Fees</a>
     <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="nav-cta">Book a healthcheck</a>
   </div>
+
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -498,8 +689,13 @@
     <div class="footer-reg">Aetas in the Workplace provides workplace financial wellbeing, education, and consultancy services to employers. These services support financial understanding, engagement, and resilience but do not constitute regulated financial advice. Where regulated advice is required, this is provided separately by Aetas Wealth, a trading style of Insight Financial Associates Limited, authorised and regulated by the Financial Conduct Authority (registration number 458421).</div>
   </div>
   <br><br>
+  <br>
+  <a href="/limited-companies.html">Limited companies</a> &nbsp;·&nbsp;
+  <a href="/llps.html">LLPs</a> &nbsp;·&nbsp;
+  <a href="/calculator.html">ROEI Calculator</a> &nbsp;·&nbsp;
+  <a href="/investment.html">Fees</a> &nbsp;·&nbsp;
   <a href="/faqs.html">FAQs</a> &nbsp;·&nbsp;
-  <a href="/diagnostic.html">Take the Diagnostic</a> &nbsp;·&nbsp;
+  <a href="/diagnostic.html">Diagnostic</a> &nbsp;·&nbsp;
   <a href="/privacy.html">Privacy Policy</a>
   <div style="margin-top:16px;padding-top:14px;border-top:0.5px solid rgba(255,255,255,0.1);font-size:11px;color:rgba(255,255,255,0.38);line-height:1.9;text-align:center;">
     Part of the <a href="https://aetas-partners.com/" style="color:rgba(255,255,255,0.55);text-decoration:none;">Aetas Group</a>
@@ -515,6 +711,28 @@
 <script>
   const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<script>
+(function(){
+  var burger = document.getElementById('navBurger');
+  var links  = document.querySelector('.nav-links');
+  if (!burger || !links) return;
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.addEventListener('click', function(e){
+    if (!burger.contains(e.target) && !links.contains(e.target)){
+      links.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+})();
 </script>
 </body>
 </html>

@@ -104,5 +104,27 @@ p { color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.75; margin-
   </div>
 </div>
 
+
+<script>
+(function(){
+  var burger = document.getElementById('navBurger');
+  var links  = document.querySelector('.nav-links');
+  if (!burger || !links) return;
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.addEventListener('click', function(e){
+    if (!burger.contains(e.target) && !links.contains(e.target)){
+      links.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>
 </body>
 </html>

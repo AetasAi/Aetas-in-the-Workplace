@@ -187,6 +187,7 @@ footer span { color: var(--gold); }
     transition: background 0.2s !important;
   }
   .nav-cta:hover { background: #162850 !important; }
+  .nav-burger { display: none; }
   body { padding-top: 68px; }
   @media (max-width: 640px) {
     nav { padding: 0 1rem; height: auto; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; gap: 8px; }
@@ -224,6 +225,10 @@ footer span { color: var(--gold); }
     <a href="/investment.html">Fees</a>
     <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" class="nav-cta">Book a healthcheck</a>
   </div>
+
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div class="hero">
@@ -495,5 +500,27 @@ footer span { color: var(--gold); }
   <p>Aetas in the Workplace &nbsp;·&nbsp; <span>Where employee wellbeing meets business performance</span> &nbsp;·&nbsp; itw.aetaspartners.com</p>
 </footer>
 
+
+<script>
+(function(){
+  var burger = document.getElementById('navBurger');
+  var links  = document.querySelector('.nav-links');
+  if (!burger || !links) return;
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.addEventListener('click', function(e){
+    if (!burger.contains(e.target) && !links.contains(e.target)){
+      links.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>
 </body>
 </html>
