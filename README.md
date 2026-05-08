@@ -150,7 +150,7 @@ Both client forms generate a formatted A4 PDF client-side (jsPDF) and deliver it
 ```
 Public Key:           T-OvAY8-q_r_P4tAA
 Service ID:           service_dztbuyl
-Internal template:    template_q3dj6ti   → matthew.steiner@aetas-partners.com
+Internal template:    template_283g3pp   → matthew.steiner@aetas-partners.com
 Confirm template:     template_2hfklis   → client email address
 ```
 
