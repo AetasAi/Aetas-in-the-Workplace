@@ -460,7 +460,7 @@ body{font-family:'Jost',sans-serif;font-weight:300;color:var(--text-body);backgr
   var _dpaProgress = document.getElementById('scroll-progress');
   var _dpaClauses = document.querySelectorAll('.clause, .sig-section');
   var _maxSeen = 0;
-  new IntersectionObserver(function(entries){
+  var _scrollObs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
         var n = parseInt(e.target.id.replace('clause-',''));
@@ -474,10 +474,8 @@ body{font-family:'Jost',sans-serif;font-weight:300;color:var(--text-body);backgr
         }
       }
     });
-  },{threshold:0.4}).observe || _dpaClauses.forEach(function(c){
-    new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var n=parseInt(e.target.id.replace('clause-',''));if(n>_maxSeen){_maxSeen=n;var p=Math.min(100,Math.round((n/16)*100));_dpaProgress.textContent=p>=100?'All clauses reviewed \u2713':p+'% reviewed \u2014 please continue scrolling.';if(p>=100)_dpaProgress.style.color='var(--success)';}}}},{threshold:0.4}).observe(c);
-  });
-  (function(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var n=parseInt(e.target.id.replace('clause-',''));if(n>_maxSeen){_maxSeen=n;var p=Math.min(100,Math.round((n/16)*100));_dpaProgress.textContent=p>=100?'All clauses reviewed \u2713':p+'% reviewed \u2014 please continue scrolling.';if(p>=100)_dpaProgress.style.color='var(--success)';}}}},{threshold:0.4});_dpaClauses.forEach(function(c){obs.observe(c);});})();
+  }, {threshold: 0.4});
+  _dpaClauses.forEach(function(c){ _scrollObs.observe(c); });
 
   // ── GENERATE DPA PDF ──────────────────────────────────────────────────
   function generateDPAPDF(clientOrg, clientSig, clientPrint, clientPos, clientEmail, clientDate, ref) {
