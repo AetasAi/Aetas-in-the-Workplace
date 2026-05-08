@@ -432,11 +432,11 @@ body{font-family:'Jost',sans-serif;font-weight:300;color:var(--text-body);backgr
 
   <script>
   // ── EMAILJS CONFIG (same credentials as benefits form) ────────────────
-  const EMAILJS_PUBLIC_KEY        = 'YOUR_EMAILJS_PUBLIC_KEY';
-  const EMAILJS_SERVICE_ID        = 'YOUR_EMAILJS_SERVICE_ID';
-  const EMAILJS_TEMPLATE_INTERNAL = 'YOUR_TEMPLATE_ID_INTERNAL';
-  const EMAILJS_TEMPLATE_CONFIRM  = 'YOUR_TEMPLATE_ID_CONFIRM';
-  if (EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY') emailjs.init(EMAILJS_PUBLIC_KEY);
+  const EMAILJS_PUBLIC_KEY        = 'T-OvAY8-q_r_P4tAA';
+  const EMAILJS_SERVICE_ID        = 'service_dztbuyl';
+  const EMAILJS_TEMPLATE_INTERNAL = 'template_q3dj6ti';
+  const EMAILJS_TEMPLATE_CONFIRM  = 'template_2hfklis';
+  if (EMAILJS_PUBLIC_KEY !== 'T-OvAY8-q_r_P4tAA') emailjs.init(EMAILJS_PUBLIC_KEY);
 
   // ── AUTO-FILL ─────────────────────────────────────────────────────────
   (function(){
@@ -653,7 +653,7 @@ body{font-family:'Jost',sans-serif;font-weight:300;color:var(--text-body);backgr
 
       btnText.textContent='Sending confirmation...';
 
-      if(EMAILJS_PUBLIC_KEY!=='YOUR_EMAILJS_PUBLIC_KEY'){
+      if(EMAILJS_PUBLIC_KEY!=='T-OvAY8-q_r_P4tAA'){
         await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_INTERNAL,{
           ref:ref, org:clientOrg, contact:clientPrint, email:clientEmail,
           form_type:'Data Processing Agreement', form_data:'Client: '+clientOrg+'\nSigned: '+clientSig+'\nDate: '+clientDate,
