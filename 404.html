@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
 <meta name="theme-color" content="#0d2c6c" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -29,7 +29,7 @@
 }
 html, body { height: 100%; }
 body {
-  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-family: 'Open Sans', sans-serif; font-weight: 300;
   background: var(--navy); color: var(--white);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -54,14 +54,14 @@ body::after {
   color: var(--gold); margin-bottom: 20px;
 }
 .num {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: clamp(6rem, 18vw, 10rem);
   font-weight: 300; color: rgba(255,255,255,0.08);
   line-height: 1; margin-bottom: -20px;
   position: relative; z-index: 0;
 }
 h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 400; color: var(--white);
   line-height: 1.2; margin-bottom: 20px;
@@ -72,7 +72,7 @@ h1 em { font-style: italic; color: var(--gold-light); }
 p { color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.75; margin-bottom: 36px; }
 .links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .btn {
-  display: inline-block; font-family: 'Jost', sans-serif;
+  display: inline-block; font-family: 'Open Sans', sans-serif;
   font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
   text-transform: uppercase; text-decoration: none;
   padding: 12px 26px; border: 1px solid transparent;
@@ -84,7 +84,7 @@ p { color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.75; margin-
 .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
 .brand {
   position: absolute; top: 28px; left: 40px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 0.95rem; font-weight: 500;
   color: rgba(255,255,255,0.5); text-decoration: none;
   letter-spacing: 0.02em;
@@ -98,6 +98,42 @@ p { color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.75; margin-
   .nav-brand .nav-mark { width: 28px; height: 28px; margin-right: 8px; }
   .footer-mark { width: 28px; height: 28px; vertical-align: middle; margin-right: 10px; }
   .footer-brand .footer-mark { width: 26px; height: 26px; margin-right: 8px; }
+
+  /* type-refresh: wealth-style nav lockup */
+  /* Mark sits as a flex child of the anchor; tagline stacked beneath brand. */
+  .nav-logo  { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-brand { display: inline-flex; align-items: center; gap: 10px; }
+  .nav-logo .nav-mark, .nav-brand .nav-mark {
+    margin-right: 0; vertical-align: middle; flex-shrink: 0; display: block;
+  }
+  .nav-lockup { display: flex; flex-direction: column; line-height: 1.05; }
+  .nav-logo .nav-brand-text, .nav-brand .nav-brand-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.0rem;
+    letter-spacing: 0;
+    color: var(--navy);
+  }
+  .nav-brand .nav-brand-text { color: var(--white); }
+  .nav-logo .nav-tagline, .nav-brand .nav-tagline {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #00aabb;
+    margin-top: 3px;
+  }
+  /* Soften nav links to mixed-case to match the Wealth nav. */
+  .nav-links a, nav .nav-links a {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.88rem !important;
+  }
+  .nav-links .nav-cta, nav .nav-links .nav-cta {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.02em !important;
+  }
 </style>
 </head>
 <body>

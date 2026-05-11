@@ -14,16 +14,16 @@
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0d2c6c;--navy-mid:#1d4291;--navy-light:#e8ecf3;--navy-xlight:#f0f3f8;--gold:#b8934a;--gold-light:#d4b07a;--gold-pale:#f5ede0;--cream:#faf8f5;--white:#ffffff;--text-body:#3a3a3a;--text-muted:#6a6a6a;--border:rgba(13,44,108,0.12);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;font-weight:300;color:var(--text-body);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;}
+body{font-family:'Open Sans', sans-serif;font-weight:300;color:var(--text-body);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(--navy);border-bottom:1px solid rgba(184,154,90,0.18);display:flex;align-items:center;justify-content:space-between;padding:0 40px;}
-.nav-brand{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1rem;letter-spacing:0.03em;color:var(--white);text-decoration:none;white-space:nowrap;}
+.nav-brand{font-family:'Open Sans', sans-serif;font-weight:500;font-size:1rem;letter-spacing:0.03em;color:var(--white);text-decoration:none;white-space:nowrap;}
 .nav-brand span{color:var(--gold-light);}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
 .nav-links a{font-size:0.72rem;font-weight:400;letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.3s;}
@@ -42,7 +42,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(-
 .article-eyebrow a:hover{color:var(--white);}
 .article-eyebrow-sep{color:rgba(255,255,255,0.25);font-size:0.7rem;}
 .article-eyebrow-cat{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
-.article-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:400;color:var(--white);line-height:1.2;margin-bottom:1.25rem;letter-spacing:-0.01em;}
+.article-hero h1{font-family:'Open Sans', sans-serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:400;color:var(--white);line-height:1.2;margin-bottom:1.25rem;letter-spacing:-0.01em;}
 .article-hero h1 em{font-style:italic;color:var(--gold-light);}
 .article-standfirst{font-size:1.05rem;line-height:1.85;color:rgba(255,255,255,0.65);max-width:640px;margin-bottom:2rem;}
 .article-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-top:1.5rem;border-top:0.5px solid rgba(255,255,255,0.12);}
@@ -52,8 +52,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(-
 /* ARTICLE BODY */
 .article-layout{max-width:760px;margin:0 auto;padding:4rem 40px 6rem;}
 .article-body{max-width:680px;}
-.article-body h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:500;color:var(--navy);margin:2.5rem 0 0.75rem;line-height:1.25;}
-.article-body h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--navy);margin:2rem 0 0.6rem;}
+.article-body h2{font-family:'Open Sans', sans-serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:500;color:var(--navy);margin:2.5rem 0 0.75rem;line-height:1.25;}
+.article-body h3{font-family:'Open Sans', sans-serif;font-size:1.25rem;font-weight:500;color:var(--navy);margin:2rem 0 0.6rem;}
 .article-body p{font-size:0.97rem;line-height:1.9;color:var(--text-body);margin-bottom:1.25rem;}
 .article-body p:last-child{margin-bottom:0;}
 .article-body ul,.article-body ol{margin:0.5rem 0 1.25rem 1.5rem;}
@@ -62,20 +62,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(-
 .article-body strong{font-weight:500;color:var(--navy);}
 .article-body em{font-style:italic;}
 .article-body blockquote{margin:2rem 0;padding:1.25rem 1.5rem;border-left:3px solid var(--gold);background:var(--gold-pale);border-radius:0 4px 4px 0;}
-.article-body blockquote p{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--navy);margin:0;}
+.article-body blockquote p{font-family:'Open Sans', sans-serif;font-size:1.15rem;font-style:italic;color:var(--navy);margin:0;}
 .article-rule{height:0.5px;background:var(--border);margin:2.5rem 0;}
 
 /* PULL QUOTE */
 .pull-quote{margin:2.5rem 0;padding:2rem;background:var(--navy);border-radius:4px;text-align:center;}
-.pull-quote p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:300;font-style:italic;color:var(--white);line-height:1.4;margin:0;}
-.pull-quote cite{display:block;margin-top:1rem;font-family:'Jost',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);font-style:normal;}
+.pull-quote p{font-family:'Open Sans', sans-serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:300;font-style:italic;color:var(--white);line-height:1.4;margin:0;}
+.pull-quote cite{display:block;margin-top:1rem;font-family:'Open Sans', sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);font-style:normal;}
 
 /* ARTICLE CTA */
 .article-cta{margin-top:3.5rem;padding:2rem;background:var(--navy-xlight);border:0.5px solid var(--border);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;}
 .article-cta-label{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;display:block;}
-.article-cta h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--navy);margin-bottom:0.5rem;}
+.article-cta h3{font-family:'Open Sans', sans-serif;font-size:1.3rem;font-weight:500;color:var(--navy);margin-bottom:0.5rem;}
 .article-cta p{font-size:0.88rem;color:var(--text-muted);line-height:1.75;margin-bottom:1.25rem;}
-.btn-article-cta{display:inline-block;padding:12px 24px;background:var(--navy);color:var(--white);font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;}
+.btn-article-cta{display:inline-block;padding:12px 24px;background:var(--navy);color:var(--white);font-family:'Open Sans', sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;}
 .btn-article-cta:hover{background:var(--navy-mid);}
 
 /* MORE ARTICLES */
@@ -83,18 +83,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(-
 .more-articles-inner{max-width:760px;margin:0 auto;}
 .more-eyebrow{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px;}
 .more-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
-.more-articles h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:2rem;}
+.more-articles h2{font-family:'Open Sans', sans-serif;font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:2rem;}
 .more-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:var(--border);}
 .more-card{background:var(--cream);padding:1.5rem;text-decoration:none;transition:background 0.2s;}
 .more-card:hover{background:var(--gold-pale);}
 .more-card-cat{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.5rem;}
-.more-card h3{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;color:var(--navy);line-height:1.35;margin-bottom:0.4rem;}
+.more-card h3{font-family:'Open Sans', sans-serif;font-size:1.05rem;font-weight:500;color:var(--navy);line-height:1.35;margin-bottom:0.4rem;}
 .more-card p{font-size:0.82rem;color:var(--text-muted);line-height:1.6;}
 
 /* FOOTER */
 footer{background:var(--navy);padding:2.5rem 40px;}
 .footer-inner{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;}
-.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--white);}
+.footer-brand{font-family:'Open Sans', sans-serif;font-size:1rem;font-weight:500;color:var(--white);}
 .footer-brand span{color:var(--gold-light);}
 .footer-contact{font-size:0.82rem;color:rgba(255,255,255,0.45);margin-top:4px;}
 .footer-contact a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
@@ -124,13 +124,49 @@ footer{background:var(--navy);padding:2.5rem 40px;}
   .nav-brand .nav-mark { width: 28px; height: 28px; margin-right: 8px; }
   .footer-mark { width: 28px; height: 28px; vertical-align: middle; margin-right: 10px; }
   .footer-brand .footer-mark { width: 26px; height: 26px; margin-right: 8px; }
+
+  /* type-refresh: wealth-style nav lockup */
+  /* Mark sits as a flex child of the anchor; tagline stacked beneath brand. */
+  .nav-logo  { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-brand { display: inline-flex; align-items: center; gap: 10px; }
+  .nav-logo .nav-mark, .nav-brand .nav-mark {
+    margin-right: 0; vertical-align: middle; flex-shrink: 0; display: block;
+  }
+  .nav-lockup { display: flex; flex-direction: column; line-height: 1.05; }
+  .nav-logo .nav-brand-text, .nav-brand .nav-brand-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.0rem;
+    letter-spacing: 0;
+    color: var(--navy);
+  }
+  .nav-brand .nav-brand-text { color: var(--white); }
+  .nav-logo .nav-tagline, .nav-brand .nav-tagline {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #00aabb;
+    margin-top: 3px;
+  }
+  /* Soften nav links to mixed-case to match the Wealth nav. */
+  .nav-links a, nav .nav-links a {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.88rem !important;
+  }
+  .nav-links .nav-cta, nav .nav-links .nav-cta {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.02em !important;
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"When Everyday Life Stops Talking Back","description":"How financial pressure manifests through silence, withdrawal, and the slow disengagement that quietly undermines workforce performance.","author":{"@type":"Person","name":"Daniel Cottam","url":"https://www.aetas-partners.com"},"publisher":{"@type":"Organization","name":"Aetas in the Workplace","url":"https://itw.aetaspartners.com/","logo":{"@type":"ImageObject","url":"https://itw.aetaspartners.com/icons/favicon-32.png"}},"datePublished":"2026-04-08","dateModified":"2026-04-08","mainEntityOfPage":{"@type":"WebPage","@id":"https://itw.aetaspartners.com/insights/when-everyday-life-stops-talking-back.html"},"image":"https://itw.aetaspartners.com/og-image.png","inLanguage":"en-GB","articleSection":"Insights","keywords":"financial wellbeing, employee engagement, mental load, workforce performance"}</script>
 </head>
 <body>
 
 <nav>
-  <a class="nav-brand" href="/index.html"><img src="/aetas-mark-reverse.svg" alt="" class="nav-mark" width="28" height="28">Aetas <span>in the Workplace</span></a>
+  <a class="nav-brand" href="/index.html"><img src="/aetas-mark-reverse.svg" alt="" class="nav-mark" width="34" height="34"><span class="nav-lockup"><span class="nav-brand-text">Aetas in the Workplace</span><span class="nav-tagline">The Business Performance Solution</span></span></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/limited-companies.html">Limited companies</a></li>
     <li><a href="/llps.html">LLPs</a></li>

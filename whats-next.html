@@ -21,15 +21,15 @@
 <meta name="theme-color" content="#0d2c6c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0d2c6c;--navy-mid:#1d4291;--navy-light:#e8ecf3;--gold:#b8934a;--gold-light:#d4b07a;--gold-pale:#f5ede0;--cream:#faf8f5;--white:#ffffff;--text-body:#4a4a4a;--text-muted:#7a7a7a;--border:rgba(13,44,108,0.12);--border-gold:rgba(184,147,74,0.35);--green:#1a7a4a;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;font-weight:300;color:var(--text-body);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;}
+body{font-family:'Open Sans', sans-serif;font-weight:300;color:var(--text-body);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,0.96);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:0.04em;}
+.nav-logo{font-family:'Open Sans', sans-serif;font-size:1.2rem;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:0.04em;}
 .nav-logo span{color:var(--gold);}
 .nav-links{display:flex;align-items:center;gap:2rem;}
 .nav-links a{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
@@ -44,7 +44,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,
 .hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
 .hero-eyebrow{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px;}
 .hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.5rem;letter-spacing:-0.02em;}
+.hero h1{font-family:'Open Sans', sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.5rem;letter-spacing:-0.02em;}
 .hero h1 em{font-style:italic;color:var(--gold-light);}
 .hero-sub{font-size:1rem;color:rgba(255,255,255,0.65);max-width:600px;line-height:1.85;margin-bottom:2rem;}
 
@@ -60,7 +60,7 @@ section.white{background:var(--white);}
 .section-inner{max-width:900px;margin:0 auto;}
 .eyebrow{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:10px;}
 .eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.6rem);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:1rem;}
+h2{font-family:'Open Sans', sans-serif;font-size:clamp(1.9rem,3vw,2.6rem);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:1rem;}
 .lead{font-size:1rem;line-height:1.85;color:var(--text-body);margin-bottom:2rem;}
 
 /* CONVERSATIONS */
@@ -68,7 +68,7 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.6rem);fon
 .convo{border-radius:4px;overflow:hidden;}
 .convo-header{background:var(--navy);padding:1.5rem 1.75rem 1.25rem;}
 .convo-label{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.4rem;}
-.convo-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--white);margin-bottom:0.25rem;}
+.convo-title{font-family:'Open Sans', sans-serif;font-size:1.4rem;font-weight:400;color:var(--white);margin-bottom:0.25rem;}
 .convo-duration{font-size:0.82rem;color:rgba(255,255,255,0.45);font-style:italic;}
 .convo-body{background:rgba(13,44,108,0.04);border:0.5px solid var(--border);border-radius:0 0 4px 4px;padding:1.5rem 1.75rem;}
 .convo-intro{font-size:0.92rem;color:var(--text-body);line-height:1.8;margin-bottom:1.25rem;}
@@ -80,7 +80,7 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.6rem);fon
 /* PREP */
 .prep-list{display:flex;flex-direction:column;gap:12px;margin-top:1.5rem;}
 .prep-item{display:flex;gap:16px;padding:1rem 1.25rem;background:var(--white);border:0.5px solid var(--border);border-radius:4px;align-items:flex-start;}
-.prep-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--gold);line-height:1;flex-shrink:0;padding-top:2px;}
+.prep-num{font-family:'Open Sans', sans-serif;font-size:1.4rem;font-weight:300;color:var(--gold);line-height:1;flex-shrink:0;padding-top:2px;}
 .prep-text{font-size:0.9rem;color:var(--text-body);line-height:1.65;}
 .prep-note{margin-top:1.5rem;font-size:0.87rem;color:var(--text-muted);line-height:1.75;padding:1.25rem;background:var(--gold-pale);border-radius:4px;border-left:2px solid var(--border-gold);}
 
@@ -97,11 +97,11 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.6rem);fon
 .before-two-inner{max-width:860px;margin:0 auto;}
 .form-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;margin-top:2rem;}
 .form-card{background:var(--white);border:0.5px solid var(--border);border-radius:4px;padding:2rem 1.75rem;display:flex;flex-direction:column;gap:0;}
-.form-card-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.75rem;}
-.form-card-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--navy);margin-bottom:0.5rem;}
+.form-card-num{font-family:'Open Sans', sans-serif;font-size:2rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.75rem;}
+.form-card-title{font-family:'Open Sans', sans-serif;font-size:1.25rem;font-weight:500;color:var(--navy);margin-bottom:0.5rem;}
 .form-card-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.75;margin-bottom:1.5rem;flex:1;}
 .form-card-note{font-size:0.78rem;color:var(--text-muted);padding:0.75rem 1rem;background:var(--navy-xlight);border-radius:3px;margin-bottom:1.25rem;line-height:1.6;}
-.btn-form-link{display:inline-block;padding:11px 22px;background:var(--navy);color:var(--white);font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;align-self:flex-start;}
+.btn-form-link{display:inline-block;padding:11px 22px;background:var(--navy);color:var(--white);font-family:'Open Sans', sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;align-self:flex-start;}
 .btn-form-link:hover{background:var(--navy-mid);}
 .before-two-note{margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted);line-height:1.75;padding:1.25rem 1.5rem;background:var(--gold-pale);border:0.5px solid rgba(184,147,74,0.3);border-radius:4px;}
 @media(max-width:640px){.form-cards{grid-template-columns:1fr;}}
@@ -115,7 +115,7 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.6rem);fon
 .contact-ways{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:rgba(255,255,255,0.07);border-radius:4px;overflow:hidden;margin-top:2rem;}
 .contact-way{background:rgba(255,255,255,0.04);padding:1.75rem 1.5rem;}
 .contact-way-label{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.75rem;}
-.contact-way-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--white);margin-bottom:0.5rem;}
+.contact-way-title{font-family:'Open Sans', sans-serif;font-size:1.1rem;font-weight:400;color:var(--white);margin-bottom:0.5rem;}
 .contact-way-detail{font-size:0.87rem;color:rgba(255,255,255,0.6);line-height:1.65;}
 .contact-way a{color:var(--gold-light);text-decoration:none;}
 .contact-way a:hover{text-decoration:underline;}
@@ -123,7 +123,7 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.6rem);fon
 /* CALCULATOR NUDGE */
 .calc-nudge{margin-top:2rem;padding:1.25rem 1.5rem;background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.08);border-radius:4px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
 .calc-nudge p{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.65;max-width:480px;}
-.btn-gold-sm{display:inline-block;padding:11px 24px;background:var(--gold);color:var(--navy);font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;white-space:nowrap;flex-shrink:0;}
+.btn-gold-sm{display:inline-block;padding:11px 24px;background:var(--gold);color:var(--navy);font-family:'Open Sans', sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;white-space:nowrap;flex-shrink:0;}
 .btn-gold-sm:hover{background:var(--gold-light);}
 
 /* FINAL CONFIRMATION */
@@ -138,7 +138,7 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.6rem);fon
 
 footer{background:var(--navy);padding:2.5rem 2rem;}
 .footer-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--white);}
+.footer-logo{font-family:'Open Sans', sans-serif;font-size:1.1rem;font-weight:400;color:var(--white);}
 .footer-logo span{color:var(--gold-light);}
 .footer-reg{font-size:0.72rem;line-height:1.7;color:rgba(255,255,255,0.4);max-width:580px;}
 footer a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.78rem;}
@@ -168,12 +168,48 @@ footer a:hover{color:var(--gold-light);}
   .nav-brand .nav-mark { width: 28px; height: 28px; margin-right: 8px; }
   .footer-mark { width: 28px; height: 28px; vertical-align: middle; margin-right: 10px; }
   .footer-brand .footer-mark { width: 26px; height: 26px; margin-right: 8px; }
+
+  /* type-refresh: wealth-style nav lockup */
+  /* Mark sits as a flex child of the anchor; tagline stacked beneath brand. */
+  .nav-logo  { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-brand { display: inline-flex; align-items: center; gap: 10px; }
+  .nav-logo .nav-mark, .nav-brand .nav-mark {
+    margin-right: 0; vertical-align: middle; flex-shrink: 0; display: block;
+  }
+  .nav-lockup { display: flex; flex-direction: column; line-height: 1.05; }
+  .nav-logo .nav-brand-text, .nav-brand .nav-brand-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.0rem;
+    letter-spacing: 0;
+    color: var(--navy);
+  }
+  .nav-brand .nav-brand-text { color: var(--white); }
+  .nav-logo .nav-tagline, .nav-brand .nav-tagline {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #00aabb;
+    margin-top: 3px;
+  }
+  /* Soften nav links to mixed-case to match the Wealth nav. */
+  .nav-links a, nav .nav-links a {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.88rem !important;
+  }
+  .nav-links .nav-cta, nav .nav-links .nav-cta {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.02em !important;
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo"><img src="/aetas-mark.svg" alt="" class="nav-mark" width="32" height="32">Aetas <span>in the Workplace</span></a>
+  <a href="index.html" class="nav-logo"><img src="/aetas-mark.svg" alt="" class="nav-mark" width="38" height="38"><span class="nav-lockup"><span class="nav-brand-text">Aetas in the Workplace</span><span class="nav-tagline">The Business Performance Solution</span></span></a>
   <div class="nav-links">
     <a href="limited-companies.html">Limited companies</a>
     <a href="llps.html">LLPs</a>

@@ -8,16 +8,16 @@
 <meta http-equiv="refresh" content="0;url=https://charitywellbeing.aetaspartners.com/">
 <link rel="canonical" href="https://charitywellbeing.aetaspartners.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Jost',sans-serif;font-weight:300;background:#0d2c6c;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;text-align:center;}
+body{font-family:'Open Sans', sans-serif;font-weight:300;background:#0d2c6c;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;text-align:center;}
 .wrap{max-width:520px;}
-.logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#d4b07a;margin-bottom:3rem;letter-spacing:0.04em;}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;line-height:1.2;margin-bottom:1.25rem;}
+.logo{font-family:'Open Sans', sans-serif;font-size:1.1rem;color:#d4b07a;margin-bottom:3rem;letter-spacing:0.04em;}
+h1{font-family:'Open Sans', sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;line-height:1.2;margin-bottom:1.25rem;}
 h1 em{font-style:italic;color:#d4b07a;}
 p{font-size:0.92rem;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:2rem;}
-.btn{display:inline-block;padding:14px 30px;background:#b8934a;color:#0d2c6c;font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;margin-bottom:1rem;}
+.btn{display:inline-block;padding:14px 30px;background:#b8934a;color:#0d2c6c;font-family:'Open Sans', sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;margin-bottom:1rem;}
 .btn:hover{background:#d4b07a;}
 .back{font-size:0.8rem;color:rgba(255,255,255,0.4);display:block;}
 .back a{color:rgba(255,255,255,0.5);text-decoration:none;}
@@ -28,6 +28,42 @@ p{font-size:0.92rem;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:2r
   .nav-brand .nav-mark { width: 28px; height: 28px; margin-right: 8px; }
   .footer-mark { width: 28px; height: 28px; vertical-align: middle; margin-right: 10px; }
   .footer-brand .footer-mark { width: 26px; height: 26px; margin-right: 8px; }
+
+  /* type-refresh: wealth-style nav lockup */
+  /* Mark sits as a flex child of the anchor; tagline stacked beneath brand. */
+  .nav-logo  { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-brand { display: inline-flex; align-items: center; gap: 10px; }
+  .nav-logo .nav-mark, .nav-brand .nav-mark {
+    margin-right: 0; vertical-align: middle; flex-shrink: 0; display: block;
+  }
+  .nav-lockup { display: flex; flex-direction: column; line-height: 1.05; }
+  .nav-logo .nav-brand-text, .nav-brand .nav-brand-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.0rem;
+    letter-spacing: 0;
+    color: var(--navy);
+  }
+  .nav-brand .nav-brand-text { color: var(--white); }
+  .nav-logo .nav-tagline, .nav-brand .nav-tagline {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #00aabb;
+    margin-top: 3px;
+  }
+  /* Soften nav links to mixed-case to match the Wealth nav. */
+  .nav-links a, nav .nav-links a {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.88rem !important;
+  }
+  .nav-links .nav-cta, nav .nav-links .nav-cta {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.02em !important;
+  }
 </style>
 </head>
 <body>
