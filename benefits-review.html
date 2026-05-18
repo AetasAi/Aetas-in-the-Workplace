@@ -231,7 +231,7 @@ select { appearance: none; -webkit-appearance: none; background-image: url("data
     </div>
   </div>
 
-  <form id="briefing-form" action="https://formspree.io/f/xaqlqpdy" method="POST" enctype="multipart/form-data" novalidate>
+  <form id="briefing-form" action="https://formspree.io/f/xaqlqpdy" method="POST" novalidate>
 
     <!-- 01 ORGANISATION -->
     <section class="form-section" id="section-1">
@@ -404,48 +404,29 @@ select { appearance: none; -webkit-appearance: none; background-image: url("data
     <section class="form-section" id="section-5">
       <div class="section-head"><span class="section-num">05</span><span class="section-title">Supporting documents</span></div>
       <div class="section-body">
-        <p class="section-intro">Upload any documents that will help us review your pension and benefits arrangements. Where member-level scheme information is provided, the items we need for each member are:</p>
-        <div class="chip-row">
-          <span class="chip">Gender</span>
-          <span class="chip">Date of birth</span>
-          <span class="chip">Job title</span>
-          <span class="chip">Salary</span>
+        <p class="section-intro">Documents are sent by email rather than uploaded here. The button below opens a pre-addressed email so you can attach files from your machine and send them directly.</p>
+
+        <div style="background: var(--paper-warm); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <p style="font-weight: 600; color: var(--aetas-blue); margin: 0 0 0.75rem;">Documents that help us most</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.85rem;">Attach whatever you have. Common items:</p>
+          <ul style="font-size: 0.9rem; color: var(--ink-soft); margin: 0 0 1.25rem; padding-left: 1.25rem; line-height: 1.85;">
+            <li>Pension contribution schedule or monthly upload</li>
+            <li>Member-level scheme data (gender, date of birth, job title, salary)</li>
+            <li>Benefits and renewal documents</li>
+            <li>Any provider statements, scheme literature, or policy paperwork</li>
+          </ul>
+
+          <a id="email-docs-btn" href="#" class="btn btn-primary" style="margin-bottom: 0.75rem;">
+            <span>&#9993;</span>
+            <span>Email documents to Matthew</span>
+          </a>
+          <p style="font-size: 0.82rem; color: var(--ink-muted); margin: 0;">Opens a pre-addressed email in your default email program. Attach files from your machine, then send. Use the same address as your form contact email where possible so we can match the submissions.</p>
         </div>
-        <div class="upload-grid">
-          <div class="upload-zone">
-            <label>Pension contribution schedule / monthly upload</label>
-            <label class="upload-dropzone" for="pension_monthly_upload">
-              <span class="upload-icon">&#9783;</span>
-              <span class="upload-filename" id="fn_pension_monthly_upload">No file</span>
-              <span class="upload-prompt">Click to upload or drag and drop</span>
-              <span class="upload-meta">.csv, .xls, .xlsx, .pdf, .doc, .docx &middot; max 10MB</span>
-              <input type="file" id="pension_monthly_upload" name="pension_monthly_upload" accept=".csv,.xls,.xlsx,.pdf,.doc,.docx">
-            </label>
-          </div>
-          <div class="upload-zone">
-            <label>Member-level scheme data</label>
-            <label class="upload-dropzone" for="member_data_file">
-              <span class="upload-icon">&#9783;</span>
-              <span class="upload-filename" id="fn_member_data_file">No file</span>
-              <span class="upload-prompt">Click to upload or drag and drop</span>
-              <span class="upload-meta">.csv, .xls, .xlsx, .pdf, .doc, .docx &middot; max 10MB</span>
-              <input type="file" id="member_data_file" name="member_data_file" accept=".csv,.xls,.xlsx,.pdf,.doc,.docx">
-            </label>
-          </div>
-          <div class="upload-zone">
-            <label>Other benefits or renewal documents</label>
-            <label class="upload-dropzone" for="other_docs">
-              <span class="upload-icon">&#9783;</span>
-              <span class="upload-filename" id="fn_other_docs">No file</span>
-              <span class="upload-prompt">Click to upload or drag and drop</span>
-              <span class="upload-meta">Multiple documents? Zip them together &middot; max 10MB</span>
-              <input type="file" id="other_docs" name="other_docs" accept=".pdf,.doc,.docx,.xlsx,.zip">
-            </label>
-          </div>
-          <div class="upload-zone">
-            <label for="attachment_notes">Attachment notes</label>
-            <textarea id="attachment_notes" name="attachment_notes" rows="6" style="min-height: 145px;" placeholder="Notes about uploaded files. Missing data, password-protected documents, anything we should know."></textarea>
-          </div>
+
+        <div class="field field-full">
+          <label for="attachment_notes">Notes about the documents you are sending</label>
+          <span class="hint">Optional. Anything we should know about the files, missing data, password-protected documents, or items still being gathered.</span>
+          <textarea id="attachment_notes" name="attachment_notes" rows="4" placeholder="Notes about the documents. Missing data, password-protected documents, items still being gathered."></textarea>
         </div>
       </div>
     </section>
@@ -550,40 +531,38 @@ document.addEventListener('DOMContentLoaded', function(){
   orgInput.addEventListener('input', updateSubject);
   updateSubject();
 
-  // File upload visual feedback
-  document.querySelectorAll('input[type=file]').forEach(function(input){
-    const dropzone = input.closest('.upload-dropzone');
-    const filenameEl = document.getElementById('fn_' + input.id);
-
-    function showFile(file){
-      if(!file){
-        dropzone.classList.remove('has-file');
-        if(filenameEl) filenameEl.textContent = 'No file';
-        return;
-      }
-      const sizeMB = (file.size / 1024 / 1024).toFixed(1);
-      if(file.size > 10 * 1024 * 1024){
-        alert('File "' + file.name + '" is ' + sizeMB + 'MB. Maximum is 10MB. Please attach a smaller file or zip and split the document.');
-        input.value = '';
-        showFile(null);
-        return;
-      }
-      dropzone.classList.add('has-file');
-      if(filenameEl) filenameEl.textContent = file.name + '  (' + sizeMB + 'MB)';
+  // Email documents button. Opens default email client pre-addressed to Matthew
+  // with subject and body populated from current form context.
+  const emailBtn = document.getElementById('email-docs-btn');
+  if(emailBtn){
+    function buildMailto(){
+      const org = (document.getElementById('organisation_name').value || '').trim() || '[Organisation]';
+      const contact = (document.getElementById('contact_name').value || '').trim() || '[Your name]';
+      const subject = 'Benefits Data Capture documents: ' + org + ' (' + FORM_REF + ')';
+      const body = [
+        'Hi Matthew,',
+        '',
+        'Documents to support the Benefits Data Capture submission for ' + org + '.',
+        '',
+        'Form reference: ' + FORM_REF,
+        'Submitted by: ' + contact,
+        '',
+        'Attached:',
+        '  - [list the documents you are attaching]',
+        '',
+        'Notes:',
+        '  - [any context about the files, missing data, password-protected items]',
+        '',
+        'Kind regards,',
+        contact
+      ].join('\r\n');
+      return 'mailto:matthew.steiner@aetas-wealth.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     }
-
-    input.addEventListener('change', function(){
-      showFile(this.files[0]);
+    emailBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      window.location.href = buildMailto();
     });
-
-    // Drag and drop styling
-    ['dragenter','dragover'].forEach(function(evt){
-      dropzone.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); dropzone.classList.add('dragover'); });
-    });
-    ['dragleave','drop'].forEach(function(evt){
-      dropzone.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('dragover'); });
-    });
-  });
+  }
 
   // Progress bar navigation
   document.querySelectorAll('.progress-step').forEach(function(step){
