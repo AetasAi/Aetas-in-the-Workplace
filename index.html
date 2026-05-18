@@ -457,6 +457,27 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
 .card-link::after { content: '→'; transition: transform 200ms var(--ease); }
 .card:hover .card-link::after { transform: translateX(3px); }
 
+/* How it works — subtitle and stage meta */
+.how-subtitle {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--aetas-gold);
+  margin: 0.4rem 0 0.9rem;
+  font-weight: 400;
+  display: block;
+}
+.stage-meta {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--aetas-turquoise) !important;
+  border-top: 1px solid var(--line);
+  padding-top: 0.9rem;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+  font-weight: 600;
+}
+
 /* ---------- 9. Process steps ---------- */
 .process {
   display: grid;
@@ -855,7 +876,7 @@ article.post blockquote {
           <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" rel="noopener" class="btn btn-primary btn-arrow">Book a Workplace Performance Review</a>
           <a href="#entry-offer" class="btn btn-ghost">See how it works</a>
         </div>
-        <p style="margin-top: 1.5rem; font-size: 0.88rem; color: var(--ink-muted);">No cost · No obligation · Two short conversations</p>
+        <p style="margin-top: 1.5rem; font-size: 0.88rem; color: var(--ink-muted);">No cost · No obligation · No commitment until proposal stage</p>
       </div>
       <aside class="hero-aside reveal">
         <h3>Take the diagnostic first</h3>
@@ -921,38 +942,48 @@ article.post blockquote {
 
 
 <!-- ============================================================
-     THE ENTRY OFFER: WORKPLACE PERFORMANCE REVIEW
+     HOW IT WORKS: THE WORKPLACE PERFORMANCE REVIEW
      ============================================================ -->
 <section id="entry-offer" class="section section-soft">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">The entry offer</span>
+      <span class="eyebrow">How it works</span>
       <h2>The Workplace Performance Review</h2>
-      <p>A structured, no-cost review that identifies whether financial pressure is affecting performance in your business, and what a proportionate response looks like. The first step before anything else is introduced or agreed.</p>
+      <span class="how-subtitle">A structured four-stage process. No cost or commitment until you decide to proceed.</span>
+      <p>Every engagement begins the same way &mdash; four short stages, light on your time, with full visibility at each point. Nothing is recommended, costed, or committed to until you have seen exactly what we propose and why. Most clients reach the proposal stage within four to six weeks.</p>
     </div>
 
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       <div class="card reveal">
         <div class="card-icon">01</div>
-        <h3>A structured two-part conversation</h3>
-        <p>A diagnostic of where financial pressure may be affecting focus, retention, and output. An honest assessment of whether your current pension and benefits setup is working. A written summary of findings you can use with your senior team or board.</p>
+        <h3>Initial conversation</h3>
+        <p>A short introductory call to understand your business and what has prompted you to look at this. A brief pre-meeting questionnaire focuses the time and ensures we arrive prepared.</p>
+        <p class="stage-meta">30 minutes &middot; Video or phone</p>
       </div>
       <div class="card reveal">
         <div class="card-icon">02</div>
-        <h3>Clarity before any commitment</h3>
-        <p>A clear view of whether this is an issue in your specific business. Practical, proportionate next steps, whether action is needed or not. An understanding of what it may be costing you to leave it unaddressed.</p>
+        <h3>Discovery meeting</h3>
+        <p>A deeper conversation that identifies where financial pressure may be affecting performance and what is already in place. A second short questionnaire shapes the agenda and informs the options that follow.</p>
+        <p class="stage-meta">45 minutes &middot; Video or in-person</p>
       </div>
       <div class="card reveal">
         <div class="card-icon">03</div>
-        <h3>No cost. No obligation. No products pitched.</h3>
-        <p>Two short conversations, designed around your time. Nothing is recommended without the review completing first. Whether there is an issue or not, you come away with a clearer picture than you had going in.</p>
+        <h3>Options meeting</h3>
+        <p>We review and discuss a tailored range of approaches together, based on what Discovery identified &mdash; proportionate, practical, and built around your specific situation. You decide which direction fits, or whether nothing further is needed.</p>
+        <p class="stage-meta">45 minutes &middot; Video or in-person</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">04</div>
+        <h3>Proposal and costing</h3>
+        <p>A written proposal setting out exactly what is recommended, the costs, and the expected return. This is the first point at which commitment is invited. Everything up to this point is no cost and no obligation.</p>
+        <p class="stage-meta">Written document &middot; Reviewed together</p>
       </div>
     </div>
 
     <p style="text-align: center; margin-top: 3rem;">
-      <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" rel="noopener" class="btn btn-primary btn-arrow">Book a Workplace Performance Review</a>
+      <a href="https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty" target="_blank" rel="noopener" class="btn btn-primary btn-arrow">Book the initial conversation</a>
     </p>
-    <p style="text-align: center; margin-top: 1rem; font-size: 0.88rem; color: var(--ink-muted);">Full programme from £140&ndash;£165 per employee per year · <a href="investment.html" style="color: var(--aetas-turquoise);">See fees</a></p>
+    <p style="text-align: center; margin-top: 1rem; font-size: 0.88rem; color: var(--ink-muted);">No cost &middot; No obligation until proposal stage &middot; Full programme from &pound;140&ndash;&pound;165 per employee per year &middot; <a href="investment.html" style="color: var(--aetas-turquoise);">See fees</a></p>
   </div>
 </section>
 
@@ -1110,8 +1141,8 @@ article.post blockquote {
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Get started</span>
-      <h2>The next step takes two conversations. The first one costs nothing.</h2>
-      <p>Book a Workplace Performance Review directly with Matthew Steiner, or join one of our upcoming sessions to hear the thinking first. Both are provided at no cost and carry no obligation.</p>
+      <h2>The next step is a short conversation. No cost, no obligation.</h2>
+      <p>Book the initial conversation directly with Matthew Steiner, or join one of our upcoming sessions to hear the thinking first. Both are provided at no cost and carry no obligation.</p>
     </div>
 
     <div class="grid grid-2">
