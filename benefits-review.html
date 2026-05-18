@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNH05BKNFX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -11,928 +10,624 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Employee Benefits Data Capture — Aetas in the Workplace</title>
+<title>Employee Benefits Data Capture &middot; Aetas in the Workplace</title>
 <meta name="description" content="Employee benefits and pension data capture form for the Aetas in the Workplace Workplace Performance Review.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-<link rel="manifest" href="/manifest.webmanifest">
-<meta name="theme-color" content="#0d2c6c">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap">
 <style>
 :root {
-  --navy:#0d2c6c; --navy-mid:#1d4291; --navy-light:#e8ecf3; --navy-xlight:#f0f3f8;
-  --gold:#b8934a; --gold-light:#d4b07a; --gold-pale:#f5ede0;
-  --cream:#faf8f5; --white:#ffffff;
-  --text-body:#4a4a4a; --text-muted:#7a7a7a; --text-label:#0d2c6c;
-  --border:rgba(13,44,108,0.14); --border-focus:rgba(184,147,74,0.6);
-  --error:#d0442a; --success:#1a7a4a;
-  --section-gap: 2.5rem;
+  --aetas-blue: #00205B;
+  --aetas-blue-dark: #001640;
+  --aetas-blue-soft: #f4f6fb;
+  --aetas-turquoise: #009CA6;
+  --aetas-turquoise-dark: #007a82;
+  --aetas-gold: #9A7B3A;
+  --aetas-gold-soft: #c8a55c;
+  --ink: #1a1f2e;
+  --ink-soft: #4a5269;
+  --ink-muted: #8089a0;
+  --paper: #ffffff;
+  --paper-warm: #fafaf7;
+  --line: #e6e8ee;
+  --line-soft: #f0f2f6;
+  --error: #c44a3e;
+  --font-sans: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --tracking-display: -0.01em;
+  --tracking-eyebrow: 0.18em;
+  --container-narrow: 880px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --shadow-sm: 0 1px 2px rgba(0,32,91,0.04), 0 2px 6px rgba(0,32,91,0.04);
+  --shadow-md: 0 4px 12px rgba(0,32,91,0.06), 0 12px 28px rgba(0,32,91,0.06);
+  --radius-sm: 4px;
+  --radius: 8px;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Open Sans', sans-serif;font-weight:300;color:var(--text-body);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font-sans); font-weight: 400; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper-warm); -webkit-font-smoothing: antialiased; }
+a { color: var(--aetas-blue); text-decoration: none; transition: color 200ms var(--ease); }
+a:hover { color: var(--aetas-turquoise); }
+button { font-family: inherit; cursor: pointer; }
+h1,h2,h3,h4 { font-family: var(--font-sans); color: var(--aetas-blue); font-weight: 700; line-height: 1.2; letter-spacing: var(--tracking-display); margin: 0 0 0.6em; }
+h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 300; }
+h1 .accent { font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+p { margin: 0 0 1.1em; color: var(--ink-soft); }
+.lead { font-size: 1.15rem; line-height: 1.6; color: var(--ink); font-weight: 300; }
+.eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--aetas-gold); margin-bottom: 1rem; }
+.rule { width: 60px; height: 2px; background: var(--aetas-gold); border: 0; margin: 1.25rem 0 1.5rem; }
 
-/* ── TOP BAR ─────────────────────────────────────────────── */
-.topbar{background:var(--navy);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;}
-.topbar-logo{font-family:'Open Sans', sans-serif;font-size:1.15rem;font-weight:500;color:var(--white);text-decoration:none;letter-spacing:0.04em;}
-.topbar-logo span{color:var(--gold-light);}
-.topbar-link{font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;}
-.topbar-link:hover{color:var(--gold-light);}
+.topbar { background: var(--paper); border-bottom: 1px solid var(--line); padding: 1rem var(--gutter); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 60; }
+.topbar-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.topbar-brand-mark { width: 32px; height: 32px; flex-shrink: 0; }
+.topbar-brand-text { display: flex; flex-direction: column; line-height: 1; }
+.topbar-brand-name { font-size: 1.05rem; font-weight: 700; color: var(--aetas-blue); letter-spacing: -0.01em; }
+.topbar-brand-tagline { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--aetas-turquoise); margin-top: 4px; }
+.topbar-link { font-size: 0.88rem; font-weight: 500; color: var(--ink-soft); transition: color 200ms var(--ease); }
+.topbar-link:hover { color: var(--aetas-blue); }
 
-/* ── PROGRESS ────────────────────────────────────────────── */
-.progress-bar{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:0.5px solid var(--border);padding:0 2rem;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-.progress-inner{display:flex;max-width:920px;margin:0 auto;}
-.progress-step{flex:1;min-width:60px;padding:10px 8px;text-align:center;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid transparent;cursor:pointer;transition:color 0.2s,border-color 0.2s;white-space:nowrap;}
-.progress-step:hover{color:var(--navy);}
-.progress-step.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:500;}
-.progress-step.complete{color:var(--gold);border-bottom-color:var(--gold-pale);}
+.progress-bar { position: sticky; top: 65px; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--line); padding: 0 var(--gutter); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.progress-inner { display: flex; max-width: var(--container-narrow); margin: 0 auto; }
+.progress-step { flex: 1; min-width: 70px; padding: 12px 8px; text-align: center; font-size: 0.68rem; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--ink-muted); border-bottom: 2px solid transparent; cursor: pointer; transition: color 200ms var(--ease), border-color 200ms var(--ease); white-space: nowrap; font-weight: 600; }
+.progress-step:hover { color: var(--aetas-blue); }
+.progress-step.active { color: var(--aetas-blue); border-bottom-color: var(--aetas-gold); }
+.progress-step.complete { color: var(--aetas-turquoise); border-bottom-color: var(--line); }
 
-/* ── PAGE LAYOUT ─────────────────────────────────────────── */
-.page{max-width:920px;margin:0 auto;padding:3rem 2rem 5rem;}
+.page { max-width: var(--container-narrow); margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter) 5rem; }
+.page-header { margin-bottom: 3rem; }
+.page-header h1 { margin-bottom: 0.5rem; }
+.page-header p.lead { margin-bottom: 1.5rem; }
 
-/* ── PAGE HEADER ─────────────────────────────────────────── */
-.page-header{margin-bottom:2.5rem;}
-.page-eyebrow{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;}
-.page-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
-.page-header h1{font-family:'Open Sans', sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:1rem;}
-.notice-box{background:var(--navy-xlight);border:0.5px solid var(--border);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:1.25rem 1.5rem;font-size:0.87rem;line-height:1.75;color:var(--text-body);}
-.notice-box strong{color:var(--navy);font-weight:500;}
+.notice-box { background: var(--aetas-blue-soft); border-left: 3px solid var(--aetas-gold); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 1.25rem 1.5rem; margin-top: 1.5rem; }
+.notice-box p { font-size: 0.95rem; margin: 0; color: var(--ink-soft); }
+.notice-box strong { color: var(--aetas-blue); font-weight: 600; }
 
-/* ── FORM SECTIONS ───────────────────────────────────────── */
-.form-section{margin-bottom:var(--section-gap);scroll-margin-top:100px;}
-.section-head{background:var(--navy);padding:0.85rem 1.25rem;border-radius:4px 4px 0 0;display:flex;align-items:center;gap:12px;}
-.section-num{font-family:'Open Sans', sans-serif;font-size:1.5rem;font-weight:300;color:var(--gold-light);line-height:1;flex-shrink:0;}
-.section-title{font-size:0.85rem;font-weight:500;letter-spacing:0.06em;color:var(--white);}
-.section-body{background:var(--white);border:0.5px solid var(--border);border-top:none;border-radius:0 0 4px 4px;padding:1.75rem 1.5rem;}
+.form-section { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 1.5rem; scroll-margin-top: 130px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.section-head { padding: 1rem 1.5rem; border-bottom: 1px solid var(--line-soft); display: flex; align-items: baseline; gap: 0.85rem; background: var(--paper-warm); }
+.section-num { font-size: 0.78rem; font-weight: 700; letter-spacing: var(--tracking-eyebrow); color: var(--aetas-gold); }
+.section-title { font-size: 0.92rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--aetas-blue); }
+.section-body { padding: 1.75rem 1.5rem; }
+.section-intro { font-size: 0.95rem; color: var(--ink-soft); margin: 0 0 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--line-soft); }
 
-/* ── FIELD GRID ──────────────────────────────────────────── */
-.field-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;}
-.field-grid.three{grid-template-columns:repeat(3,1fr);}
-.field-full{grid-column:1/-1;}
-.field{display:flex;flex-direction:column;gap:5px;}
-.field label{font-size:0.82rem;font-weight:500;color:var(--text-label);letter-spacing:0.02em;}
-.field .hint{font-size:0.75rem;color:var(--text-muted);margin-top:1px;}
+.field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem 1.5rem; }
+.field-grid.three { grid-template-columns: repeat(3, 1fr); }
+.field-full { grid-column: 1 / -1; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field > label { font-size: 0.85rem; font-weight: 600; color: var(--aetas-blue); letter-spacing: 0.01em; }
+.field .req { color: var(--aetas-turquoise); }
+.field .hint { font-size: 0.82rem; color: var(--ink-muted); font-weight: 400; line-height: 1.5; margin-bottom: 0.3rem; }
+.field-prompt { font-size: 0.95rem; font-weight: 600; color: var(--aetas-blue); margin: 0 0 0.5rem; line-height: 1.45; }
+.field-prompt + .hint { margin-top: -0.3rem; margin-bottom: 0.85rem; }
 
-/* ── INPUTS ──────────────────────────────────────────────── */
-input[type=text],input[type=email],input[type=tel],input[type=number],
-input[type=date],select,textarea{
-  width:100%;border:0.5px solid var(--border);border-radius:3px;
-  padding:10px 12px;font-family:'Open Sans', sans-serif;font-size:0.9rem;
-  font-weight:300;color:var(--text-body);background:var(--white);
-  transition:border-color 0.2s,box-shadow 0.2s;-webkit-appearance:none;appearance:none;
+input[type=text], input[type=email], input[type=tel], input[type=number], input[type=date], select, textarea {
+  width: 100%; font-family: var(--font-sans); font-size: 0.95rem; font-weight: 400;
+  color: var(--ink); background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 0.7rem 0.9rem; line-height: 1.5;
+  transition: border-color 200ms var(--ease), box-shadow 200ms var(--ease);
 }
-input:focus,select:focus,textarea:focus{
-  outline:none;border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(184,147,74,0.12);
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--aetas-turquoise); box-shadow: 0 0 0 3px rgba(0,156,166,0.12); }
+textarea { resize: vertical; min-height: 90px; }
+select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2300205B' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+
+/* Benefits table for section 3 */
+.benefits-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -0.5rem; }
+.benefits-table { width: 100%; min-width: 580px; border-collapse: collapse; }
+.benefits-table th { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--aetas-blue); padding: 0.75rem 0.75rem; text-align: left; border-bottom: 1px solid var(--line); }
+.benefits-table th:first-child { width: 32%; }
+.benefits-table th:nth-child(2) { width: 15%; }
+.benefits-table th:nth-child(3) { width: 33%; }
+.benefits-table th:nth-child(4) { width: 20%; }
+.benefits-table td { padding: 0.5rem 0.5rem; vertical-align: top; }
+.benefits-table tr td:first-child { font-size: 0.9rem; font-weight: 600; color: var(--aetas-blue); padding-top: 1rem; }
+.benefits-table input, .benefits-table select { font-size: 0.88rem; padding: 0.55rem 0.7rem; }
+.in-place-toggle { display: flex; gap: 6px; align-items: center; padding-top: 0.7rem; }
+.in-place-toggle label { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; cursor: pointer; color: var(--ink-soft); padding: 0.4rem 0.7rem; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--paper); }
+.in-place-toggle label:has(input:checked) { background: var(--aetas-blue-soft); border-color: var(--aetas-blue); color: var(--aetas-blue); font-weight: 600; }
+.in-place-toggle input[type=radio] { accent-color: var(--aetas-blue); }
+
+/* File upload zones */
+.upload-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem 1.5rem; }
+@media (max-width: 720px) { .upload-grid { grid-template-columns: 1fr; } }
+.upload-zone { display: flex; flex-direction: column; gap: 6px; }
+.upload-zone > label { font-size: 0.85rem; font-weight: 600; color: var(--aetas-blue); letter-spacing: 0.01em; margin-bottom: 0.3rem; }
+.upload-dropzone { position: relative; padding: 1.5rem 1rem; background: var(--aetas-blue-soft); border: 1.5px dashed rgba(0,32,91,0.25); border-radius: var(--radius); text-align: center; cursor: pointer; transition: all 200ms var(--ease); }
+.upload-dropzone:hover { border-color: var(--aetas-turquoise); background: rgba(0,156,166,0.06); }
+.upload-dropzone.dragover { border-color: var(--aetas-turquoise); background: rgba(0,156,166,0.1); }
+.upload-dropzone.has-file { border-color: var(--aetas-blue); border-style: solid; background: var(--paper); }
+.upload-dropzone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.upload-icon { display: block; font-size: 1.5rem; margin-bottom: 0.4rem; color: var(--aetas-gold); }
+.upload-prompt { font-size: 0.92rem; font-weight: 600; color: var(--aetas-blue); display: block; margin-bottom: 0.2rem; }
+.upload-meta { font-size: 0.75rem; color: var(--ink-muted); }
+.upload-filename { font-size: 0.88rem; font-weight: 600; color: var(--aetas-turquoise-dark); display: none; margin-bottom: 0.2rem; }
+.upload-dropzone.has-file .upload-prompt { display: none; }
+.upload-dropzone.has-file .upload-filename { display: block; }
+.upload-dropzone.has-file .upload-icon { color: var(--aetas-turquoise); }
+
+/* Member item chips for upload section */
+.chip-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.chip { display: inline-block; font-size: 0.78rem; font-weight: 500; color: var(--ink-soft); padding: 0.35rem 0.75rem; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; }
+
+/* Signature input */
+.sig-input { font-family: 'Great Vibes', cursive !important; font-size: 1.6rem !important; line-height: 1.3 !important; padding: 0.5rem 0.9rem !important; color: var(--aetas-blue) !important; }
+.sig-input::placeholder { font-family: var(--font-sans) !important; font-size: 0.9rem !important; font-weight: 400; color: var(--ink-muted); font-style: italic; }
+
+/* Consent row */
+.consent-row { display: flex; align-items: flex-start; gap: 12px; margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--aetas-blue-soft); border-radius: var(--radius-sm); border-left: 3px solid var(--aetas-gold); }
+.consent-row input[type=checkbox] { margin-top: 0.25rem; accent-color: var(--aetas-blue); flex-shrink: 0; width: 18px; height: 18px; }
+.consent-row label { font-size: 0.92rem; line-height: 1.55; color: var(--ink); font-weight: 400; cursor: pointer; }
+
+.legal-note { margin: 2.5rem 0 0; padding: 1.25rem 1.5rem; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); font-size: 0.82rem; line-height: 1.65; color: var(--ink-muted); }
+.legal-note strong { color: var(--aetas-blue); font-weight: 600; }
+
+.error-msg { font-size: 0.78rem; color: var(--error); margin-top: 0.25rem; display: none; }
+.field.error .error-msg { display: block; }
+.field.error input, .field.error select, .field.error textarea { border-color: var(--error); }
+
+.form-actions { margin-top: 2.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.75rem; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; border-radius: 2px; border: 1px solid transparent; transition: all 220ms var(--ease); cursor: pointer; font-family: inherit; }
+.btn-primary { background: var(--aetas-blue); color: #fff; border-color: var(--aetas-blue); }
+.btn-primary:hover { background: var(--aetas-turquoise); border-color: var(--aetas-turquoise); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.btn-ghost { background: transparent; color: var(--ink-soft); border-color: var(--line); }
+.btn-ghost:hover { background: var(--paper); color: var(--aetas-blue); border-color: var(--aetas-blue); }
+.btn.loading .btn-text { opacity: 0.6; }
+.btn.loading .btn-spinner { display: inline-block; }
+.btn-spinner { display: none; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.page-footer { background: var(--aetas-blue); color: rgba(255,255,255,0.65); text-align: center; padding: 1.5rem var(--gutter); font-size: 0.82rem; line-height: 1.6; }
+.page-footer a { color: rgba(255,255,255,0.75); }
+.page-footer a:hover { color: var(--aetas-gold-soft); }
+
+@media (max-width: 720px) {
+  .field-grid, .field-grid.three { grid-template-columns: 1fr; }
+  .topbar-brand-name { font-size: 1rem; }
+  .topbar-brand-tagline { font-size: 0.6rem; }
+  .progress-bar { top: 73px; }
 }
-input:invalid.touched,select:invalid.touched{border-color:var(--error);}
-textarea{min-height:120px;resize:vertical;}
-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8934a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;}
-
-/* Required star */
-.required::after{content:'*';color:var(--gold);margin-left:3px;font-size:0.75rem;}
-
-/* ── BENEFITS TABLE ──────────────────────────────────────── */
-.benefits-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-.benefits-table{width:100%;border-collapse:collapse;min-width:580px;}
-.benefits-table th{background:var(--navy);color:var(--white);padding:10px 12px;text-align:left;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;}
-.benefits-table td{border-bottom:0.5px solid var(--border);padding:10px 12px;vertical-align:middle;}
-.benefits-table tbody tr:last-child td{border-bottom:none;}
-.benefits-table tbody tr:hover td{background:var(--navy-xlight);}
-.benefit-name{font-size:0.87rem;font-weight:500;color:var(--navy);min-width:160px;}
-.benefits-table input,.benefits-table select{min-width:100px;}
-
-/* ── FILE UPLOAD ─────────────────────────────────────────── */
-.upload-zone{border:1.5px dashed var(--border);border-radius:4px;padding:1.5rem;text-align:center;background:var(--navy-xlight);transition:border-color 0.2s,background 0.2s;cursor:pointer;position:relative;}
-.upload-zone:hover{border-color:var(--gold);background:var(--gold-pale);}
-.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.upload-icon{font-size:1.5rem;margin-bottom:6px;color:var(--gold);}
-.upload-label{font-size:0.85rem;font-weight:500;color:var(--navy);margin-bottom:3px;}
-.upload-hint{font-size:0.75rem;color:var(--text-muted);}
-.upload-filename{margin-top:8px;font-size:0.78rem;color:var(--gold);min-height:1em;}
-
-.upload-note{margin-top:1rem;padding:1rem 1.25rem;background:var(--gold-pale);border:0.5px solid var(--border-focus);border-radius:3px;font-size:0.83rem;color:var(--text-body);line-height:1.7;}
-.upload-note strong{color:var(--navy);font-weight:500;}
-
-/* ── MEMBER DATA LIST ────────────────────────────────────── */
-.member-list{list-style:none;padding:0;margin:0.75rem 0;display:flex;gap:0.5rem;flex-wrap:wrap;}
-.member-list li{font-size:0.82rem;color:var(--text-body);background:var(--navy-xlight);border:0.5px solid var(--border);border-radius:2px;padding:4px 10px;}
-
-/* ── CHECKBOX ────────────────────────────────────────────── */
-.checkbox-row{display:flex;gap:12px;align-items:flex-start;margin-top:1.5rem;padding:1.25rem;background:var(--navy-xlight);border-radius:4px;border:0.5px solid var(--border);}
-.checkbox-row input[type=checkbox]{width:18px;height:18px;min-width:18px;margin-top:2px;accent-color:var(--gold);cursor:pointer;}
-.checkbox-row label{font-size:0.88rem;color:var(--text-body);line-height:1.65;cursor:pointer;}
-
-/* ── LEGAL NOTE ──────────────────────────────────────────── */
-.legal-note{margin-top:var(--section-gap);padding:1.5rem;background:var(--navy-xlight);border:0.5px solid var(--border);border-radius:4px;font-size:0.82rem;color:var(--text-muted);line-height:1.75;}
-.legal-note strong{color:var(--navy);font-weight:500;}
-
-/* ── ACTIONS ─────────────────────────────────────────────── */
-.form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem;padding-top:2rem;border-top:0.5px solid var(--border);}
-.btn-submit{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--gold);color:var(--navy);font-family:'Open Sans', sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:background 0.2s;}
-.btn-submit:hover{background:var(--gold-light);}
-.btn-submit:disabled{background:var(--text-muted);cursor:not-allowed;}
-.btn-reset{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:transparent;color:var(--text-muted);font-family:'Open Sans', sans-serif;font-size:0.8rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;border:0.5px solid var(--border);border-radius:2px;cursor:pointer;transition:all 0.2s;}
-.btn-reset:hover{color:var(--navy);border-color:var(--navy);}
-.btn-spinner{display:none;width:16px;height:16px;border:2px solid rgba(13,44,108,0.2);border-top-color:var(--navy);border-radius:50%;animation:spin 0.7s linear infinite;}
-.btn-submit.loading .btn-spinner{display:block;}
-.btn-submit.loading .btn-text{opacity:0.7;}
-@keyframes spin{to{transform:rotate(360deg);}}
-
-/* ── SUCCESS STATE ───────────────────────────────────────── */
-#success-screen{display:none;text-align:center;padding:5rem 2rem;}
-.success-check{width:72px;height:72px;border-radius:50%;background:var(--gold-pale);border:0.5px solid var(--border-focus);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;font-size:2rem;}
-#success-screen h2{font-family:'Open Sans', sans-serif;font-size:2.4rem;font-weight:300;color:var(--navy);margin-bottom:1rem;}
-#success-screen p{font-size:0.97rem;color:var(--text-muted);line-height:1.8;max-width:560px;margin:0 auto 2rem;}
-.success-next{display:inline-block;padding:12px 28px;background:var(--navy);color:var(--white);font-family:'Open Sans', sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;}
-.success-next:hover{background:var(--navy-mid);}
-
-/* ── VALIDATION ERRORS ───────────────────────────────────── */
-.error-msg{font-size:0.75rem;color:var(--error);margin-top:4px;display:none;}
-.field.has-error input,.field.has-error select,.field.has-error textarea{border-color:var(--error);}
-.field.has-error .error-msg{display:block;}
-
-/* ── FOOTER ──────────────────────────────────────────────── */
-.page-footer{background:var(--navy);padding:1.5rem 2rem;text-align:center;font-size:0.75rem;color:rgba(255,255,255,0.4);line-height:1.7;}
-.page-footer a{color:rgba(255,255,255,0.45);text-decoration:none;}
-.page-footer a:hover{color:var(--gold-light);}
-
-/* ── RESPONSIVE ──────────────────────────────────────────── */
-@media(max-width:700px){
-  .field-grid,.field-grid.three{grid-template-columns:1fr;}
-  .field-full{grid-column:1;}
-  .page{padding:1.5rem 1rem 4rem;}
-  .section-body{padding:1.25rem 1rem;}
-  .benefits-table th:nth-child(3),.benefits-table td:nth-child(3){display:none;}
-}
-
-/* ── DOCUMENT HEADER (matching DPA form style) ───────────────────── */
-.doc-header{text-align:center;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:0.5px solid var(--border);}
-.doc-org{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-.doc-title{font-family:'Open Sans', sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:500;color:var(--navy);margin-bottom:0.25rem;}
-.doc-subtitle{font-family:'Open Sans', sans-serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:300;font-style:italic;color:var(--gold);}
-
-/* ── DETAILS TABLE (ref, date, org) ──────────────────────────────── */
-.agreement-table{width:100%;border-collapse:collapse;margin:2rem 0;background:var(--white);border:0.5px solid var(--border);border-radius:4px;overflow:hidden;}
-.agreement-table tr{border-bottom:0.5px solid var(--border);}
-.agreement-table tr:last-child{border-bottom:none;}
-.agreement-table td{padding:11px 16px;vertical-align:middle;}
-.agreement-table td:first-child{background:var(--navy-xlight);font-size:0.82rem;font-weight:500;color:var(--navy);width:36%;white-space:nowrap;}
-.agreement-table td:last-child{font-size:0.9rem;}
-.agreement-table .editable-cell input{width:100%;border:none;padding:0;font-family:'Open Sans', sans-serif;font-size:0.9rem;font-weight:300;color:var(--text-body);background:transparent;outline:none;}
-.agreement-table .editable-cell input:focus{background:var(--gold-pale);padding:0 4px;border-radius:2px;}
-.agreement-table .prefilled{color:var(--navy);font-weight:400;}
-.ref-code{font-family:monospace;font-size:0.85rem;color:var(--text-muted);}
-
-@media print{
-  .topbar,.progress-bar,.form-actions,.btn-submit,.btn-reset{display:none!important;}
-  body{background:#fff;}
-  .form-section{page-break-inside:avoid;}
-}
-
-
-/* ── PRINT NAME UPPERCASE ────────────────────────────────────────── */
-#print_name, #client_print_name {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-/* ── SIGNATURE FONT ─────────────────────────────────────────────── */
-.sig-input, input.sig-input {
-  font-family: 'Great Vibes', cursive !important;
-  font-size: 1.6rem !important;
-  line-height: 1.4 !important;
-  color: var(--navy) !important;
-  letter-spacing: 0.02em;
-  padding: 6px 4px !important;
-  height: auto !important;
-}
-.sig-input::placeholder {
-  font-family: 'Open Sans', sans-serif !important;
-  font-size: 0.85rem !important;
-  color: var(--text-muted) !important;
-  font-style: italic;
-  letter-spacing: 0;
-}
-
-  /* brand-refresh: inline logo marks */
-  .nav-mark    { width: 32px; height: 32px; vertical-align: middle; margin-right: 10px; }
-  .nav-brand .nav-mark { width: 28px; height: 28px; margin-right: 8px; }
-  .footer-mark { width: 28px; height: 28px; vertical-align: middle; margin-right: 10px; }
-  .footer-brand .footer-mark { width: 26px; height: 26px; margin-right: 8px; }
-
-  /* type-refresh: wealth-style nav lockup */
-  /* Mark sits as a flex child of the anchor; tagline stacked beneath brand. */
-  .nav-logo  { display: inline-flex; align-items: center; gap: 12px; }
-  .nav-brand { display: inline-flex; align-items: center; gap: 10px; }
-  .nav-logo .nav-mark, .nav-brand .nav-mark {
-    margin-right: 0; vertical-align: middle; flex-shrink: 0; display: block;
-  }
-  .nav-lockup { display: flex; flex-direction: column; line-height: 1.05; }
-  .nav-logo .nav-brand-text, .nav-brand .nav-brand-text {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1.0rem;
-    letter-spacing: 0;
-    color: var(--navy);
-  }
-  .nav-brand .nav-brand-text { color: var(--white); }
-  .nav-logo .nav-tagline, .nav-brand .nav-tagline {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #00aabb;
-    margin-top: 3px;
-  }
-  /* Soften nav links to mixed-case to match the Wealth nav. */
-  .nav-links a, nav .nav-links a {
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-    font-size: 0.88rem !important;
-  }
-  .nav-links .nav-cta, nav .nav-links .nav-cta {
-    font-size: 0.82rem !important;
-    letter-spacing: 0.02em !important;
-  }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <a href="https://itw.aetaspartners.com/" class="topbar-logo">Aetas <span>in the Workplace</span></a>
-  <a href="https://itw.aetaspartners.com/" class="topbar-link">← Back to site</a>
-</div>
+<header class="topbar">
+  <a href="https://itw.aetaspartners.com/" class="topbar-brand">
+    <img src="/icons/favicon-32.png" alt="" class="topbar-brand-mark" width="32" height="32">
+    <span class="topbar-brand-text">
+      <span class="topbar-brand-name">Aetas in the Workplace</span>
+      <span class="topbar-brand-tagline">The Business Performance Solution</span>
+    </span>
+  </a>
+  <a href="https://itw.aetaspartners.com/" class="topbar-link">&larr; Back to site</a>
+</header>
 
-<!-- PROGRESS -->
-<nav class="progress-bar" aria-label="Form sections">
+<nav class="progress-bar" aria-label="Form progress">
   <div class="progress-inner">
-    <div class="progress-step active" data-section="1" onclick="scrollToSection(1)">1. Organisation</div>
-    <div class="progress-step" data-section="2" onclick="scrollToSection(2)">2. Pension</div>
-    <div class="progress-step" data-section="3" onclick="scrollToSection(3)">3. Benefits</div>
-    <div class="progress-step" data-section="4" onclick="scrollToSection(4)">4. Advisers</div>
-    <div class="progress-step" data-section="5" onclick="scrollToSection(5)">5. Documents</div>
-    <div class="progress-step" data-section="6" onclick="scrollToSection(6)">6. Notes</div>
-    <div class="progress-step" data-section="7" onclick="scrollToSection(7)">7. Consent</div>
+    <a class="progress-step active" data-target="section-1">Organisation</a>
+    <a class="progress-step" data-target="section-2">Pension</a>
+    <a class="progress-step" data-target="section-3">Benefits</a>
+    <a class="progress-step" data-target="section-4">Advisers</a>
+    <a class="progress-step" data-target="section-5">Documents</a>
+    <a class="progress-step" data-target="section-6">Notes</a>
+    <a class="progress-step" data-target="section-7">Consent</a>
   </div>
 </nav>
 
 <div class="page">
-  <!-- FORM CONTENT (hidden after submit) -->
-  
 
-    <!-- DOCUMENT HEADER -->
-    <div class="doc-header">
-      <div class="doc-org">Aetas in the Workplace</div>
-      <div class="doc-title">AETAS PARTNERS LIMITED</div>
-      <div class="doc-subtitle">Employee Benefits Data Capture Form</div>
+  <div class="page-header">
+    <span class="eyebrow">Workplace Performance Review</span>
+    <h1>Employee Benefits <span class="accent">Data Capture</span></h1>
+    <hr class="rule">
+    <p class="lead">A structured capture of your existing pension and benefits arrangements. Used by the Aetas team to identify inefficiencies, opportunities, and where the value sits before any recommendations are made.</p>
+    <p style="font-size: 1rem;">You do not need to know every answer precisely. "Don't know" is a useful answer in its own right. Documents can be attached at the end. Most people complete this in around twenty minutes.</p>
+    <div class="notice-box">
+      <p><strong>What happens next.</strong> Once submitted, you receive a confirmation email. Matthew and the Aetas team review your submission and any attached documents before your next meeting. Information is held confidentially and used only for the purposes of the Review.</p>
     </div>
+  </div>
 
-    <!-- FORM DETAILS TABLE -->
-    <table class="agreement-table">
-      <tr>
-        <td>Form Date</td>
-        <td><span class="prefilled" id="form_date_display">—</span></td>
-      </tr>
-      <tr>
-        <td>Form Reference</td>
-        <td><span class="prefilled ref-code" id="form_ref_display">—</span></td>
-      </tr>
-      <tr>
-        <td>Organisation</td>
-        <td><span class="prefilled" id="org_name_display" style="color:var(--text-muted);font-style:italic;">Completed in Section 1 below</span></td>
-      </tr>
-      <tr>
-        <td>Prepared by</td>
-        <td><span class="prefilled">Aetas in the Workplace &mdash; Workplace Performance Review</span></td>
-      </tr>
-    </table>
+  <form id="briefing-form" action="https://formspree.io/f/xaqlqpdy" method="POST" enctype="multipart/form-data" novalidate>
 
-    <!-- DATA PROTECTION NOTICE -->
-    <div class="notice-box" style="margin-bottom:2.5rem;">
-      <strong>Data Protection Notice.</strong> Information provided will be processed by Aetas Partners Limited solely for the purpose of reviewing your employee benefits and pension arrangements, in line with our Data Processing Agreement and applicable UK data protection legislation (UK GDPR and the Data Protection Act 2018). Data will not be shared with third parties without your prior consent, except where required by law. Fields marked <span style="color:var(--gold);font-weight:500;">*</span> are required.
-    </div>
-
-    <!-- ── FORM ─────────────────────────────────────────── -->
-    <!--
-      SUBMISSION ENDPOINT
-      Replace the action URL below with your GoHighLevel webhook or form endpoint.
-      GoHighLevel: Automation > Webhooks > New Webhook (POST, application/json)
-      Formspree:   https://formspree.io/f/YOUR_FORM_ID
-      The form uses AJAX (fetch) — the action attribute is read by the JS below.
-    -->
-    <form id="benefits-form" method="POST" action="" enctype="multipart/form-data" novalidate>
-
-      <!-- 1. ORGANISATION -->
-      <div class="form-section" id="section-1">
-        <div class="section-head">
-          <span class="section-num">01</span>
-          <span class="section-title">Organisation Details</span>
-        </div>
-        <div class="section-body">
-          <div class="field-grid">
-            <div class="field" id="f-org-name">
-              <label for="organisation_name" class="required">Organisation Name</label>
-              <input id="organisation_name" name="organisation_name" type="text" required autocomplete="organization">
-              <span class="error-msg">Please enter the organisation name</span>
-            </div>
-            <div class="field" id="f-contact">
-              <label for="contact_name" class="required">Contact Name</label>
-              <input id="contact_name" name="contact_name" type="text" required autocomplete="name">
-              <span class="error-msg">Please enter a contact name</span>
-            </div>
-            <div class="field">
-              <label for="job_title">Job Title</label>
-              <input id="job_title" name="job_title" type="text" autocomplete="organization-title">
-            </div>
-            <div class="field" id="f-email">
-              <label for="email" class="required">Email Address</label>
-              <input id="email" name="email" type="email" required autocomplete="email">
-              <span class="error-msg">Please enter a valid email address</span>
-            </div>
-            <div class="field">
-              <label for="number_of_employees">Number of Employees</label>
-              <input id="number_of_employees" name="number_of_employees" type="number" min="1" max="5000">
-            </div>
-            <div class="field">
-              <label for="date_completed">Date Completed</label>
-              <input id="date_completed" name="date_completed" type="date">
-            </div>
+    <!-- 01 ORGANISATION -->
+    <section class="form-section" id="section-1">
+      <div class="section-head"><span class="section-num">01</span><span class="section-title">Organisation details</span></div>
+      <div class="section-body">
+        <p class="section-intro">Basic organisation and contact information.</p>
+        <div class="field-grid">
+          <div class="field"><label for="organisation_name">Organisation name <span class="req">*</span></label><input type="text" id="organisation_name" name="organisation_name" required></div>
+          <div class="field"><label for="contact_name">Contact name <span class="req">*</span></label><input type="text" id="contact_name" name="contact_name" required></div>
+          <div class="field"><label for="job_title">Job title</label><input type="text" id="job_title" name="job_title"></div>
+          <div class="field"><label for="email">Email <span class="req">*</span></label><input type="email" id="email" name="email" required></div>
+          <div class="field"><label for="number_of_employees">Number of employees <span class="req">*</span></label><input type="number" id="number_of_employees" name="number_of_employees" min="1" required></div>
+          <div class="field"><label for="date_completed">Date completed</label><input type="date" id="date_completed" name="date_completed" readonly></div>
+          <div class="field field-full">
+            <label for="description">Brief description of the business</label>
+            <span class="hint">What you do and who for. A sentence is fine.</span>
+            <textarea id="description" name="description" rows="2"></textarea>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- 2. PENSION -->
-      <div class="form-section" id="section-2">
-        <div class="section-head">
-          <span class="section-num">02</span>
-          <span class="section-title">Current Pension Provision</span>
-        </div>
-        <div class="section-body">
-          <div class="field-grid">
-            <div class="field">
-              <label for="pension_provider">Pension Provider</label>
-              <input id="pension_provider" name="pension_provider" type="text" placeholder="e.g. Nest, The People's Pension, Aviva">
-            </div>
-            <div class="field">
-              <label for="employer_contribution">Employer Contribution (%)</label>
-              <input id="employer_contribution" name="employer_contribution" type="number" min="0" max="100" step="0.01" placeholder="e.g. 5">
-            </div>
-            <div class="field">
-              <label for="employee_contribution">Employee Contribution (%)</label>
-              <input id="employee_contribution" name="employee_contribution" type="number" min="0" max="100" step="0.01" placeholder="e.g. 3">
-            </div>
-            <div class="field">
-              <label for="auto_enrolment_compliant">Auto-Enrolment Compliant?</label>
-              <select id="auto_enrolment_compliant" name="auto_enrolment_compliant">
-                <option value="">Please select</option>
-                <option>Yes</option>
-                <option>No</option>
-                <option>Not sure</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="staging_reenrolment_date">Staging / Re-Enrolment Date</label>
-              <input id="staging_reenrolment_date" name="staging_reenrolment_date" type="date">
-            </div>
-            <div class="field">
-              <label for="salary_exchange_in_place">Salary Exchange in Place?</label>
-              <select id="salary_exchange_in_place" name="salary_exchange_in_place">
-                <option value="">Please select</option>
-                <option>Yes</option>
-                <option>No</option>
-                <option>Not sure</option>
-              </select>
-            </div>
+    <!-- 02 PENSION -->
+    <section class="form-section" id="section-2">
+      <div class="section-head"><span class="section-num">02</span><span class="section-title">Current pension provision</span></div>
+      <div class="section-body">
+        <p class="section-intro">Workplace pension scheme details. Ranges and approximate figures are fine where exact numbers are not to hand.</p>
+        <div class="field-grid">
+          <div class="field field-full">
+            <label for="pension_provider">Pension scheme name and provider</label>
+            <span class="hint">For example: NEST, Aviva, Standard Life Master Trust, Royal London GPP.</span>
+            <input type="text" id="pension_provider" name="pension_provider">
           </div>
-        </div>
-      </div>
-
-      <!-- 3. GROUP RISK BENEFITS -->
-      <div class="form-section" id="section-3">
-        <div class="section-head">
-          <span class="section-num">03</span>
-          <span class="section-title">Group Risk &amp; Health Benefits</span>
-        </div>
-        <div class="section-body">
-          <div class="benefits-wrap">
-            <table class="benefits-table">
-              <thead>
-                <tr>
-                  <th>Benefit</th>
-                  <th>In Place?</th>
-                  <th>Provider</th>
-                  <th>Renewal Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="benefit-name">Group Life Assurance<br><small style="font-weight:300;color:var(--text-muted);">Death in Service</small></td>
-                  <td><select name="group_life_in_place"><option value="">Select</option><option>Yes</option><option>No</option><option>Not sure</option></select></td>
-                  <td><input name="group_life_provider" type="text" placeholder="Provider name"></td>
-                  <td><input name="group_life_renewal" type="date"></td>
-                </tr>
-                <tr>
-                  <td class="benefit-name">Group Income Protection</td>
-                  <td><select name="group_ip_in_place"><option value="">Select</option><option>Yes</option><option>No</option><option>Not sure</option></select></td>
-                  <td><input name="group_ip_provider" type="text" placeholder="Provider name"></td>
-                  <td><input name="group_ip_renewal" type="date"></td>
-                </tr>
-                <tr>
-                  <td class="benefit-name">Group Critical Illness</td>
-                  <td><select name="group_ci_in_place"><option value="">Select</option><option>Yes</option><option>No</option><option>Not sure</option></select></td>
-                  <td><input name="group_ci_provider" type="text" placeholder="Provider name"></td>
-                  <td><input name="group_ci_renewal" type="date"></td>
-                </tr>
-                <tr>
-                  <td class="benefit-name">Private Medical Insurance<br><small style="font-weight:300;color:var(--text-muted);">PMI</small></td>
-                  <td><select name="pmi_in_place"><option value="">Select</option><option>Yes</option><option>No</option><option>Not sure</option></select></td>
-                  <td><input name="pmi_provider" type="text" placeholder="Provider name"></td>
-                  <td><input name="pmi_renewal" type="date"></td>
-                </tr>
-                <tr>
-                  <td class="benefit-name">Dental / Cash Plans</td>
-                  <td><select name="dental_in_place"><option value="">Select</option><option>Yes</option><option>No</option><option>Not sure</option></select></td>
-                  <td><input name="dental_provider" type="text" placeholder="Provider name"></td>
-                  <td><input name="dental_renewal" type="date"></td>
-                </tr>
-                <tr>
-                  <td class="benefit-name">Employee Assistance Programme<br><small style="font-weight:300;color:var(--text-muted);">EAP</small></td>
-                  <td><select name="eap_in_place"><option value="">Select</option><option>Yes</option><option>No</option><option>Not sure</option></select></td>
-                  <td><input name="eap_provider" type="text" placeholder="Provider name"></td>
-                  <td><input name="eap_renewal" type="date"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. ADVISERS -->
-      <div class="form-section" id="section-4">
-        <div class="section-head">
-          <span class="section-num">04</span>
-          <span class="section-title">Current Adviser Arrangements</span>
-        </div>
-        <div class="section-body">
-          <div class="field-grid field-grid.three">
-            <div class="field">
-              <label for="benefits_adviser">Existing Employee Benefits Adviser</label>
-              <input id="benefits_adviser" name="benefits_adviser" type="text" placeholder="Firm name or 'None'">
-            </div>
-            <div class="field">
-              <label for="pension_adviser">Existing Pension Adviser</label>
-              <input id="pension_adviser" name="pension_adviser" type="text" placeholder="Firm name or 'None'">
-            </div>
-            <div class="field">
-              <label for="adviser_renewal_date">Agreement / Contract Renewal Date</label>
-              <input id="adviser_renewal_date" name="adviser_renewal_date" type="date">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. DOCUMENTS -->
-      <div class="form-section" id="section-5">
-        <div class="section-head">
-          <span class="section-num">05</span>
-          <span class="section-title">Supporting Documents</span>
-        </div>
-        <div class="section-body">
-          <p style="font-size:0.9rem;color:var(--text-body);margin-bottom:1.25rem;">Please upload any documents that will help us review your pension and benefits arrangements. Where member-level scheme information is provided, the items we need for each member are:</p>
-          <ul class="member-list">
-            <li>Gender</li><li>Date of birth</li><li>Job title</li><li>Salary</li>
-          </ul>
-
-          <div class="field-grid">
-            <div class="field">
-              <label>Pension contribution schedule / monthly upload</label>
-              <div class="upload-zone">
-                <input id="pension_monthly_upload" name="pension_monthly_upload" type="file" accept=".csv,.xls,.xlsx,.pdf,.doc,.docx" onchange="showFilename(this,'pension-file')">
-                <div class="upload-icon">📎</div>
-                <div class="upload-label">Click to upload or drag and drop</div>
-                <div class="upload-hint">.csv, .xls, .xlsx, .pdf, .doc, .docx</div>
-                <div class="upload-filename" id="pension-file"></div>
-              </div>
-            </div>
-            <div class="field">
-              <label>Member-level scheme data</label>
-              <div class="upload-zone">
-                <input id="member_data_file" name="member_data_file" type="file" accept=".csv,.xls,.xlsx,.pdf,.doc,.docx" onchange="showFilename(this,'member-file')">
-                <div class="upload-icon">📎</div>
-                <div class="upload-label">Click to upload or drag and drop</div>
-                <div class="upload-hint">.csv, .xls, .xlsx, .pdf, .doc, .docx</div>
-                <div class="upload-filename" id="member-file"></div>
-              </div>
-            </div>
-            <div class="field">
-              <label>Other benefits or renewal documents</label>
-              <div class="upload-zone">
-                <input id="other_docs" name="other_docs" type="file" multiple accept=".csv,.xls,.xlsx,.pdf,.doc,.docx,.zip" onchange="showFilename(this,'other-file')">
-                <div class="upload-icon">📎</div>
-                <div class="upload-label">Click to upload or drag and drop</div>
-                <div class="upload-hint">Multiple files accepted · .pdf, .doc, .xlsx, .zip</div>
-                <div class="upload-filename" id="other-file"></div>
-              </div>
-            </div>
-            <div class="field">
-              <label for="attachment_notes">Attachment notes</label>
-              <textarea id="attachment_notes" name="attachment_notes" placeholder="Any notes about uploaded files — including missing information or password-protected documents."></textarea>
-            </div>
-          </div>
-
-          <div class="upload-note">
-            <strong>Prefer to send files separately?</strong> If you are unable to upload documents here, please email them directly to <a href="mailto:matthew.steiner@aetas-partners.com" style="color:var(--navy);">matthew.steiner@aetas-partners.com</a> with your organisation name in the subject line. There is no need to delay submitting this form while you locate documents.
-          </div>
-        </div>
-      </div>
-
-      <!-- 6. NOTES -->
-      <div class="form-section" id="section-6">
-        <div class="section-head">
-          <span class="section-num">06</span>
-          <span class="section-title">Additional Notes &amp; Priorities</span>
-        </div>
-        <div class="section-body">
           <div class="field">
-            <label for="additional_notes">Please include any key priorities, concerns, deadlines, or areas you would like Aetas to focus on.</label>
-            <textarea id="additional_notes" name="additional_notes" style="min-height:150px;"></textarea>
+            <label for="employer_contribution">Employer contribution (%)</label>
+            <input type="text" id="employer_contribution" name="employer_contribution" placeholder="e.g. 5">
+          </div>
+          <div class="field">
+            <label for="employee_contribution">Employee contribution (%)</label>
+            <input type="text" id="employee_contribution" name="employee_contribution" placeholder="e.g. 5">
+          </div>
+          <div class="field">
+            <label for="auto_enrolment_compliant">Auto-enrolment compliant?</label>
+            <select id="auto_enrolment_compliant" name="auto_enrolment_compliant">
+              <option value="">Select</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Don't know</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="salary_exchange_in_place">Salary exchange in place?</label>
+            <select id="salary_exchange_in_place" name="salary_exchange_in_place">
+              <option value="">Select</option>
+              <option>Yes, most employees</option>
+              <option>Yes, some employees</option>
+              <option>Available but rarely used</option>
+              <option>No</option>
+              <option>Don't know</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="staging_reenrolment_date">Most recent staging/re-enrolment date</label>
+            <input type="text" id="staging_reenrolment_date" name="staging_reenrolment_date" placeholder="e.g. April 2024 or Don't know">
+          </div>
+          <div class="field">
+            <label for="pension_adviser">Current pension adviser</label>
+            <input type="text" id="pension_adviser" name="pension_adviser" placeholder="None / unknown / firm name">
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- 7. CONSENT -->
-      <div class="form-section" id="section-7">
-        <div class="section-head">
-          <span class="section-num">07</span>
-          <span class="section-title">Consent and Authorisation</span>
+    <!-- 03 BENEFITS -->
+    <section class="form-section" id="section-3">
+      <div class="section-head"><span class="section-num">03</span><span class="section-title">Group risk and health benefits</span></div>
+      <div class="section-body">
+        <p class="section-intro">For each benefit type, mark whether it is in place. Provider and renewal date are useful where known.</p>
+        <div class="benefits-table-wrap">
+          <table class="benefits-table">
+            <thead>
+              <tr>
+                <th>Benefit</th>
+                <th>In place?</th>
+                <th>Provider</th>
+                <th>Renewal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Private medical insurance</td>
+                <td><div class="in-place-toggle">
+                  <label><input type="radio" name="pmi_in_place" value="Yes">Yes</label>
+                  <label><input type="radio" name="pmi_in_place" value="No">No</label>
+                </div></td>
+                <td><input type="text" name="pmi_provider" placeholder="Provider"></td>
+                <td><input type="text" name="pmi_renewal" placeholder="MM / YYYY"></td>
+              </tr>
+              <tr>
+                <td>Group life assurance</td>
+                <td><div class="in-place-toggle">
+                  <label><input type="radio" name="group_life_in_place" value="Yes">Yes</label>
+                  <label><input type="radio" name="group_life_in_place" value="No">No</label>
+                </div></td>
+                <td><input type="text" name="group_life_provider" placeholder="Provider"></td>
+                <td><input type="text" name="group_life_renewal" placeholder="MM / YYYY"></td>
+              </tr>
+              <tr>
+                <td>Group income protection</td>
+                <td><div class="in-place-toggle">
+                  <label><input type="radio" name="group_ip_in_place" value="Yes">Yes</label>
+                  <label><input type="radio" name="group_ip_in_place" value="No">No</label>
+                </div></td>
+                <td><input type="text" name="group_ip_provider" placeholder="Provider"></td>
+                <td><input type="text" name="group_ip_renewal" placeholder="MM / YYYY"></td>
+              </tr>
+              <tr>
+                <td>Group critical illness</td>
+                <td><div class="in-place-toggle">
+                  <label><input type="radio" name="group_ci_in_place" value="Yes">Yes</label>
+                  <label><input type="radio" name="group_ci_in_place" value="No">No</label>
+                </div></td>
+                <td><input type="text" name="group_ci_provider" placeholder="Provider"></td>
+                <td><input type="text" name="group_ci_renewal" placeholder="MM / YYYY"></td>
+              </tr>
+              <tr>
+                <td>Dental cover</td>
+                <td><div class="in-place-toggle">
+                  <label><input type="radio" name="dental_in_place" value="Yes">Yes</label>
+                  <label><input type="radio" name="dental_in_place" value="No">No</label>
+                </div></td>
+                <td><input type="text" name="dental_provider" placeholder="Provider"></td>
+                <td><input type="text" name="dental_renewal" placeholder="MM / YYYY"></td>
+              </tr>
+              <tr>
+                <td>Employee Assistance Programme</td>
+                <td><div class="in-place-toggle">
+                  <label><input type="radio" name="eap_in_place" value="Yes">Yes</label>
+                  <label><input type="radio" name="eap_in_place" value="No">No</label>
+                </div></td>
+                <td><input type="text" name="eap_provider" placeholder="Provider"></td>
+                <td><input type="text" name="eap_renewal" placeholder="MM / YYYY"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="section-body">
-          <p style="font-size:0.88rem;color:var(--text-body);line-height:1.75;margin-bottom:1.25rem;">By submitting this form, you confirm that the information provided is accurate to the best of your knowledge and that you authorise Aetas Partners Limited to use it for the purposes described in the Data Protection Notice above.</p>
-          <div class="field-grid">
-            <div class="field" id="f-signed">
-              <label for="signed_on_behalf" class="required">Signed on behalf of Organisation</label>
-              <input id="signed_on_behalf" name="signed_on_behalf" type="text" required placeholder="Type your full name to sign" class="sig-input">
-              <span class="error-msg">Please enter a name</span>
-            </div>
-            <div class="field" id="f-print">
-              <label for="print_name" class="required">Print Name</label>
-              <input id="print_name" name="print_name" type="text" required oninput="this.value=this.value.toUpperCase()">
-              <span class="error-msg">Please print your name</span>
-            </div>
-            <div class="field">
-              <label for="position_title">Position / Title</label>
-              <input id="position_title" name="position_title" type="text">
-            </div>
-            <div class="field" id="f-sig-date">
-              <label for="signature_date" class="required">Date</label>
-              <input id="signature_date" name="signature_date" type="text" required readonly>
-              <span class="error-msg">Please enter a date</span>
-            </div>
+      </div>
+    </section>
+
+    <!-- 04 ADVISERS -->
+    <section class="form-section" id="section-4">
+      <div class="section-head"><span class="section-num">04</span><span class="section-title">Current adviser arrangements</span></div>
+      <div class="section-body">
+        <p class="section-intro">Who currently advises on benefits, pensions, or workplace financial wellbeing.</p>
+        <div class="field-grid">
+          <div class="field">
+            <label for="benefits_adviser">Benefits adviser</label>
+            <span class="hint">Firm or person. "None" is a valid answer.</span>
+            <input type="text" id="benefits_adviser" name="benefits_adviser">
           </div>
-          <div class="checkbox-row">
-            <input id="consent_confirmed" name="consent_confirmed" type="checkbox" required>
-            <label for="consent_confirmed">I confirm that I am authorised to submit this information on behalf of the organisation, and that I have read and agree to the Data Protection Notice above.</label>
+          <div class="field">
+            <label for="adviser_renewal_date">Adviser contract renewal date</label>
+            <input type="text" id="adviser_renewal_date" name="adviser_renewal_date" placeholder="MM / YYYY or rolling">
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- LEGAL NOTE -->
-      <div class="legal-note">
-        <strong>Important note.</strong> Aetas Partners Limited is not authorised to provide regulated financial advice. This form is used solely for information-gathering and scoping purposes in connection with the Aetas in the Workplace Workplace Performance Review. Regulated financial planning and advice is provided separately by Aetas Wealth, a trading style of Insight Financial Associates Limited, authorised and regulated by the Financial Conduct Authority (FCA registration: 458421). Completion of this form does not constitute a commitment by either party to enter into any formal engagement.
+    <!-- 05 SUPPORTING DOCUMENTS -->
+    <section class="form-section" id="section-5">
+      <div class="section-head"><span class="section-num">05</span><span class="section-title">Supporting documents</span></div>
+      <div class="section-body">
+        <p class="section-intro">Upload any documents that will help us review your pension and benefits arrangements. Where member-level scheme information is provided, the items we need for each member are:</p>
+        <div class="chip-row">
+          <span class="chip">Gender</span>
+          <span class="chip">Date of birth</span>
+          <span class="chip">Job title</span>
+          <span class="chip">Salary</span>
+        </div>
+        <div class="upload-grid">
+          <div class="upload-zone">
+            <label>Pension contribution schedule / monthly upload</label>
+            <label class="upload-dropzone" for="pension_monthly_upload">
+              <span class="upload-icon">&#9783;</span>
+              <span class="upload-filename" id="fn_pension_monthly_upload">No file</span>
+              <span class="upload-prompt">Click to upload or drag and drop</span>
+              <span class="upload-meta">.csv, .xls, .xlsx, .pdf, .doc, .docx &middot; max 10MB</span>
+              <input type="file" id="pension_monthly_upload" name="pension_monthly_upload" accept=".csv,.xls,.xlsx,.pdf,.doc,.docx">
+            </label>
+          </div>
+          <div class="upload-zone">
+            <label>Member-level scheme data</label>
+            <label class="upload-dropzone" for="member_data_file">
+              <span class="upload-icon">&#9783;</span>
+              <span class="upload-filename" id="fn_member_data_file">No file</span>
+              <span class="upload-prompt">Click to upload or drag and drop</span>
+              <span class="upload-meta">.csv, .xls, .xlsx, .pdf, .doc, .docx &middot; max 10MB</span>
+              <input type="file" id="member_data_file" name="member_data_file" accept=".csv,.xls,.xlsx,.pdf,.doc,.docx">
+            </label>
+          </div>
+          <div class="upload-zone">
+            <label>Other benefits or renewal documents</label>
+            <label class="upload-dropzone" for="other_docs">
+              <span class="upload-icon">&#9783;</span>
+              <span class="upload-filename" id="fn_other_docs">No file</span>
+              <span class="upload-prompt">Click to upload or drag and drop</span>
+              <span class="upload-meta">Multiple documents? Zip them together &middot; max 10MB</span>
+              <input type="file" id="other_docs" name="other_docs" accept=".pdf,.doc,.docx,.xlsx,.zip">
+            </label>
+          </div>
+          <div class="upload-zone">
+            <label for="attachment_notes">Attachment notes</label>
+            <textarea id="attachment_notes" name="attachment_notes" rows="6" style="min-height: 145px;" placeholder="Notes about uploaded files. Missing data, password-protected documents, anything we should know."></textarea>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- ACTIONS -->
-      <div class="form-actions">
-        <button type="submit" class="btn-submit" id="submit-btn">
-          <span class="btn-text">Submit form</span>
-          <span class="btn-spinner"></span>
-        </button>
-        <button type="reset" class="btn-reset" onclick="resetForm()">Clear form</button>
+    <!-- 06 ADDITIONAL NOTES -->
+    <section class="form-section" id="section-6">
+      <div class="section-head"><span class="section-num">06</span><span class="section-title">Additional notes and priorities</span></div>
+      <div class="section-body">
+        <p class="section-intro">Anything not captured above. Priorities, concerns, or specific outcomes you are looking for.</p>
+        <div class="field field-full">
+          <label for="additional_notes">Notes</label>
+          <textarea id="additional_notes" name="additional_notes" rows="6" placeholder="Particular concerns, recent changes, priorities for the Review, anything you think we should know."></textarea>
+        </div>
       </div>
+    </section>
 
-    </form>
+    <!-- 07 CONSENT -->
+    <section class="form-section" id="section-7">
+      <div class="section-head"><span class="section-num">07</span><span class="section-title">Consent and authorisation</span></div>
+      <div class="section-body">
+        <p style="font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 1.5rem;">By submitting this form, you confirm that the information provided is accurate to the best of your knowledge and that you authorise Aetas Partners Limited to use it for the purposes of the Workplace Performance Review.</p>
+        <div class="field-grid">
+          <div class="field" id="f-signed">
+            <label for="signed_on_behalf">Signed on behalf of organisation <span class="req">*</span></label>
+            <input type="text" id="signed_on_behalf" name="signed_on_behalf" class="sig-input" placeholder="Type your full name to sign" required>
+            <span class="error-msg">Please enter a name</span>
+          </div>
+          <div class="field" id="f-print">
+            <label for="print_name">Print name <span class="req">*</span></label>
+            <input type="text" id="print_name" name="print_name" required oninput="this.value=this.value.toUpperCase()">
+            <span class="error-msg">Please print your name</span>
+          </div>
+          <div class="field">
+            <label for="position_title">Position or title</label>
+            <input type="text" id="position_title" name="position_title">
+          </div>
+          <div class="field">
+            <label for="signature_date">Date</label>
+            <input type="text" id="signature_date" name="signature_date" readonly>
+          </div>
+        </div>
+        <div class="consent-row">
+          <input type="checkbox" id="consent_confirmed" name="consent_confirmed" value="Confirmed" required>
+          <label for="consent_confirmed">I confirm that I am authorised to submit this information on behalf of the organisation, and that I agree to Aetas using it for the purposes of the Workplace Performance Review.</label>
+        </div>
+      </div>
+    </section>
 
+    <div class="legal-note">
+      <strong>Confidentiality and legal note.</strong> Aetas Partners Limited is not authorised to provide regulated financial advice. This form is used solely for information-gathering and scoping purposes in connection with the Aetas in the Workplace Workplace Performance Review. Regulated financial planning and advice is provided separately by Aetas Wealth, a trading style of Insight Financial Associates Limited, authorised and regulated by the Financial Conduct Authority (FCA registration 458421). Completion of this form does not constitute a commitment by either party to enter into any formal engagement.
+    </div>
 
-</div><!-- /page -->
+    <!-- Honeypot for spam protection -->
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+    <!-- Subject line for Formspree email -->
+    <input type="hidden" name="_subject" id="formspree_subject" value="Benefits Data Capture submission">
+    <!-- Form reference (populated by JS) -->
+    <input type="hidden" name="form_reference" id="form_reference">
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" id="submit-btn">
+        <span class="btn-text">Submit form</span>
+        <span class="btn-spinner"></span>
+      </button>
+      <button type="reset" class="btn btn-ghost" onclick="if(!confirm('Clear all responses?')) event.preventDefault();">Clear form</button>
+    </div>
+
+  </form>
+</div>
 
 <footer class="page-footer">
-  Aetas in the Workplace &nbsp;·&nbsp; A trading style of Aetas Wealth, Insight Financial Associates Limited &nbsp;·&nbsp; FCA reg 458421 &nbsp;·&nbsp;
-  <a href="https://itw.aetaspartners.com/privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-  <a href="https://www.aetas-partners.com">aetas-partners.com</a>
-
-  <!-- brand-refresh: aetas partners lockup -->
-  <div style="margin-top:1.75rem;padding-top:1.25rem;border-top:0.5px solid rgba(255,255,255,0.08);text-align:center;">
-    <a href="https://aetas-partners.com/" aria-label="Part of Aetas Partners" style="display:inline-block;opacity:0.65;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.65'">
-      <img src="/aetas-horizontal-reverse.svg" alt="Aetas Partners" style="display:block;height:30px;width:auto;">
-    </a>
-  </div>
+  Aetas in the Workplace &nbsp;&middot;&nbsp; A trading style of Aetas Wealth, Insight Financial Associates Limited &nbsp;&middot;&nbsp; FCA reg 458421 &nbsp;&middot;&nbsp;
+  <a href="https://itw.aetaspartners.com/privacy.html">Privacy Policy</a>
 </footer>
 
-  <!-- ── CDN LIBRARIES ──────────────────────────────────────────────── -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+// FORM REFERENCE
+const FORM_REF = (function(){
+  const d=new Date(), ym=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0');
+  return 'AEB-'+ym+'-'+Math.random().toString(36).substring(2,6).toUpperCase();
+})();
 
-  <script>
-  // ╔══════════════════════════════════════════════════════════════╗
-  // ║  EMAILJS CONFIGURATION                                       ║
-  // ║  1. Sign up free at emailjs.com                             ║
-  // ║  2. Connect your email service (Gmail / Outlook)            ║
-  // ║  3. Create two templates:                                    ║
-  // ║     INTERNAL: to matthew.steiner@aetas-partners.com         ║
-  // ║       Variables: {{ref}} {{org}} {{contact}} {{email}}      ║
-  // ║                  {{form_data}} {{submitted}}                 ║
-  // ║     CONFIRM: to client email                                 ║
-  // ║       Variables: {{ref}} {{org}} {{contact}} {{to_email}}   ║
-  // ║  4. Replace the four placeholders below                      ║
-  // ╚══════════════════════════════════════════════════════════════╝
-  const EMAILJS_PUBLIC_KEY        = 'T-OvAY8-q_r_P4tAA';
-  const EMAILJS_SERVICE_ID        = 'service_dztbuyl';
-  const EMAILJS_TEMPLATE_INTERNAL = 'template_283g3pp';
-  const EMAILJS_TEMPLATE_CONFIRM  = 'template_2hfklis';
+document.addEventListener('DOMContentLoaded', function(){
 
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-  // ── FONT PRELOAD ──────────────────────────────────────────────────────
-  if (document.fonts && document.fonts.load) {
-    document.fonts.load("1.6rem 'Great Vibes'").then(function() {
-      document.querySelectorAll('.sig-input').forEach(function(el) {
-        el.style.fontFamily = "'Great Vibes', cursive";
-      });
-    });
+  // Populate auto fields
+  const today = new Date();
+  const dateIso = today.toISOString().split('T')[0];
+  const dateLong = today.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+  const dateEl = document.getElementById('date_completed');
+  if(dateEl) dateEl.value = dateIso;
+  const sigDateEl = document.getElementById('signature_date');
+  if(sigDateEl) sigDateEl.value = dateLong;
+
+  // Populate form reference and subject
+  document.getElementById('form_reference').value = FORM_REF;
+  const orgInput = document.getElementById('organisation_name');
+  const subjectEl = document.getElementById('formspree_subject');
+  function updateSubject(){
+    const org = (orgInput.value || '').trim() || '(unknown)';
+    subjectEl.value = 'Benefits Data Capture: ' + org + ' (' + FORM_REF + ')';
   }
+  orgInput.addEventListener('input', updateSubject);
+  updateSubject();
 
+  // File upload visual feedback
+  document.querySelectorAll('input[type=file]').forEach(function(input){
+    const dropzone = input.closest('.upload-dropzone');
+    const filenameEl = document.getElementById('fn_' + input.id);
 
-  // ── FORM REFERENCE ────────────────────────────────────────────────────
-  const FORM_REF = (function(){
-    const d=new Date(), ym=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0');
-    return 'AEB-'+ym+'-'+Math.random().toString(36).substring(2,6).toUpperCase();
-  })();
-
-  
-  // ── DATE FORMATTER — always returns "DD Month YYYY" ─────────────────
-  function _fmtDate(d) {
-    var M = ['January','February','March','April','May','June',
-             'July','August','September','October','November','December'];
-    return String(d.getDate()).padStart(2,'0') + ' ' + M[d.getMonth()] + ' ' + d.getFullYear();
-  }
-
-  // ── AUTO-DATE + DOCUMENT DETAILS ─────────────────────────────────────
-  document.addEventListener('DOMContentLoaded', function() {
-    const t = new Date().toISOString().split('T')[0];
-    var el=document.getElementById('date_completed'); if(el) el.value=t;
-    var sd=document.getElementById('signature_date'); if(sd) sd.value=_fmtDate(new Date());
-    // Populate document header table
-    var dateDisplay = document.getElementById('form_date_display');
-    var refDisplay  = document.getElementById('form_ref_display');
-    if(dateDisplay) dateDisplay.textContent = new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'});
-    if(refDisplay)  refDisplay.textContent  = FORM_REF;
-    // Live-update org name in header table as user types
-    var orgInput   = document.getElementById('organisation_name');
-    var orgDisplay = document.getElementById('org_name_display');
-    if(orgInput && orgDisplay){
-      orgInput.addEventListener('input', function(){
-        if(this.value.trim()){
-          orgDisplay.textContent = this.value.trim();
-          orgDisplay.style.fontStyle = 'normal';
-          orgDisplay.style.color = 'var(--navy)';
-        } else {
-          orgDisplay.textContent = 'Completed in Section 1 below';
-          orgDisplay.style.fontStyle = 'italic';
-          orgDisplay.style.color = 'var(--text-muted)';
-        }
-      });
+    function showFile(file){
+      if(!file){
+        dropzone.classList.remove('has-file');
+        if(filenameEl) filenameEl.textContent = 'No file';
+        return;
+      }
+      const sizeMB = (file.size / 1024 / 1024).toFixed(1);
+      if(file.size > 10 * 1024 * 1024){
+        alert('File "' + file.name + '" is ' + sizeMB + 'MB. Maximum is 10MB. Please attach a smaller file or zip and split the document.');
+        input.value = '';
+        showFile(null);
+        return;
+      }
+      dropzone.classList.add('has-file');
+      if(filenameEl) filenameEl.textContent = file.name + '  (' + sizeMB + 'MB)';
     }
+
+    input.addEventListener('change', function(){
+      showFile(this.files[0]);
+    });
+
+    // Drag and drop styling
+    ['dragenter','dragover'].forEach(function(evt){
+      dropzone.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); dropzone.classList.add('dragover'); });
+    });
+    ['dragleave','drop'].forEach(function(evt){
+      dropzone.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('dragover'); });
+    });
   });
 
-  // ── FILE NAME DISPLAY ─────────────────────────────────────────────────
-  function showFilename(input, targetId) {
-    var el=document.getElementById(targetId); if(!el) return;
-    el.textContent=input.files&&input.files.length>0
-      ? Array.from(input.files).map(function(f){return f.name;}).join(', ') : '';
-  }
-
-  // ── PROGRESS BAR ──────────────────────────────────────────────────────
-  var _sections = document.querySelectorAll('.form-section');
-  var _steps = document.querySelectorAll('.progress-step');
-  function scrollToSection(n){var el=document.getElementById('section-'+n);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
-  var _obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var num=e.target.id.split('-')[1];_steps.forEach(function(s){s.classList.remove('active');if(parseInt(s.dataset.section)<parseInt(num))s.classList.add('complete');else s.classList.remove('complete');if(s.dataset.section===num)s.classList.add('active');});}});},{threshold:0.3,rootMargin:'-80px 0px -50% 0px'});
-  _sections.forEach(function(s){_obs.observe(s);});
-
-  // ── INPUT TOUCHED STATE ───────────────────────────────────────────────
-  document.querySelectorAll('input,select,textarea').forEach(function(el){
-    el.addEventListener('blur',function(){el.classList.add('touched');});
+  // Progress bar navigation
+  document.querySelectorAll('.progress-step').forEach(function(step){
+    step.addEventListener('click', function(){
+      const target = document.getElementById(this.dataset.target);
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
   });
 
-  // ── GENERATE PDF ──────────────────────────────────────────────────────
-  function generateBenefitsPDF(fd) {
-    var jsPDF=window.jspdf.jsPDF;
-    var doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-    var W=210, M=18, CW=W-M*2, y=20;
-
-    function chk(h){if(y+h>275){doc.addPage();y=20;}}
-    function secHead(t){
-      chk(12); doc.setFillColor(26,43,74); doc.rect(M,y,CW,8,'F');
-      doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(255,255,255);
-      doc.text(t.toUpperCase(),M+4,y+5.5); y+=11;
-    }
-    function row(label,val){
-      if(!val||val==='Please select'||val==='') return;
-      chk(9); doc.setFont('helvetica','bold'); doc.setFontSize(8.5); doc.setTextColor(26,43,74);
-      doc.text(label+':',M,y);
-      doc.setFont('helvetica','normal'); doc.setTextColor(60,60,60);
-      var lines=doc.splitTextToSize(String(val),CW-65); doc.text(lines,M+65,y);
-      y+=Math.max(6,lines.length*5);
-    }
-
-    // Header
-    doc.setFillColor(26,43,74); doc.rect(0,0,W,28,'F');
-    doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(255,255,255);
-    doc.text('AETAS IN THE WORKPLACE',M,11);
-    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(212,176,122);
-    doc.text('Employee Benefits Data Capture Form',M,19);
-    doc.setTextColor(180,180,180);
-    doc.text('Ref: '+FORM_REF+'  |  '+new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'}),W-M,19,{align:'right'});
-    y=36;
-
-    secHead('1. Organisation Details');
-    row('Organisation',fd.organisation_name); row('Contact',fd.contact_name);
-    row('Job Title',fd.job_title); row('Email',fd.email);
-    row('Employees',fd.number_of_employees); row('Date',fd.date_completed);
-    y+=4;
-
-    secHead('2. Current Pension Provision');
-    row('Provider',fd.pension_provider);
-    row('Employer contribution',fd.employer_contribution?(fd.employer_contribution+'%'):'');
-    row('Employee contribution',fd.employee_contribution?(fd.employee_contribution+'%'):'');
-    row('Auto-enrolment',fd.auto_enrolment_compliant);
-    row('Re-enrolment date',fd.staging_reenrolment_date);
-    row('Salary exchange',fd.salary_exchange_in_place);
-    y+=4;
-
-    chk(20); secHead('3. Group Risk & Health Benefits');
-    var bRows=[
-      ['Group Life Assurance',fd.group_life_in_place,fd.group_life_provider,fd.group_life_renewal],
-      ['Group Income Protection',fd.group_ip_in_place,fd.group_ip_provider,fd.group_ip_renewal],
-      ['Group Critical Illness',fd.group_ci_in_place,fd.group_ci_provider,fd.group_ci_renewal],
-      ['Private Medical Insurance',fd.pmi_in_place,fd.pmi_provider,fd.pmi_renewal],
-      ['Dental / Cash Plans',fd.dental_in_place,fd.dental_provider,fd.dental_renewal],
-      ['Employee Assistance Programme',fd.eap_in_place,fd.eap_provider,fd.eap_renewal],
-    ].filter(function(r){return r[1]&&r[1]!=='Please select'&&r[1]!=='';});
-    if(bRows.length>0){
-      doc.autoTable({startY:y,head:[['Benefit','In Place?','Provider','Renewal']],body:bRows,margin:{left:M,right:M},headStyles:{fillColor:[26,43,74],textColor:255,fontStyle:'bold',fontSize:8},bodyStyles:{fontSize:8,cellPadding:3},alternateRowStyles:{fillColor:[240,243,248]},theme:'grid'});
-      y=doc.lastAutoTable.finalY+6;
-    }
-
-    chk(20); secHead('4. Current Adviser Arrangements');
-    row('Benefits Adviser',fd.benefits_adviser);
-    row('Pension Adviser',fd.pension_adviser);
-    row('Contract Renewal',fd.adviser_renewal_date);
-    y+=4;
-
-    secHead('5. Supporting Documents');
-    doc.setFont('helvetica','italic'); doc.setFontSize(8.5); doc.setTextColor(100,100,100);
-    doc.text('Documents to be emailed separately to matthew.steiner@aetas-partners.com',M,y); y+=6;
-    row('Attachment notes',fd.attachment_notes);
-    y+=4;
-
-    if(fd.additional_notes){
-      secHead('6. Additional Notes & Priorities');
-      doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(60,60,60);
-      var nl=doc.splitTextToSize(fd.additional_notes,CW);
-      nl.forEach(function(l){chk(5);doc.text(l,M,y);y+=5;}); y+=4;
-    }
-
-    secHead('7. Consent and Authorisation');
-    row('Signed',fd.signed_on_behalf); row('Print Name',fd.print_name);
-    row('Position',fd.position_title); row('Date',fd.signature_date);
-    y+=4; chk(8);
-    doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(26,43,74);
-    doc.text('Authorisation confirmed by submitter',M,y); y+=10;
-
-    // Page footers
-    var pc=doc.internal.getNumberOfPages();
-    for(var i=1;i<=pc;i++){
-      doc.setPage(i); doc.setFillColor(26,43,74); doc.rect(0,287,W,10,'F');
-      doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(180,180,180);
-      doc.text('Aetas Partners Limited | aetas-partners.com | FCA reg 458421 | Page '+i+' of '+pc,W/2,293,{align:'center'});
-    }
-    return doc;
-  }
-
-  // ── RESET ─────────────────────────────────────────────────────────────
-  function resetForm(){
-    document.querySelectorAll('.has-error').forEach(function(el){el.classList.remove('has-error');});
-    document.querySelectorAll('.upload-filename').forEach(function(el){el.textContent='';});
-    var t=new Date().toISOString().split('T')[0];
-    ['date_completed','signature_date'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=t;});
-  }
-
-  // ── FORM SUBMIT ───────────────────────────────────────────────────────
-  document.getElementById('benefits-form').addEventListener('submit', async function(e){
-    e.preventDefault();
-
-    // Validate
-    var req=[
-      {w:'f-org-name',i:'organisation_name'},{w:'f-contact',i:'contact_name'},
-      {w:'f-email',i:'email'},{w:'f-signed',i:'signed_on_behalf'},
-      {w:'f-print',i:'print_name'},{w:'f-sig-date',i:'signature_date'}
-    ];
-    var valid=true;
-    req.forEach(function(r){
-      var w=document.getElementById(r.w), inp=document.getElementById(r.i);
-      if(w&&inp&&!inp.value.trim()){w.classList.add('has-error');valid=false;}
-      else if(w) w.classList.remove('has-error');
+  // Progress bar active state on scroll
+  const sections = Array.from(document.querySelectorAll('.form-section'));
+  const steps = Array.from(document.querySelectorAll('.progress-step'));
+  window.addEventListener('scroll', function(){
+    const scrollPos = window.scrollY + 200;
+    let activeIdx = 0;
+    sections.forEach(function(s, i){ if(s.offsetTop <= scrollPos) activeIdx = i; });
+    steps.forEach(function(s, i){
+      s.classList.toggle('active', i === activeIdx);
+      s.classList.toggle('complete', i < activeIdx);
     });
-    var emailEl=document.getElementById('email');
-    if(emailEl&&emailEl.value&&!/\S+@\S+\.\S+/.test(emailEl.value)){
-      document.getElementById('f-email').classList.add('has-error');valid=false;
-    }
-    var consent=document.getElementById('consent_confirmed');
-    var cRow=consent.closest('.checkbox-row');
-    if(!consent.checked){cRow.style.border='1.5px solid var(--error)';cRow.style.background='#fef8f8';valid=false;}
-    else{cRow.style.border='';cRow.style.background='';}
-    if(!valid){
-      var fe=document.querySelector('.has-error');
-      if(fe) fe.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+
+  // Submit handler. Lets Formspree handle the actual POST, just adds loading state and validation.
+  const form = document.getElementById('briefing-form');
+  const btn = document.getElementById('submit-btn');
+  const btnText = btn.querySelector('.btn-text');
+
+  form.addEventListener('submit', function(e){
+    if(!form.checkValidity()){
+      e.preventDefault();
+      form.reportValidity();
       return;
     }
+    btn.classList.add('loading');
+    btn.disabled = true;
+    btnText.textContent = 'Submitting...';
 
-    var btn=document.getElementById('submit-btn');
-    var btnText=btn.querySelector('.btn-text');
-    btn.classList.add('loading'); btn.disabled=true;
-    btnText.textContent='Generating PDF...';
-
-    var fd=Object.fromEntries(new FormData(this).entries());
-    fd._ref=FORM_REF;
-
-    try {
-      // Generate & download PDF
-      var doc=generateBenefitsPDF(fd);
-      var pdfBlob=doc.output('blob');
-      var pdfB64=doc.output('datauristring');
-      var fname='Aetas-Benefits-Capture-'+FORM_REF+'.pdf';
-      var dl=document.createElement('a');
-      dl.href=URL.createObjectURL(pdfBlob); dl.download=fname; dl.click();
-      URL.revokeObjectURL(dl.href);
-      sessionStorage.setItem('aetas_pdf_data',pdfB64);
-      sessionStorage.setItem('aetas_pdf_name',fname);
-
-      btnText.textContent='Sending confirmation...';
-
-      var summary=[
-        'Reference: '+FORM_REF,
-        'Organisation: '+(fd.organisation_name||'—'),
-        'Contact: '+(fd.contact_name||'—'),
-        'Email: '+(fd.email||'—'),
-        'Employees: '+(fd.number_of_employees||'—'),
-        '', 'PENSION',
-        'Provider: '+(fd.pension_provider||'—'),
-        'Employer: '+(fd.employer_contribution||'—')+'%',
-        'Employee: '+(fd.employee_contribution||'—')+'%',
-        'Auto-enrolled: '+(fd.auto_enrolment_compliant||'—'),
-        'Salary exchange: '+(fd.salary_exchange_in_place||'—'),
-        '', 'ADVISERS',
-        'Benefits: '+(fd.benefits_adviser||'None'),
-        'Pension: '+(fd.pension_adviser||'None'),
-        '', 'NOTES', fd.additional_notes||'(none)',
-        '', 'Signed: '+(fd.signed_on_behalf||'—')+' | '+(fd.signature_date||'—')
-      ].join('\n');
-
-      if(EMAILJS_PUBLIC_KEY!=='T-OvAY8-q_r_P4tAA'){
-        await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_INTERNAL,{
-          ref:FORM_REF, org:fd.organisation_name||'—', contact:fd.contact_name||'—',
-          email:fd.email||'—', form_type:'Employee Benefits Data Capture',
-          form_data:summary, submitted:new Date().toLocaleString('en-GB'),
-          to_email:'matthew.steiner@aetas-partners.com'
-        });
-        if(fd.email){
-          await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_CONFIRM,{
-            ref:FORM_REF, org:fd.organisation_name||'—', contact:fd.contact_name||'—',
-            to_email:fd.email, form_type:'Employee Benefits Data Capture'
-          });
-        }
-      }
-
-      if(typeof gtag!=='undefined') gtag('event','form_submit',{event_category:'Benefits Capture',event_label:FORM_REF});
-
-      window.location.href='form-thankyou.html?form=benefits&org='
-        +encodeURIComponent(fd.organisation_name||'')+'&ref='+encodeURIComponent(FORM_REF);
-
-    } catch(err){
-      console.error(err);
-      btn.classList.remove('loading'); btn.disabled=false;
-      btnText.textContent='Submit form';
-      // PDF was already downloaded — go to thankyou anyway
-      window.location.href='form-thankyou.html?form=benefits&org='
-        +encodeURIComponent(document.getElementById('organisation_name').value||'')
-        +'&ref='+encodeURIComponent(FORM_REF);
+    if(typeof gtag !== 'undefined'){
+      gtag('event', 'form_submit', { event_category: 'Benefits Data Capture', event_label: FORM_REF });
     }
+    // Let the native form POST to Formspree happen.
   });
-  </script>
+});
+</script>
 
 </body>
 </html>
