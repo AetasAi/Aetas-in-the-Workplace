@@ -136,7 +136,7 @@ https://links.aetas-partners.com/widget/booking/IacdM2cW2bnLm0pK7Jty
 ## Integrations
 
 ### Analytics — GA4
-**Measurement ID:** `G-HNH05BKNFX`  
+**Measurement ID:** `<script defer src="/assets/js/analytics.js"></script>`  
 All pages include the GA4 tag. Shared property with `aetas-partners.com` — filter by hostname `itw.aetaspartners.com` in GA4 for ITW-only data.
 
 ### Booking — GoHighLevel
@@ -257,12 +257,12 @@ If this figure changes, update all instances.
 
 ```html
 <!-- GA4 — always first in <head> -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNH05BKNFX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<script defer src="/assets/js/analytics.js"></script>"></script>
 <script>
   window.dataLayer=window.dataLayer||[];
   function gtag(){dataLayer.push(arguments);}
   gtag('js',new Date());
-  gtag('config','G-HNH05BKNFX');
+  gtag('config','<script defer src="/assets/js/analytics.js"></script>');
 </script>
 
 <!-- Favicon + PWA -->
